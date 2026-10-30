@@ -36,23 +36,41 @@ a{color:var(--brand)}
 :focus-visible{outline:3px solid var(--sign);outline-offset:2px;border-radius:6px}
 
 /* Cabecera */
-header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.hero{position:relative;overflow:hidden;border-radius:22px;padding:22px 20px 20px;color:#fff;display:flex;flex-direction:column;gap:14px;
+  background:radial-gradient(120% 140% at 100% 0%,#3B6BF0 0%,#1D4ED8 45%,#14318F 100%);box-shadow:0 10px 30px -12px rgba(20,49,143,.55)}
+.hero::after{content:"";position:absolute;right:-30px;top:-34px;width:190px;height:190px;opacity:.12;pointer-events:none;
+  background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath transform='rotate(45 12 12)' d='M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z'/%3E%3C/svg%3E")}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative;z-index:1}
 .brand{display:flex;align-items:center;gap:10px}
-.brand .mark{width:38px;height:38px;border-radius:10px;background:var(--sign);color:var(--sign-ink);display:grid;place-items:center}
-.brand h1{font-size:1.5rem;font-weight:800}
-nav.jump{display:flex;gap:6px;flex-wrap:wrap}
-nav.jump a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.88rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
-nav.jump a:hover{border-color:var(--brand)}
-.intro{display:flex;flex-direction:column;gap:14px}
-.intro .lead{font-size:1.08rem;max-width:62ch}
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;margin:0;padding:0;counter-reset:s}
-.steps li{counter-increment:s;display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--muted)}
-.steps li::before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:700;font-size:.8rem;display:grid;place-items:center;font-family:var(--f-mono)}
-.steps b{color:var(--ink);display:block}
-@media (max-width:620px){.steps{grid-template-columns:1fr}}
+.brand .mark{width:40px;height:40px;border-radius:12px;background:var(--sign);color:var(--sign-ink);display:grid;place-items:center;transform:rotate(-6deg);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.brand h1{font-size:1.6rem;font-weight:800;letter-spacing:-.01em}
+.hero .lead{font-size:1rem;max-width:56ch;color:rgba(255,255,255,.88);position:relative;z-index:1}
+.hero-btn{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.35)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0;counter-reset:s;position:relative;z-index:1}
+.steps li{counter-increment:s;display:flex;gap:8px;align-items:flex-start;font-size:.84rem;color:rgba(255,255,255,.75);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:10px}
+.steps li::before{content:counter(s);flex:none;width:22px;height:22px;border-radius:50%;background:var(--sign);color:var(--sign-ink);font-weight:700;font-size:.78rem;display:grid;place-items:center;font-family:var(--f-mono)}
+.steps b{color:#fff;display:block;line-height:1.25}
+.steps small{display:block;margin-top:2px;font-size:inherit}
+@media (max-width:620px){.steps li{flex-direction:column;gap:6px;padding:9px}.steps small{display:none}}
+
+/* Navegación: abajo en el celular, arriba en pantallas grandes */
+nav.tabs{position:sticky;top:10px;z-index:15;align-self:center;display:flex;gap:4px;padding:5px;border-radius:999px;background:color-mix(in srgb,var(--surface) 88%,transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);box-shadow:0 6px 20px -10px rgba(19,32,59,.35)}
+nav.tabs a{position:relative;display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--muted);font-weight:600;font-size:.9rem;padding:8px 16px;border-radius:999px}
+nav.tabs a svg{flex:none}
+nav.tabs a.on{background:var(--brand);color:var(--brand-ink)}
+nav.tabs .cnt{font-family:var(--f-mono);font-size:.7rem;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--sign);color:var(--sign-ink);display:inline-grid;place-items:center}
+nav.tabs .cnt:empty{display:none}
+@media (max-width:720px){
+  body{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  nav.tabs{position:fixed;top:auto;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));justify-content:space-between;border-radius:20px;padding:6px}
+  nav.tabs a{flex:1;flex-direction:column;gap:2px;font-size:.72rem;padding:7px 4px;border-radius:14px}
+  nav.tabs .cnt{position:absolute;top:2px;left:calc(50% + 6px)}
+  .toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))!important}
+}
 
 /* Formulario */
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 1px 2px rgba(19,32,59,.04),0 8px 24px -16px rgba(19,32,59,.2);display:flex;flex-direction:column;gap:16px}
 .grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
 .grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:620px){.grid,.grid.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.span2-m{grid-column:1/-1}}
@@ -75,9 +93,10 @@ input:focus,select:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0
 .seg label:has(input:checked){background:var(--surface);color:var(--ink);box-shadow:inset 0 -2px 0 var(--brand)}
 .seg label:has(input:focus-visible){outline:3px solid var(--sign);outline-offset:-3px}
 .btn{font:inherit;font-weight:700;border-radius:10px;padding:11px 16px;border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;white-space:nowrap}
-.btn.primary{background:var(--brand);color:var(--brand-ink)}
+.btn.primary{background:var(--brand);color:var(--brand-ink);box-shadow:0 2px 0 color-mix(in srgb,var(--brand) 60%,#000)}
+.btn:active{transform:translateY(1px)}
 .btn.primary:hover{filter:brightness(1.08)}
-.btn.big{padding:14px 18px;font-size:1.02rem;width:100%}
+.btn.big{padding:15px 18px;font-size:1.05rem;width:100%;border-radius:14px}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--brand)}
 .btn.sm{padding:7px 11px;font-size:.84rem;border-radius:8px}
@@ -90,20 +109,25 @@ input:focus,select:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0
 
 /* Tarjeta de embarque */
 .dest{display:flex;flex-direction:column;gap:14px}
-.pass{display:grid;grid-template-columns:minmax(0,1fr) auto;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}
+.pass{display:grid;grid-template-columns:minmax(0,1fr) auto;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative;box-shadow:0 8px 24px -16px rgba(19,32,59,.3);border-top:4px solid var(--brand)}
+.chev{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:transform .2s}
+details[open] > summary .chev{transform:rotate(180deg)}
+.stub .hint{font-size:.78rem;font-weight:600;color:var(--brand);margin-top:6px}
+details[open] > summary .hint-c{display:none}
+details:not([open]) > summary .hint-o{display:none}
 .pass .main{padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .board{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .code{font-family:var(--f-mono);font-weight:600;font-size:2.1rem;letter-spacing:.06em;background:var(--sign);color:var(--sign-ink);padding:2px 10px;border-radius:6px;line-height:1.2}
 .plane{color:var(--muted)}
 .cities{font-size:.9rem;color:var(--muted)}
-.meta{display:flex;flex-wrap:wrap;gap:6px 18px}
+.meta{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px 14px}
 .meta div{display:flex;flex-direction:column}
 .meta .v{font-weight:600}
 .stub{border-left:2px dashed var(--line);padding:16px 18px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;width:150px;text-align:center}
 .stub .n{font-family:var(--f-mono);font-size:1.8rem;font-weight:600;line-height:1}
 .pass::before,.pass::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--bg);border:1px solid var(--line);right:140px}
 .pass::before{top:-10px}.pass::after{bottom:-10px}
-@media (max-width:520px){.pass{grid-template-columns:1fr}.stub{width:auto;border-left:0;border-top:2px dashed var(--line);flex-direction:row;gap:10px;justify-content:flex-start;padding:12px 18px}.pass::before,.pass::after{display:none}.code{font-size:1.7rem}}
+@media (max-width:520px){.pass{grid-template-columns:1fr}.stub{width:auto;border-left:0;border-top:2px dashed var(--line);flex-direction:row;flex-wrap:wrap;gap:4px 10px;justify-content:flex-start;padding:12px 18px}.stub .progress{flex:1 1 80px;margin:0}.stub .hint{margin:0}.pass::before,.pass::after{display:none}.code{font-size:1.7rem}}
 .progress{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden;width:100%;margin-top:6px}
 .progress i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
 
@@ -114,15 +138,20 @@ details.destbox > summary::-webkit-details-marker{display:none}
 /* Fuentes */
 .group{display:flex;flex-direction:column;gap:8px}
 .group-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.src{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
-.src.done{border-color:color-mix(in srgb,var(--ok) 50%,var(--line))}
-.mono-ic{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.1rem;background:var(--surface-2);border:1px solid var(--line)}
+.srcs{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.src{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line)}
+.src:first-child{border-top:0}
+.src.done{background:color-mix(in srgb,var(--ok-bg) 55%,transparent)}
+.mono-ic{position:relative;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.05rem;background:var(--surface-2);border:1px solid var(--line)}
+.src.done .mono-ic::after{content:"✓";position:absolute;right:-5px;bottom:-5px;width:18px;height:18px;border-radius:50%;background:var(--ok);color:#fff;font-size:.7rem;display:grid;place-items:center;border:2px solid var(--surface)}
+.src.done .pill.seen{display:none}
 .src .info{min-width:0;display:flex;flex-direction:column;gap:2px}
 .src .name{font-weight:700;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .src .dom{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);overflow-wrap:anywhere}
 .src .why{font-size:.86rem;color:var(--muted)}
-.src .acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-@media (max-width:560px){.src{grid-template-columns:42px minmax(0,1fr)}.src .acts{grid-column:1/-1;justify-content:stretch}.src .acts .btn{flex:1}}
+.src .acts{display:flex;gap:6px;flex-direction:column;align-items:stretch}
+@media (max-width:560px){.src{grid-template-columns:36px minmax(0,1fr) auto;gap:10px;padding:12px}.mono-ic{width:36px;height:36px;font-size:.95rem}.src .why{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
+.src .acts .btn{min-width:86px}
 .pill{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
 .pill.ok{background:var(--ok-bg);color:var(--ok)}
 .pill.warn{background:var(--warn-bg);color:var(--warn)}
@@ -130,14 +159,16 @@ details.destbox > summary::-webkit-details-marker{display:none}
 .pill.bad{background:#FBE3E1;color:#A3271C}
 :root[data-theme="dark"] .pill.bad{background:#3C1A18;color:#FF9A8F}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill.bad{background:#3C1A18;color:#FF9A8F}}
-.exnote{background:var(--warn-bg);color:var(--ink);border-radius:10px;padding:10px 12px;margin:0}
+.exnote{background:var(--warn-bg);color:var(--ink);border-radius:14px;padding:12px 14px;margin:0;border-left:4px solid var(--sign)}
 .exlist{display:flex;flex-direction:column;gap:10px}
 .exitem{display:flex;flex-direction:column;gap:6px}
-.exitem .line1{display:flex;gap:8px;align-items:center}
+.exitem{padding-top:10px;border-top:1px solid var(--line)}
+.exitem .line1{display:flex;gap:4px 8px;align-items:center;flex-wrap:wrap}
+.exitem .line1 .muted{flex-basis:100%}
 .pill.seen{background:var(--ok);color:var(--surface)}
 
 /* Fechas flexibles */
-.flexwrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.flexwrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
 table.flex{border-collapse:collapse;font-size:.84rem;min-width:100%}
 table.flex th,table.flex td{padding:6px 8px;text-align:center;border-bottom:1px solid var(--line);border-right:1px solid var(--line);white-space:nowrap}
 table.flex th{font-weight:700;background:var(--surface-2);font-family:var(--f-mono);font-size:.78rem}
@@ -148,24 +179,43 @@ table.flex td.na{color:var(--muted)}
 
 /* Mis precios */
 .prices{display:flex;flex-direction:column;gap:8px}
-.price{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
-.price.top{border-color:var(--sign);box-shadow:0 0 0 1px var(--sign)}
+.price{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.price.top{background:var(--surface);border-color:var(--sign);box-shadow:0 0 0 1px var(--sign),0 8px 20px -14px rgba(242,183,5,.8)}
+.price.top .amt{font-size:1.45rem}
 .price .amt{font-family:var(--f-mono);font-weight:600;font-size:1.25rem;text-align:right;font-variant-numeric:tabular-nums}
 .price .line1{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-weight:700}
 .price .line2{font-size:.84rem;color:var(--muted);display:flex;gap:4px 12px;flex-wrap:wrap}
 .price .foot{grid-column:1/-1;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:8px;font-size:.84rem}
-.empty{border:1px dashed var(--line);border-radius:var(--r);padding:18px;text-align:center;color:var(--muted);display:flex;flex-direction:column;gap:6px;align-items:center}
+.empty{border:1px dashed var(--line);border-radius:16px;padding:22px 18px;text-align:center;color:var(--muted);display:flex;flex-direction:column;gap:6px;align-items:center}
 .sync{font-size:.8rem;color:var(--muted)}
 .cuenta{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;background:var(--warn-bg);border-radius:10px;padding:10px 12px;margin:10px 0 4px}
 .cuenta p{margin:0;flex:1 1 220px}
 .cuenta .acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .cuenta select{font:inherit;padding:6px 8px;border-radius:8px}
 .diff{font-size:.78rem;color:var(--muted);text-align:right}
+.empty .ic{width:44px;height:44px;border-radius:14px;background:var(--surface-2);display:grid;place-items:center;color:var(--brand)}
+details.addbox{border:1px solid var(--line);border-radius:16px;background:var(--surface-2)}
+details.addbox > summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;font-weight:700}
+details.addbox > summary::-webkit-details-marker{display:none}
+details.addbox > summary .plus{width:30px;height:30px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-size:1.2rem;line-height:1;transition:transform .2s}
+details.addbox[open] > summary .plus{transform:rotate(45deg)}
+details.addbox form{padding:0 16px 16px}
+details.addbox input,details.addbox select{background:var(--surface)}
 
 /* Fuentes y consejos */
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media (max-width:620px){.cols{grid-template-columns:1fr}}
-.note{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.accs{display:flex;flex-direction:column;gap:10px}
+details.acc{padding:0;gap:0}
+details.acc > summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:15px 16px}
+details.acc > summary::-webkit-details-marker{display:none}
+details.acc > summary::after{content:"";flex:none;width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg) translate(-2px,-2px);transition:transform .2s}
+details.acc[open] > summary::after{transform:rotate(-135deg) translate(-2px,-2px)}
+details.acc > summary .sub{display:block;font-family:var(--f-body);font-weight:400;font-size:.84rem;color:var(--muted);margin-top:2px}
+details.acc > .body{padding:0 16px 16px;display:flex;flex-direction:column;gap:10px}
+footer.app{text-align:center;font-size:.82rem;color:var(--muted);display:flex;flex-direction:column;gap:4px;align-items:center}
+footer.app .ver{font-family:var(--f-mono);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--ink)}
 .note ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:.9rem}
 .srclist{display:flex;flex-direction:column;gap:6px;font-size:.88rem;margin:0;padding:0;list-style:none}
 .srclist li{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:6px}
@@ -179,27 +229,27 @@ section{scroll-margin-top:16px}
 </style>
 
 <div class="wrap">
-  <header class="top">
+  <header class="hero">
+    <div class="hero-top">
     <div class="brand">
       <div class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></div>
       <h1>Vuelos Baratos</h1>
     </div>
-    <button type="button" class="btn primary sm" id="installBtn" hidden>Instalar app</button>
-    <nav class="jump" aria-label="Secciones">
-      <a href="#buscar">Buscar</a>
-      <a href="#precios">Mis precios</a>
-      <a href="#fuentes">Fuentes</a>
-    </nav>
+    <button type="button" class="btn sm hero-btn" id="installBtn" hidden>Instalar app</button>
+    </div>
+    <p class="lead">Cargá tu viaje una vez y abrí la misma búsqueda en comparadores, agencias y aerolíneas. Cada precio que guardes queda con la página de donde salió.</p>
+    <ol class="steps">
+      <li><span><b>Cargá el viaje</b><small>Origen, uno o varios destinos y fechas.</small></span></li>
+      <li><span><b>Abrí cada página</b><small>La búsqueda llega lista o con los datos copiados.</small></span></li>
+      <li><span><b>Anotá lo que viste</b><small>La app ordena los precios y marca el más barato.</small></span></li>
+    </ol>
   </header>
 
-  <div class="intro">
-    <p class="lead">Cargá tu viaje una vez y abrí la misma búsqueda en los comparadores, agencias y aerolíneas más usados. Cada precio que guardes queda con el nombre de la página de donde salió.</p>
-    <ol class="steps">
-      <li><span><b>Cargá el viaje</b>Origen, uno o varios destinos y fechas.</span></li>
-      <li><span><b>Abrí cada página</b>La búsqueda llega lista o con los datos copiados.</span></li>
-      <li><span><b>Anotá lo que viste</b>La app ordena los precios y marca el más barato.</span></li>
-    </ol>
-  </div>
+  <nav class="tabs" aria-label="Secciones">
+    <a href="#buscar" data-tab="buscar" class="on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar</a>
+    <a href="#precios" data-tab="precios"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg>Mis precios<span class="cnt" id="tabCount"></span></a>
+    <a href="#fuentes" data-tab="fuentes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>Fuentes</a>
+  </nav>
 
   <section id="buscar" class="panel" aria-labelledby="t-buscar">
     <div class="row" style="justify-content:space-between">
@@ -292,6 +342,8 @@ section{scroll-margin-top:16px}
     <div class="cuenta" id="cuenta" hidden></div>
     <p class="muted small">Cuando veas un precio en una página, anotalo acá. Quedan ordenados de menor a mayor, separados por ruta y moneda, con la página y el día en que lo viste.</p>
 
+    <details class="addbox" id="pformBox">
+    <summary><span>Anotar un precio</span><span class="plus" aria-hidden="true">+</span></summary>
     <form id="pform" class="grid" novalidate>
       <div class="field">
         <label class="label" for="pSource">Página</label>
@@ -330,6 +382,7 @@ section{scroll-margin-top:16px}
         <button type="submit" class="btn primary">Guardar precio</button>
       </div>
     </form>
+    </details>
 
     <div class="row" style="justify-content:space-between">
       <div class="field" style="flex:1 1 200px;max-width:320px">
@@ -343,20 +396,20 @@ section{scroll-margin-top:16px}
 
   <section id="fuentes" class="dest" aria-labelledby="t-fuentes">
     <h2 id="t-fuentes">De dónde sale la información</h2>
-    <div class="cols">
-      <div class="note">
-        <h3>Cómo funciona</h3>
-        <ul>
+    <div class="accs">
+      <details class="note acc" open>
+        <summary><h3>Cómo funciona<span class="sub">La app no inventa precios: te lleva a cada página oficial.</span></h3></summary>
+        <div class="body"><ul>
           <li>La app no inventa ni estima precios. Te lleva a la página oficial de cada sitio con tu búsqueda armada, y el precio lo ves ahí.</li>
           <li><span class="pill ok">Búsqueda lista</span> abre la página con origen, destino, fechas y pasajeros cargados.</li>
           <li><span class="pill warn">Datos copiados</span> abre el buscador del sitio y copia tu viaje para que lo pegues o lo completes en segundos.</li>
           <li>Si un sitio cambia su formato y la búsqueda llega vacía, cargá los datos a mano: el resumen ya está copiado.</li>
           <li>Cada precio guardado muestra la página, el enlace y la fecha en que lo anotaste, así sabés qué tan reciente es.</li>
-        </ul>
-      </div>
-      <div class="note">
-        <h3>Consejos para pagar menos</h3>
-        <ul>
+        </ul></div>
+      </details>
+      <details class="note acc">
+        <summary><h3>Consejos para pagar menos<span class="sub">7 trucos rápidos antes de comprar.</span></h3></summary>
+        <div class="body"><ul>
           <li>Si en un comparador aparece una aerolínea excluida, aunque sea en una escala, salteala aunque sea la más barata.</li>
           <li>Empezá por los comparadores: revisan cientos de agencias y aerolíneas a la vez.</li>
           <li>Después mirá la web de la aerolínea que salió más barata: a veces tiene el mismo vuelo con mejores condiciones de cambio.</li>
@@ -364,19 +417,24 @@ section{scroll-margin-top:16px}
           <li>Compará siempre el precio final con impuestos y cargos, y fijate si incluye valija.</li>
           <li>Si pagás desde Argentina en dólares o con tarjeta, revisá qué percepciones e impuestos se suman antes de comparar.</li>
           <li>Google Flights y Skyscanner tienen alertas gratis que te avisan si el precio baja.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="note" id="excluidas">
-      <h3>Aerolíneas excluidas</h3>
-      <p class="small muted">Vale para vuelos nacionales e internacionales, también para las escalas. La app no te lleva a estas aerolíneas y te avisa si aparecen en un precio que anotás. Estos son los datos y de dónde salen.</p>
-      <div id="exList" class="exlist"></div>
-    </div>
-    <div class="note">
-      <h3>Todas las páginas que usa la app</h3>
-      <ul class="srclist" id="srcIndex"></ul>
+        </ul></div>
+      </details>
+    <details class="note acc" id="excluidas">
+      <summary><h3>Aerolíneas excluidas<span class="sub">Cuáles evitamos, por qué y con qué datos.</span></h3></summary>
+      <div class="body"><p class="small muted">Vale para vuelos nacionales e internacionales, también para las escalas. La app no te lleva a estas aerolíneas y te avisa si aparecen en un precio que anotás. Estos son los datos y de dónde salen.</p>
+      <div id="exList" class="exlist"></div></div>
+    </details>
+    <details class="note acc">
+      <summary><h3>Todas las páginas que usa la app<span class="sub">Comparadores, agencias y aerolíneas, con su dirección.</span></h3></summary>
+      <div class="body"><ul class="srclist" id="srcIndex"></ul></div>
+    </details>
     </div>
   </section>
+
+  <footer class="app">
+    <span class="ver">v1.1.0</span>
+    <span><a href="https://github.com/lucasvyte/vuelos-baratos/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Novedades de cada versión</a></span>
+  </footer>
 </div>
 
 <datalist id="airports"></datalist>
@@ -525,6 +583,7 @@ let dests = [];
 let lastQ = null;
 const opened = new Set();
 const LS = 'vuelos-baratos-v1';
+const VERSION = '1.1.0';
 
 /* ---------- Toast ---------- */
 let tt;
@@ -570,7 +629,7 @@ function readForm(){
   return {o, dests:[...dests], d1, d2, adults:+$('#adults').value, kids:+$('#kids').value, cabin:$('#cabin').value, cur:$('#cur').value, flex:+$('#flex').value};
 }
 function fillForm(q){
-  $('#origin').value = `${q.o} — ${apInfo(q.o).city}${apInfo(q.o).country ? ', ' + apInfo(q.o).country : ''}`;
+  $('#origin').value = `${q.o} — ${apInfo(q.o).city}`;
   dests = [...q.dests]; renderChips();
   $('#tripOW').checked = !q.d2; $('#tripRT').checked = !!q.d2; syncTrip();
   $('#d1').value = q.d1; $('#d2').value = q.d2 || '';
@@ -611,10 +670,11 @@ function destBlock(q,o,d,i){
   const nights = q.d2 ? daysBetween(q.d1,q.d2) : null;
   const groups = Object.keys(CATS).map(cat => {
     const items = srcs.filter(s => s.cat === cat); if(!items.length) return '';
-    return `<div class="group"><div class="group-head"><h3>${CATS[cat].title}</h3><span class="muted small">${CATS[cat].sub}</span></div>${items.map(s => srcRow(q,o,d,s)).join('')}</div>`;
+    return `<div class="group"><div class="group-head"><h3>${CATS[cat].title}</h3><span class="muted small">${CATS[cat].sub}</span></div><div class="srcs">${items.map(s => srcRow(q,o,d,s)).join('')}</div></div>`;
   }).join('');
   return `<details class="destbox" ${i===0?'open':''}><summary>
     <div class="pass">
+      <span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
       <div class="main">
         <div class="board"><span class="code">${esc(o)}</span>
           <svg class="plane" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" transform="rotate(90 12 12)"/></svg>
@@ -632,6 +692,7 @@ function destBlock(q,o,d,i){
         <span class="label">Revisadas</span>
         <span class="n" data-count="${o}-${d}">0/${srcs.length}</span>
         <div class="progress" aria-hidden="true"><i data-bar="${o}-${d}"></i></div>
+        <span class="hint"><span class="hint-c">Ver ${srcs.length} páginas</span><span class="hint-o">Ocultar páginas</span></span>
       </div>
     </div></summary>
     <div class="dest" style="margin-top:14px">${groups}${exNote()}${flexBlock(q,o,d)}</div>
@@ -648,8 +709,8 @@ function srcRow(q,o,d,s){
       <span class="why">${esc(s.why)}</span>
     </div>
     <div class="acts">
-      <a class="btn primary sm" href="${esc(s.url(q,o,d))}" target="_blank" rel="noopener" data-open="${key}" data-mode="${s.mode}" data-trip="${esc(tripText(q,o,d))}">Abrir</a>
-      <button type="button" class="btn ghost sm" data-note="${s.id}" data-o="${o}" data-d="${d}">Anotar precio</button>
+      <a class="btn primary sm" href="${esc(s.url(q,o,d))}" target="_blank" rel="noopener" data-open="${key}" data-mode="${s.mode}" data-trip="${esc(tripText(q,o,d))}">Abrir <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <button type="button" class="btn ghost sm" data-note="${s.id}" data-o="${o}" data-d="${d}" aria-label="Anotar precio de ${esc(s.name)}">+ Precio</button>
     </div>
   </div>`;
 }
@@ -675,7 +736,7 @@ function flexBlock(q,o,d){
 function exNote(){
   const ex = EXCLUDED.filter(x => x.level === 'excluida').map(x => x.name);
   const pre = EXCLUDED.filter(x => x.level === 'precaucion').map(x => x.name);
-  return `<p class="exnote small"><span class="pill warn">Ojo</span> Los comparadores y agencias pueden mostrar vuelos o escalas de aerolíneas excluidas: <b>${esc(ex.join(', '))}</b>. Salteálas aunque salgan más baratas.${pre.length ? ` Con precaución: ${esc(pre.join(', '))}.` : ''} <a href="#excluidas">Ver por qué</a></p>`;
+  return `<p class="exnote small"><span class="pill warn">Ojo</span> Los comparadores y agencias pueden mostrar vuelos o escalas de aerolíneas excluidas: ${esc(ex.join(', '))}. Salteálas aunque salgan más baratas.${pre.length ? ` Con precaución: ${esc(pre.join(', '))}.` : ''} <a href="#excluidas">Ver por qué</a></p>`;
 }
 function updateProgress(){
   if(!lastQ) return;
@@ -720,7 +781,8 @@ function prefillPrice(srcId,o,d){
   $('#pSource').value = srcId; $('#pRoute').value = `${o} → ${d}`;
   if(lastQ) $('#pDates').value = lastQ.d2 ? `${short(lastQ.d1)} → ${short(lastQ.d2)}` : `${short(lastQ.d1)} solo ida`;
   if(lastQ) $('#pCur').value = lastQ.cur;
-  document.getElementById('precios').scrollIntoView({behavior:'smooth', block:'start'});
+  $('#pformBox').open = true;
+  $('#pformBox').scrollIntoView({behavior:'smooth', block:'start'});
   setTimeout(() => $('#pAmount').focus({preventScroll:true}), 450);
 }
 $('#pform').addEventListener('submit', e => {
@@ -741,7 +803,8 @@ $('#pform').addEventListener('submit', e => {
     amount, cur: $('#pCur').value, final: $('#pTaxes').checked, at: new Date().toISOString()
   }, ...state.precios].slice(0,300);
   persist(); renderPrices();
-  $('#pAmount').value = ''; $('#pAirline').value = '';
+  $('#pAmount').value = ''; $('#pAirline').value = ''; $('#pWarn').hidden = true;
+  $('#pformBox').open = false;
   toast('Precio guardado');
 });
 const money = (n,c) => new Intl.NumberFormat('es-AR',{style:'currency',currency:c,maximumFractionDigits:0}).format(n);
@@ -755,9 +818,10 @@ function renderPrices(){
   const routes = [...new Set(state.precios.map(p => p.route))];
   const sel = $('#pFilter'), cur = sel.value;
   sel.innerHTML = '<option value="">Todas las rutas</option>' + routes.map(r => `<option ${r===cur?'selected':''}>${esc(r)}</option>`).join('');
+  $('#tabCount').textContent = state.precios.length ? String(state.precios.length) : '';
   const list = state.precios.filter(p => !sel.value || p.route === sel.value);
   if(!list.length){
-    $('#plist').innerHTML = `<div class="empty"><b style="color:var(--ink)">Todavía no anotaste precios</b><span class="small">Abrí una página desde “Dónde buscar”, mirá el precio y tocá “Anotar precio”. Acá vas a ver cuál es el más barato y de qué página salió.</span></div>`;
+    $('#plist').innerHTML = `<div class="empty"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg></span><b style="color:var(--ink)">Todavía no anotaste precios</b><span class="small">Abrí una página desde “Dónde buscar”, mirá el precio y tocá “+ Precio”. Acá vas a ver cuál es el más barato y de qué página salió.</span></div>`;
     return;
   }
   const groups = {};
@@ -837,6 +901,21 @@ example.d2 = addDays(example.d1, 14);
 fillForm(example);
 renderResults(example);
 initStore();
+
+/* ---------- Pestañas y enlaces a "excluidas" ---------- */
+document.addEventListener('click', e => { if(e.target.closest('a[href="#excluidas"]')) $('#excluidas').open = true; });
+const tabs = [...document.querySelectorAll('nav.tabs a')];
+const setTab = id => tabs.forEach(a => a.classList.toggle('on', a.dataset.tab === id));
+if('IntersectionObserver' in window){
+  const vis = new Map();
+  const io = new IntersectionObserver(es => {
+    es.forEach(en => vis.set(en.target.id, en.isIntersecting ? en.intersectionRatio : 0));
+    const order = ['buscar','resultados','precios','fuentes'];
+    const top = order.filter(id => (vis.get(id)||0) > 0).sort((a,b) => vis.get(b) - vis.get(a))[0];
+    if(top) setTab(top === 'resultados' ? 'buscar' : top);
+  }, {rootMargin:'-35% 0px -45% 0px', threshold:[0,.01,.25,.5,1]});
+  ['buscar','resultados','precios','fuentes'].forEach(id => io.observe(document.getElementById(id)));
+}
 
 /* ---------- Instalar como app ---------- */
 let installEvt = null;
