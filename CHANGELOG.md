@@ -6,6 +6,10 @@ Las versiones siguen el formato `MAYOR.MENOR.ARREGLO` (por ejemplo 1.1.0):
 - **MENOR**: funciones nuevas o rediseños que no rompen nada de lo anterior.
 - **ARREGLO**: corrección de errores o ajustes chicos.
 
+## 1.2.1 — 30/10/2026
+
+- Se sacó el viaje de ejemplo (Buenos Aires → Madrid y Miami): la app arranca con el formulario vacío y un mensaje que explica qué hacer.
+
 ## 1.2.0 — 30/10/2026
 
 Cada pestaña tiene su propia pantalla.
