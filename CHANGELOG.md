@@ -6,6 +6,18 @@ Las versiones siguen el formato `MAYOR.MENOR.ARREGLO` (por ejemplo 1.1.0):
 - **MENOR**: funciones nuevas o rediseños que no rompen nada de lo anterior.
 - **ARREGLO**: corrección de errores o ajustes chicos.
 
+## 1.2.0 — 30/10/2026
+
+Cada pestaña tiene su propia pantalla.
+
+- Buscar, Mis precios y Fuentes ya no son partes de una misma página larga: cada botón de la barra abre su pantalla, con una transición suave.
+- Mis precios tiene su propio encabezado con un resumen: cuántos precios anotaste, en cuántas rutas y cuándo fue el último.
+- Fuentes tiene su propio encabezado.
+- Al tocar "+ Precio" en una página, se abre Mis precios con el formulario listo y un botón "Volver a las páginas" que te deja en el mismo lugar de la lista.
+- "Ver por qué" abre Fuentes directo en Aerolíneas excluidas.
+- Cada pantalla recuerda hasta dónde bajaste. Tocar la pestaña en la que ya estás te lleva arriba.
+- Funciona el botón "atrás" del celular para volver a la pantalla anterior.
+
 ## 1.1.0 — 30/10/2026
 
 Rediseño pensado para el celular.
