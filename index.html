@@ -1,0 +1,928 @@
+<!doctype html><html lang="es"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Vuelos Baratos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: una columna de "mostrador de aeropuerto": formulario → tarjeta de embarque por destino → páginas para revisar → mis precios → fuentes */
+:root{
+  --bg:#EDF0F5; --surface:#FFFFFF; --surface-2:#F5F7FA; --ink:#13203B; --muted:#5A6580; --line:#D6DCE6;
+  --brand:#1D4ED8; --brand-ink:#FFFFFF; --sign:#F2B705; --sign-ink:#13203B; --ok:#16794A; --ok-bg:#E3F4EA; --warn:#9A5B00; --warn-bg:#FFF3D6;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D1322; --surface:#162037; --surface-2:#1B2742; --ink:#E7ECF5; --muted:#9AA6BE; --line:#2A3654;
+  --brand:#7FA3FF; --brand-ink:#0D1322; --sign:#F2B705; --sign-ink:#13203B; --ok:#5BD192; --ok-bg:#16352A; --warn:#F5C24A; --warn-bg:#3A2E10; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D1322; --surface:#162037; --surface-2:#1B2742; --ink:#E7ECF5; --muted:#9AA6BE; --line:#2A3654;
+  --brand:#7FA3FF; --brand-ink:#0D1322; --sign:#F2B705; --sign-ink:#13203B; --ok:#5BD192; --ok-bg:#16352A; --warn:#F5C24A; --warn-bg:#3A2E10; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:20px 48px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:1.45rem;font-weight:800}
+h3{font-size:1.05rem;font-weight:600}
+p{margin:0}
+a{color:var(--brand)}
+.muted{color:var(--muted)}
+.small{font-size:.86rem}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.label{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+:focus-visible{outline:3px solid var(--sign);outline-offset:2px;border-radius:6px}
+
+/* Cabecera */
+header.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .mark{width:38px;height:38px;border-radius:10px;background:var(--sign);color:var(--sign-ink);display:grid;place-items:center}
+.brand h1{font-size:1.5rem;font-weight:800}
+nav.jump{display:flex;gap:6px;flex-wrap:wrap}
+nav.jump a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.88rem;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+nav.jump a:hover{border-color:var(--brand)}
+.intro{display:flex;flex-direction:column;gap:14px}
+.intro .lead{font-size:1.08rem;max-width:62ch}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--muted)}
+.steps li::before{content:counter(s);flex:none;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:700;font-size:.8rem;display:grid;place-items:center;font-family:var(--f-mono)}
+.steps b{color:var(--ink);display:block}
+@media (max-width:620px){.steps{grid-template-columns:1fr}}
+
+/* Formulario */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:620px){.grid,.grid.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.span2-m{grid-column:1/-1}}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1/-1}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;min-width:0;width:100%}
+input:focus,select:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 25%,transparent)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.row > input{flex:1 1 180px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:5px 6px 5px 10px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;font-size:.88rem}
+.chip .mono{font-weight:600}
+.chip button{border:0;background:transparent;color:inherit;cursor:pointer;font-size:1rem;line-height:1;padding:0 4px;border-radius:50%}
+.toggle{display:flex;gap:8px;align-items:center;font-size:.9rem;cursor:pointer;user-select:none}
+.toggle input{width:auto}
+.seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface-2)}
+.seg label{flex:1;text-align:center;padding:9px 6px;font-size:.86rem;font-weight:600;cursor:pointer;color:var(--muted)}
+.seg input{position:absolute;opacity:0;pointer-events:none;width:1px}
+.seg input:checked + span{color:var(--ink)}
+.seg label:has(input:checked){background:var(--surface);color:var(--ink);box-shadow:inset 0 -2px 0 var(--brand)}
+.seg label:has(input:focus-visible){outline:3px solid var(--sign);outline-offset:-3px}
+.btn{font:inherit;font-weight:700;border-radius:10px;padding:11px 16px;border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;white-space:nowrap}
+.btn.primary{background:var(--brand);color:var(--brand-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.big{padding:14px 18px;font-size:1.02rem;width:100%}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--brand)}
+.btn.sm{padding:7px 11px;font-size:.84rem;border-radius:8px}
+.err{color:#C62828;font-size:.88rem;font-weight:600}
+:root[data-theme="dark"] .err{color:#FF8A80}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .err{color:#FF8A80}}
+.recent{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.recent button{font:inherit;font-size:.82rem;border:1px dashed var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:4px 10px;cursor:pointer}
+.recent button:hover{border-style:solid;border-color:var(--brand)}
+
+/* Tarjeta de embarque */
+.dest{display:flex;flex-direction:column;gap:14px}
+.pass{display:grid;grid-template-columns:minmax(0,1fr) auto;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;position:relative}
+.pass .main{padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.board{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.code{font-family:var(--f-mono);font-weight:600;font-size:2.1rem;letter-spacing:.06em;background:var(--sign);color:var(--sign-ink);padding:2px 10px;border-radius:6px;line-height:1.2}
+.plane{color:var(--muted)}
+.cities{font-size:.9rem;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px}
+.meta div{display:flex;flex-direction:column}
+.meta .v{font-weight:600}
+.stub{border-left:2px dashed var(--line);padding:16px 18px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;width:150px;text-align:center}
+.stub .n{font-family:var(--f-mono);font-size:1.8rem;font-weight:600;line-height:1}
+.pass::before,.pass::after{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:var(--bg);border:1px solid var(--line);right:140px}
+.pass::before{top:-10px}.pass::after{bottom:-10px}
+@media (max-width:520px){.pass{grid-template-columns:1fr}.stub{width:auto;border-left:0;border-top:2px dashed var(--line);flex-direction:row;gap:10px;justify-content:flex-start;padding:12px 18px}.pass::before,.pass::after{display:none}.code{font-size:1.7rem}}
+.progress{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden;width:100%;margin-top:6px}
+.progress i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+
+details.destbox{background:transparent}
+details.destbox > summary{list-style:none;cursor:pointer}
+details.destbox > summary::-webkit-details-marker{display:none}
+
+/* Fuentes */
+.group{display:flex;flex-direction:column;gap:8px}
+.group-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.src{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.src.done{border-color:color-mix(in srgb,var(--ok) 50%,var(--line))}
+.mono-ic{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:1.1rem;background:var(--surface-2);border:1px solid var(--line)}
+.src .info{min-width:0;display:flex;flex-direction:column;gap:2px}
+.src .name{font-weight:700;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.src .dom{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);overflow-wrap:anywhere}
+.src .why{font-size:.86rem;color:var(--muted)}
+.src .acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+@media (max-width:560px){.src{grid-template-columns:42px minmax(0,1fr)}.src .acts{grid-column:1/-1;justify-content:stretch}.src .acts .btn{flex:1}}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.best{background:var(--sign);color:var(--sign-ink)}
+.pill.bad{background:#FBE3E1;color:#A3271C}
+:root[data-theme="dark"] .pill.bad{background:#3C1A18;color:#FF9A8F}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill.bad{background:#3C1A18;color:#FF9A8F}}
+.exnote{background:var(--warn-bg);color:var(--ink);border-radius:10px;padding:10px 12px;margin:0}
+.exlist{display:flex;flex-direction:column;gap:10px}
+.exitem{display:flex;flex-direction:column;gap:6px}
+.exitem .line1{display:flex;gap:8px;align-items:center}
+.pill.seen{background:var(--ok);color:var(--surface)}
+
+/* Fechas flexibles */
+.flexwrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table.flex{border-collapse:collapse;font-size:.84rem;min-width:100%}
+table.flex th,table.flex td{padding:6px 8px;text-align:center;border-bottom:1px solid var(--line);border-right:1px solid var(--line);white-space:nowrap}
+table.flex th{font-weight:700;background:var(--surface-2);font-family:var(--f-mono);font-size:.78rem}
+table.flex td a{display:block;text-decoration:none;font-weight:600;padding:4px 6px;border-radius:6px}
+table.flex td a:hover{background:var(--surface-2)}
+table.flex td.base a{background:var(--sign);color:var(--sign-ink)}
+table.flex td.na{color:var(--muted)}
+
+/* Mis precios */
+.prices{display:flex;flex-direction:column;gap:8px}
+.price{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.price.top{border-color:var(--sign);box-shadow:0 0 0 1px var(--sign)}
+.price .amt{font-family:var(--f-mono);font-weight:600;font-size:1.25rem;text-align:right;font-variant-numeric:tabular-nums}
+.price .line1{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-weight:700}
+.price .line2{font-size:.84rem;color:var(--muted);display:flex;gap:4px 12px;flex-wrap:wrap}
+.price .foot{grid-column:1/-1;display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px dashed var(--line);padding-top:8px;font-size:.84rem}
+.empty{border:1px dashed var(--line);border-radius:var(--r);padding:18px;text-align:center;color:var(--muted);display:flex;flex-direction:column;gap:6px;align-items:center}
+.sync{font-size:.8rem;color:var(--muted)}
+.cuenta{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;background:var(--warn-bg);border-radius:10px;padding:10px 12px;margin:10px 0 4px}
+.cuenta p{margin:0;flex:1 1 220px}
+.cuenta .acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.cuenta select{font:inherit;padding:6px 8px;border-radius:8px}
+.diff{font-size:.78rem;color:var(--muted);text-align:right}
+
+/* Fuentes y consejos */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:620px){.cols{grid-template-columns:1fr}}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.note ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:.9rem}
+.srclist{display:flex;flex-direction:column;gap:6px;font-size:.88rem;margin:0;padding:0;list-style:none}
+.srclist li{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:6px}
+.srclist li:last-child{border-bottom:0}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-weight:600;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:calc(100% - 32px);text-align:center;z-index:20}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+section{scroll-margin-top:16px}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="mark" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></div>
+      <h1>Vuelos Baratos</h1>
+    </div>
+    <nav class="jump" aria-label="Secciones">
+      <a href="#buscar">Buscar</a>
+      <a href="#precios">Mis precios</a>
+      <a href="#fuentes">Fuentes</a>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <p class="lead">Cargá tu viaje una vez y abrí la misma búsqueda en los comparadores, agencias y aerolíneas más usados. Cada precio que guardes queda con el nombre de la página de donde salió.</p>
+    <ol class="steps">
+      <li><span><b>Cargá el viaje</b>Origen, uno o varios destinos y fechas.</span></li>
+      <li><span><b>Abrí cada página</b>La búsqueda llega lista o con los datos copiados.</span></li>
+      <li><span><b>Anotá lo que viste</b>La app ordena los precios y marca el más barato.</span></li>
+    </ol>
+  </div>
+
+  <section id="buscar" class="panel" aria-labelledby="t-buscar">
+    <div class="row" style="justify-content:space-between">
+      <h2 id="t-buscar">Tu viaje</h2>
+      <span class="pill warn" id="exampleTag">Ejemplo cargado</span>
+    </div>
+    <form id="form" novalidate>
+      <div class="grid">
+        <div class="field full">
+          <label class="label" for="origin">Desde</label>
+          <input id="origin" list="airports" autocomplete="off" placeholder="Ciudad o código, ej. BUE">
+        </div>
+        <div class="field full">
+          <label class="label" for="destInput">Hacia (podés sumar hasta 5 destinos)</label>
+          <div class="row">
+            <input id="destInput" list="airports" autocomplete="off" placeholder="Ciudad o código, ej. MAD">
+            <button type="button" class="btn ghost" id="addDest">+ Agregar</button>
+          </div>
+          <div class="chips" id="destChips" aria-live="polite"></div>
+        </div>
+        <div class="field full">
+          <div class="seg" role="radiogroup" aria-label="Tipo de viaje">
+            <label><input type="radio" name="trip" id="tripRT" value="rt" checked><span>Ida y vuelta</span></label>
+            <label><input type="radio" name="trip" id="tripOW" value="ow"><span>Solo ida</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="d1">Ida</label>
+          <input type="date" id="d1">
+        </div>
+        <div class="field" id="d2wrap">
+          <label class="label" for="d2">Vuelta</label>
+          <input type="date" id="d2">
+        </div>
+      </div>
+      <div class="grid g4" style="margin-top:12px">
+        <div class="field">
+          <label class="label" for="adults">Adultos</label>
+          <select id="adults"></select>
+        </div>
+        <div class="field">
+          <label class="label" for="kids">Niños (2–11)</label>
+          <select id="kids"></select>
+        </div>
+        <div class="field">
+          <label class="label" for="cabin">Clase</label>
+          <select id="cabin">
+            <option value="economy">Turista</option>
+            <option value="premium">Premium economy</option>
+            <option value="business">Ejecutiva</option>
+            <option value="first">Primera</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="label" for="cur">Moneda</label>
+          <select id="cur">
+            <option value="ARS">Pesos (ARS)</option>
+            <option value="USD">Dólares (USD)</option>
+            <option value="EUR">Euros (EUR)</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label class="label" for="flex">Fechas flexibles</label>
+          <select id="flex">
+            <option value="0">Fechas exactas</option>
+            <option value="1">± 1 día</option>
+            <option value="2">± 2 días</option>
+            <option value="3" selected>± 3 días</option>
+          </select>
+        </div>
+      </div>
+      <p class="err" id="formErr" role="alert" hidden></p>
+      <div style="margin-top:14px">
+        <button type="submit" class="btn primary big">Buscar en todas las páginas</button>
+      </div>
+    </form>
+    <div class="recent" id="recentWrap" hidden>
+      <span class="label">Búsquedas recientes</span>
+      <div class="recent" id="recent"></div>
+    </div>
+  </section>
+
+  <section id="resultados" class="dest" aria-live="polite"></section>
+
+  <section id="precios" class="panel" aria-labelledby="t-precios">
+    <div class="row" style="justify-content:space-between">
+      <h2 id="t-precios">Mis precios</h2>
+      <span class="sync" id="sync">Guardado en este dispositivo</span>
+    </div>
+    <div class="cuenta" id="cuenta" hidden></div>
+    <p class="muted small">Cuando veas un precio en una página, anotalo acá. Quedan ordenados de menor a mayor, separados por ruta y moneda, con la página y el día en que lo viste.</p>
+
+    <form id="pform" class="grid" novalidate>
+      <div class="field">
+        <label class="label" for="pSource">Página</label>
+        <select id="pSource"></select>
+      </div>
+      <div class="field">
+        <label class="label" for="pRoute">Ruta</label>
+        <input id="pRoute" maxlength="60" placeholder="BUE → MAD" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="label" for="pDates">Fechas del vuelo</label>
+        <input id="pDates" maxlength="60" placeholder="10/12 → 24/12" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="label" for="pAirline">Aerolínea (opcional)</label>
+        <input id="pAirline" maxlength="80" placeholder="Ej. Iberia, 1 escala" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="label" for="pAmount">Precio total</label>
+        <input id="pAmount" type="number" inputmode="decimal" min="0" step="any" placeholder="0">
+      </div>
+      <div class="field">
+        <label class="label" for="pCur">Moneda</label>
+        <select id="pCur">
+          <option value="ARS">ARS</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label class="toggle"><input type="checkbox" id="pTaxes" checked> El precio es final, con impuestos y cargos incluidos</label>
+      </div>
+      <p class="exnote small full" id="pWarn" hidden></p>
+      <p class="err full" id="pErr" role="alert" hidden></p>
+      <div class="field full">
+        <button type="submit" class="btn primary">Guardar precio</button>
+      </div>
+    </form>
+
+    <div class="row" style="justify-content:space-between">
+      <div class="field" style="flex:1 1 200px;max-width:320px">
+        <label class="label" for="pFilter">Mostrar</label>
+        <select id="pFilter"><option value="">Todas las rutas</option></select>
+      </div>
+      <button type="button" class="btn ghost sm" id="copyPrices">Copiar lista</button>
+    </div>
+    <div class="prices" id="plist"></div>
+  </section>
+
+  <section id="fuentes" class="dest" aria-labelledby="t-fuentes">
+    <h2 id="t-fuentes">De dónde sale la información</h2>
+    <div class="cols">
+      <div class="note">
+        <h3>Cómo funciona</h3>
+        <ul>
+          <li>La app no inventa ni estima precios. Te lleva a la página oficial de cada sitio con tu búsqueda armada, y el precio lo ves ahí.</li>
+          <li><span class="pill ok">Búsqueda lista</span> abre la página con origen, destino, fechas y pasajeros cargados.</li>
+          <li><span class="pill warn">Datos copiados</span> abre el buscador del sitio y copia tu viaje para que lo pegues o lo completes en segundos.</li>
+          <li>Si un sitio cambia su formato y la búsqueda llega vacía, cargá los datos a mano: el resumen ya está copiado.</li>
+          <li>Cada precio guardado muestra la página, el enlace y la fecha en que lo anotaste, así sabés qué tan reciente es.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>Consejos para pagar menos</h3>
+        <ul>
+          <li>Si en un comparador aparece una aerolínea excluida, aunque sea en una escala, salteala aunque sea la más barata.</li>
+          <li>Empezá por los comparadores: revisan cientos de agencias y aerolíneas a la vez.</li>
+          <li>Después mirá la web de la aerolínea que salió más barata: a veces tiene el mismo vuelo con mejores condiciones de cambio.</li>
+          <li>Usá fechas flexibles: mover el viaje uno o dos días suele cambiar mucho el precio.</li>
+          <li>Compará siempre el precio final con impuestos y cargos, y fijate si incluye valija.</li>
+          <li>Si pagás desde Argentina en dólares o con tarjeta, revisá qué percepciones e impuestos se suman antes de comparar.</li>
+          <li>Google Flights y Skyscanner tienen alertas gratis que te avisan si el precio baja.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note" id="excluidas">
+      <h3>Aerolíneas excluidas</h3>
+      <p class="small muted">Vale para vuelos nacionales e internacionales, también para las escalas. La app no te lleva a estas aerolíneas y te avisa si aparecen en un precio que anotás. Estos son los datos y de dónde salen.</p>
+      <div id="exList" class="exlist"></div>
+    </div>
+    <div class="note">
+      <h3>Todas las páginas que usa la app</h3>
+      <ul class="srclist" id="srcIndex"></ul>
+    </div>
+  </section>
+</div>
+
+<datalist id="airports"></datalist>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ---------- Aeropuertos: [código, ciudad, país, región, código Skyscanner] ---------- */
+const AIRPORTS = [
+ ['BUE','Buenos Aires (todos)','Argentina','ar','buea'],['EZE','Buenos Aires – Ezeiza','Argentina','ar'],['AEP','Buenos Aires – Aeroparque','Argentina','ar'],
+ ['COR','Córdoba','Argentina','ar'],['MDZ','Mendoza','Argentina','ar'],['BRC','Bariloche','Argentina','ar'],['IGR','Puerto Iguazú','Argentina','ar'],
+ ['FTE','El Calafate','Argentina','ar'],['USH','Ushuaia','Argentina','ar'],['SLA','Salta','Argentina','ar'],['TUC','Tucumán','Argentina','ar'],
+ ['NQN','Neuquén','Argentina','ar'],['ROS','Rosario','Argentina','ar'],['MDQ','Mar del Plata','Argentina','ar'],['CRD','Comodoro Rivadavia','Argentina','ar'],
+ ['REL','Trelew','Argentina','ar'],['PMY','Puerto Madryn','Argentina','ar'],['JUJ','Jujuy','Argentina','ar'],['CPC','San Martín de los Andes','Argentina','ar'],
+ ['SCL','Santiago','Chile','sa'],['MVD','Montevideo','Uruguay','sa'],['PDP','Punta del Este','Uruguay','sa'],['ASU','Asunción','Paraguay','sa'],
+ ['SAO','São Paulo (todos)','Brasil','sa','saoa'],['GRU','São Paulo – Guarulhos','Brasil','sa'],['RIO','Río de Janeiro (todos)','Brasil','sa','rioa'],['GIG','Río de Janeiro – Galeão','Brasil','sa'],
+ ['FLN','Florianópolis','Brasil','sa'],['SSA','Salvador de Bahía','Brasil','sa'],['REC','Recife','Brasil','sa'],['NAT','Natal','Brasil','sa'],['MCZ','Maceió','Brasil','sa'],['FOR','Fortaleza','Brasil','sa'],
+ ['LIM','Lima','Perú','sa'],['CUZ','Cusco','Perú','sa'],['BOG','Bogotá','Colombia','sa'],['CTG','Cartagena','Colombia','sa'],['MDE','Medellín','Colombia','sa'],
+ ['UIO','Quito','Ecuador','sa'],['VVI','Santa Cruz','Bolivia','sa'],['LPB','La Paz','Bolivia','sa'],
+ ['PTY','Ciudad de Panamá','Panamá','int'],['PUJ','Punta Cana','Rep. Dominicana','int'],['CUN','Cancún','México','int'],['MEX','Ciudad de México','México','int'],
+ ['HAV','La Habana','Cuba','int'],['SJO','San José','Costa Rica','int'],['AUA','Aruba','Aruba','int'],
+ ['MIA','Miami','Estados Unidos','int'],['MCO','Orlando','Estados Unidos','int'],['NYC','Nueva York (todos)','Estados Unidos','int','nyca'],['JFK','Nueva York – JFK','Estados Unidos','int'],
+ ['LAX','Los Ángeles','Estados Unidos','int'],['YYZ','Toronto','Canadá','int'],
+ ['MAD','Madrid','España','int'],['BCN','Barcelona','España','int'],['ROM','Roma (todos)','Italia','int','rome'],['FCO','Roma – Fiumicino','Italia','int'],
+ ['MIL','Milán (todos)','Italia','int','mila'],['PAR','París (todos)','Francia','int','pari'],['CDG','París – Charles de Gaulle','Francia','int'],
+ ['LON','Londres (todos)','Reino Unido','int','lond'],['LHR','Londres – Heathrow','Reino Unido','int'],['LIS','Lisboa','Portugal','int'],['OPO','Oporto','Portugal','int'],
+ ['AMS','Ámsterdam','Países Bajos','int'],['FRA','Fráncfort','Alemania','int'],['BER','Berlín','Alemania','int'],['ZRH','Zúrich','Suiza','int'],
+ ['ATH','Atenas','Grecia','int'],['IST','Estambul','Turquía','int'],['DXB','Dubái','Emiratos Árabes','int'],['DOH','Doha','Catar','int'],
+ ['TYO','Tokio (todos)','Japón','int','tyoa'],['BKK','Bangkok','Tailandia','int'],['SYD','Sídney','Australia','int'],['AKL','Auckland','Nueva Zelanda','int'],['JNB','Johannesburgo','Sudáfrica','int']
+];
+const AP = Object.fromEntries(AIRPORTS.map(a => [a[0], {code:a[0], city:a[1], country:a[2], region:a[3], sky:a[4]||a[0].toLowerCase()}]));
+const apInfo = c => AP[c] || {code:c, city:c, country:'', region:'int', sky:c.toLowerCase()};
+$('#airports').innerHTML = AIRPORTS.map(a => `<option value="${a[0]} — ${esc(a[1])}, ${esc(a[2])}"></option>`).join('');
+function parseCode(v){
+  v = (v||'').trim(); if(!v) return null;
+  const m = v.match(/^([A-Za-z]{3})(\b|$)/); if(m) return m[1].toUpperCase();
+  const low = v.toLowerCase();
+  const hit = AIRPORTS.find(a => a[1].toLowerCase().startsWith(low)) || AIRPORTS.find(a => a[1].toLowerCase().includes(low));
+  return hit ? hit[0] : null;
+}
+
+/* ---------- Fechas ---------- */
+const pad = n => String(n).padStart(2,'0');
+const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const fromIso = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+const addDays = (s,n) => { const d = fromIso(s); d.setDate(d.getDate()+n); return iso(d); };
+const MES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const DIA = ['dom','lun','mar','mié','jue','vie','sáb'];
+const nice = s => { const d = fromIso(s); return `${DIA[d.getDay()]} ${d.getDate()} ${MES[d.getMonth()]}`; };
+const short = s => { const d = fromIso(s); return `${pad(d.getDate())}/${pad(d.getMonth()+1)}`; };
+const TODAY = iso(new Date());
+const daysBetween = (a,b) => Math.round((fromIso(b)-fromIso(a))/86400000);
+
+/* ---------- Páginas ---------- */
+const CABIN_TXT = {economy:'Turista', premium:'Premium economy', business:'Ejecutiva', first:'Primera'};
+const CATS = {
+  comp:{title:'Comparadores', sub:'Revisan cientos de agencias y aerolíneas a la vez. Empezá por acá.'},
+  agencia:{title:'Agencias de Argentina', sub:'Precios en pesos, cuotas y promociones con bancos locales.'},
+  aero:{title:'Aerolíneas directo', sub:'Comprar directo suele dar mejores condiciones para cambios.'}
+};
+function gq(q, o, d, d1, d2){
+  let s = `Flights from ${o} to ${d} on ${d1}` + (d2 ? ` through ${d2}` : ' one way');
+  if(q.cabin !== 'economy') s += q.cabin === 'premium' ? ' premium economy' : ` ${q.cabin} class`;
+  const pax = q.adults + q.kids; if(pax > 1) s += ` for ${pax} passengers`;
+  return `https://www.google.com/travel/flights?hl=es-419&gl=AR&curr=${q.cur}&q=${encodeURIComponent(s)}`;
+}
+const kayakPath = (q,o,d) => {
+  let p = `/flights/${o}-${d}/${q.d1}` + (q.d2 ? `/${q.d2}` : '');
+  if(q.cabin !== 'economy') p += '/' + q.cabin;
+  if(q.adults > 1) p += `/${q.adults}adults`;
+  if(q.kids > 0) p += '/children' + '-11'.repeat(q.kids);
+  return p + '?sort=price_a';
+};
+const SOURCES = [
+ {id:'gflights', name:'Google Flights', domain:'google.com/travel/flights', cat:'comp', mono:'G', why:'Calendario de precios, grilla de fechas y alertas gratis.', mode:'lista',
+  url:(q,o,d) => gq(q,o,d,q.d1,q.d2)},
+ {id:'skyscanner', name:'Skyscanner', domain:'skyscanner.com.ar', cat:'comp', mono:'S', why:'Muy completo en low cost y combinaciones de aerolíneas.', mode:'lista',
+  url:(q,o,d) => { const cab = {economy:'economy',premium:'premiumeconomy',business:'business',first:'first'}[q.cabin];
+    const y = s => s.replace(/-/g,'').slice(2);
+    let u = `https://www.skyscanner.com.ar/transporte/vuelos/${apInfo(o).sky}/${apInfo(d).sky}/${y(q.d1)}/` + (q.d2 ? `${y(q.d2)}/` : '');
+    u += `?adultsv2=${q.adults}&cabinclass=${cab}&rtn=${q.d2?1:0}&preferdirects=false`;
+    if(q.kids) u += '&childrenv2=' + Array(q.kids).fill(8).join('%7C');
+    return u; }},
+ {id:'kayak', name:'Kayak', domain:'kayak.com.ar', cat:'comp', mono:'K', why:'Ordena por precio y avisa si conviene comprar ya o esperar.', mode:'lista',
+  url:(q,o,d) => 'https://www.kayak.com.ar' + kayakPath(q,o,d)},
+ {id:'momondo', name:'Momondo', domain:'momondo.com', cat:'comp', mono:'M', why:'Suele mostrar agencias chicas que otros no listan.', mode:'lista',
+  url:(q,o,d) => 'https://www.momondo.com' + kayakPath(q,o,d).replace('/flights/','/flight-search/')},
+ {id:'kiwi', name:'Kiwi.com', domain:'kiwi.com', cat:'comp', mono:'Ki', why:'Arma combinaciones entre aerolíneas distintas que salen más baratas.', mode:'copia',
+  url:() => 'https://www.kiwi.com/es/'},
+ {id:'despegar', name:'Despegar', domain:'despegar.com.ar', cat:'agencia', mono:'D', why:'Cuotas sin interés y promociones con bancos argentinos.', mode:'lista',
+  url:(q,o,d) => q.d2
+    ? `https://www.despegar.com.ar/shop/flights/results/roundtrip/${o}/${d}/${q.d1}/${q.d2}/${q.adults}/${q.kids}/0`
+    : `https://www.despegar.com.ar/shop/flights/results/oneway/${o}/${d}/${q.d1}/${q.adults}/${q.kids}/0`},
+ {id:'turismocity', name:'Turismocity', domain:'turismocity.com.ar', cat:'agencia', mono:'T', why:'Comparador argentino: muestra precios en pesos de varias agencias.', mode:'copia',
+  url:() => 'https://www.turismocity.com.ar/vuelos'},
+ {id:'almundo', name:'Almundo', domain:'almundo.com.ar', cat:'agencia', mono:'A', why:'Promociones y financiación con tarjetas locales.', mode:'copia',
+  url:() => 'https://almundo.com.ar/vuelos'},
+ {id:'aerolineas', name:'Aerolíneas Argentinas', domain:'aerolineas.com.ar', cat:'aero', mono:'AR', why:'Vuelos de bandera; mirá la opción de tarifas flexibles.', mode:'lista',
+  url:(q,o,d) => { const y = s => s.replace(/-/g,'');
+    let u = `https://www.aerolineas.com.ar/flights-offers?adt=${q.adults}&inf=0&chd=${q.kids}&flexDates=false&cabinClass=${q.cabin==='economy'||q.cabin==='premium'?'Economy':'Business'}&flightType=${q.d2?'ROUND_TRIP':'ONE_WAY'}&leg=${o}-${d}-${y(q.d1)}`;
+    if(q.d2) u += `&leg=${d}-${o}-${y(q.d2)}`; return u; }},
+ {id:'latam', name:'LATAM', domain:'latamairlines.com', cat:'aero', mono:'LA', why:'Mucha conexión dentro de Sudamérica y hacia Europa y EE.UU.', mode:'lista',
+  url:(q,o,d) => { let u = `https://www.latamairlines.com/ar/es/ofertas-vuelos?origin=${o}&outbound=${q.d1}T12%3A00%3A00.000Z&destination=${d}`;
+    if(q.d2) u += `&inbound=${q.d2}T12%3A00%3A00.000Z`;
+    return u + `&adt=${q.adults}&chd=${q.kids}&inf=0&trip=${q.d2?'RT':'OW'}&cabin=${q.cabin==='economy'||q.cabin==='premium'?'Economy':'Business'}&redemption=false&sort=RECOMMENDED`; }},
+ {id:'jetsmart', name:'JetSMART', domain:'jetsmart.com', cat:'aero', mono:'JA', why:'Low cost regional: sumá equipaje y asiento para comparar bien.', mode:'copia', regional:true,
+  url:() => 'https://jetsmart.com/ar/es/'}
+];
+const AIRHELP = ['AirHelp Score 2025 (117 aerolíneas, oct. 2024 – sep. 2025)','https://www.airhelp.ie/press/air-help-reveals-the-best-and-worst-airlines-in-2025-air-help-score/'];
+const EXCLUDED = [
+ {name:'Flybondi', level:'excluida', match:/fly\s*bondi/i, scope:'Argentina, Brasil, Uruguay y Paraguay',
+  reason:'En agosto de 2026 canceló el 80% de sus vuelos y en lo que va del año, el 23% (2.434 de 10.800). La ANAC le inició un sumario, ARCA embargó sus cuentas y en Brasil le suspendieron la venta de pasajes a Río, Florianópolis, Maceió y Salvador. Hay reclamos por reintegros sin pagar.',
+  compare:'Para comparar: en 2026 JetSMART canceló el 1,6% de sus vuelos y Aerolíneas Argentinas el 0,8%.',
+  sources:[
+   ['Chequeado · agosto 2026','https://chequeado.com/nota/crisis-en-flybondi-en-agosto-cancelo-el-80-de-los-vuelos-y-suma-embargos-y-pedidos-de-quiebra'],
+   ['La Nación · sumario de la ANAC','https://www.lanacion.com.ar/economia/el-gobierno-iniciara-un-sumario-administrativo-a-flybondi-por-cancelaciones-en-los-vuelos-nid15012026'],
+   ['iProfesional · ranking de cancelaciones','https://www.iprofesional.com/actualidad/423071-flybondi-no-mejora-y-encabeza-el-ranking-de-aerolineas-con-vuelos-cancelados']]},
+ {name:'Spirit Airlines', level:'excluida', match:/spirit/i, scope:'Estados Unidos (conexiones desde Miami, Orlando, Nueva York)',
+  reason:'Segunda peor del mundo en el AirHelp Score 2025, con 4,70 sobre 10. El puntaje mide puntualidad, opinión de pasajeros y cómo resuelve reclamos.', compare:'', sources:[AIRHELP]},
+ {name:'Hong Kong Airlines', level:'excluida', match:/hong\s*kong\s*air/i, scope:'Asia',
+  reason:'La peor del mundo en el AirHelp Score 2025, con 4,58 sobre 10.', compare:'', sources:[AIRHELP]},
+ {name:'Tunisair', level:'excluida', match:/tunis\s*air/i, scope:'Europa, norte de África',
+  reason:'4,71 sobre 10 en el AirHelp Score 2025. El año anterior había quedado última.', compare:'', sources:[AIRHELP]},
+ {name:'China Eastern', level:'excluida', match:/china\s*eastern/i, scope:'Asia',
+  reason:'4,74 sobre 10 en el AirHelp Score 2025, entre las cuatro peores del mundo.', compare:'', sources:[AIRHELP]},
+ {name:'AeroItalia', level:'excluida', match:/aero\s*italia/i, scope:'Italia y Europa',
+  reason:'La peor de Europa en el AirHelp Score 2025: puesto 110 de 117, con 4,82 sobre 10.', compare:'', sources:[AIRHELP]},
+ {name:'TAROM', level:'excluida', match:/tarom/i, scope:'Rumania y Europa',
+  reason:'Puesto 107 de 117 en el AirHelp Score 2025, con 4,90 sobre 10.', compare:'', sources:[AIRHELP]},
+ {name:'Jet2', level:'excluida', match:/jet2/i, scope:'Reino Unido y Europa',
+  reason:'Puesto 105 de 117 en el AirHelp Score 2025, con 4,98 sobre 10.', compare:'', sources:[AIRHELP]},
+ {name:'BoA (Boliviana de Aviación)', level:'precaucion', match:/\bboa\b|boliviana/i, scope:'Bolivia y conexiones por Santa Cruz',
+  reason:'En 2025 tuvo reclamos constantes por demoras y una flota reducida: su puntualidad rondaba el 50%. En enero de 2026 subió al 78% y está en plan de recuperación, por eso queda en precaución y no excluida.',
+  compare:'', sources:[['Correo del Sur · febrero 2026','https://correodelsur.com/economia/20260225/boa-preve-tener-15-aeronaves-en-operacion-hasta-mediados-de-ano.html']]}
+];
+const excludedIn = txt => EXCLUDED.find(x => x.match.test(txt || ''));
+const SRC = Object.fromEntries(SOURCES.map(s => [s.id, s]));
+const sourcesFor = (o,d) => SOURCES.filter(s => !s.regional || (apInfo(o).region !== 'int' && apInfo(d).region !== 'int'));
+
+/* ---------- Estado ---------- */
+let state = {precios:[], busquedas:[]};
+let dests = [];
+let lastQ = null;
+const opened = new Set();
+const LS = 'vuelos-baratos-v1';
+
+/* ---------- Toast ---------- */
+let tt;
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2600); }
+
+/* ---------- Formulario ---------- */
+for(let i=1;i<=9;i++) $('#adults').insertAdjacentHTML('beforeend', `<option value="${i}">${i}</option>`);
+for(let i=0;i<=6;i++) $('#kids').insertAdjacentHTML('beforeend', `<option value="${i}">${i}</option>`);
+$('#d1').min = TODAY; $('#d2').min = TODAY;
+
+function renderChips(){
+  $('#destChips').innerHTML = dests.map((c,i) => `<span class="chip"><span class="mono">${esc(c)}</span> ${esc(apInfo(c).city)}<button type="button" aria-label="Quitar ${esc(apInfo(c).city)}" data-rm="${i}">×</button></span>`).join('');
+}
+$('#destChips').addEventListener('click', e => { const b = e.target.closest('[data-rm]'); if(!b) return; dests.splice(+b.dataset.rm,1); renderChips(); });
+function addDest(){
+  const err = $('#formErr'); const c = parseCode($('#destInput').value);
+  if(!c){ err.textContent = 'No encontramos ese destino. Escribí la ciudad o el código de 3 letras del aeropuerto.'; err.hidden = false; return; }
+  if(dests.includes(c)){ $('#destInput').value = ''; return; }
+  if(dests.length >= 5){ err.textContent = 'Podés comparar hasta 5 destinos a la vez.'; err.hidden = false; return; }
+  dests.push(c); err.hidden = true; $('#destInput').value = ''; renderChips();
+}
+$('#addDest').addEventListener('click', addDest);
+$('#destInput').addEventListener('keydown', e => { if(e.key === 'Enter'){ e.preventDefault(); addDest(); } });
+$('#destInput').addEventListener('change', () => { if(/ — /.test($('#destInput').value)) addDest(); });
+document.querySelectorAll('input[name=trip]').forEach(r => r.addEventListener('change', syncTrip));
+function syncTrip(){ $('#d2wrap').hidden = $('#tripOW').checked; }
+$('#d1').addEventListener('change', () => { $('#d2').min = $('#d1').value || TODAY; });
+
+function readForm(){
+  const pending = $('#destInput').value.trim(); if(pending) addDest();
+  const err = $('#formErr');
+  const fail = m => { err.textContent = m; err.hidden = false; return null; };
+  const o = parseCode($('#origin').value);
+  if(!o) return fail('Elegí desde dónde salís: ciudad o código de 3 letras.');
+  if(!dests.length) return fail('Sumá al menos un destino con el botón “+ Agregar”.');
+  if(dests.includes(o)) return fail('El origen no puede ser también un destino.');
+  const d1 = $('#d1').value; const ow = $('#tripOW').checked; const d2 = ow ? null : $('#d2').value;
+  if(!d1) return fail('Elegí la fecha de ida.');
+  if(d1 < TODAY) return fail('La fecha de ida ya pasó. Elegí una fecha desde hoy en adelante.');
+  if(!ow && !d2) return fail('Elegí la fecha de vuelta o marcá “Solo ida”.');
+  if(!ow && d2 < d1) return fail('La vuelta tiene que ser el mismo día o después de la ida.');
+  err.hidden = true;
+  return {o, dests:[...dests], d1, d2, adults:+$('#adults').value, kids:+$('#kids').value, cabin:$('#cabin').value, cur:$('#cur').value, flex:+$('#flex').value};
+}
+function fillForm(q){
+  $('#origin').value = `${q.o} — ${apInfo(q.o).city}${apInfo(q.o).country ? ', ' + apInfo(q.o).country : ''}`;
+  dests = [...q.dests]; renderChips();
+  $('#tripOW').checked = !q.d2; $('#tripRT').checked = !!q.d2; syncTrip();
+  $('#d1').value = q.d1; $('#d2').value = q.d2 || '';
+  $('#adults').value = q.adults; $('#kids').value = q.kids; $('#cabin').value = q.cabin; $('#cur').value = q.cur; $('#flex').value = q.flex;
+}
+$('#form').addEventListener('submit', e => {
+  e.preventDefault();
+  const q = readForm(); if(!q) return;
+  $('#exampleTag').hidden = true;
+  renderResults(q);
+  const key = JSON.stringify(q);
+  state.busquedas = [q, ...state.busquedas.filter(b => JSON.stringify(b) !== key)].slice(0,6);
+  persist(); renderRecent();
+  document.getElementById('resultados').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+function paxText(q){ let s = `${q.adults} adulto${q.adults>1?'s':''}`; if(q.kids) s += `, ${q.kids} niño${q.kids>1?'s':''}`; return s; }
+function tripText(q,o,d){ return `${o} → ${d} · ida ${nice(q.d1)}` + (q.d2 ? ` · vuelta ${nice(q.d2)}` : ' · solo ida') + ` · ${paxText(q)} · ${CABIN_TXT[q.cabin]}`; }
+
+function renderRecent(){
+  const list = state.busquedas || [];
+  $('#recentWrap').hidden = !list.length;
+  $('#recent').innerHTML = list.map((q,i) => `<button type="button" data-r="${i}">${esc(q.o)} → ${esc(q.dests.join(', '))} · ${short(q.d1)}${q.d2 ? '–' + short(q.d2) : ''}</button>`).join('');
+}
+$('#recent').addEventListener('click', e => { const b = e.target.closest('[data-r]'); if(!b) return; const q = state.busquedas[+b.dataset.r]; fillForm(q); renderResults(q); $('#exampleTag').hidden = true; document.getElementById('resultados').scrollIntoView({behavior:'smooth'}); });
+
+/* ---------- Resultados ---------- */
+function renderResults(q){
+  lastQ = q;
+  const out = q.dests.map((d,i) => destBlock(q,q.o,d,i)).join('');
+  $('#resultados').innerHTML = `<div class="row" style="justify-content:space-between"><h2>Dónde buscar</h2><span class="muted small">${q.dests.length} destino${q.dests.length>1?'s':''} · ${sourcesFor(q.o,q.dests[0]).length} páginas cada uno</span></div>` + out;
+  updateProgress();
+  fillRouteSuggestions();
+}
+function destBlock(q,o,d,i){
+  const A = apInfo(o), B = apInfo(d);
+  const srcs = sourcesFor(o,d);
+  const nights = q.d2 ? daysBetween(q.d1,q.d2) : null;
+  const groups = Object.keys(CATS).map(cat => {
+    const items = srcs.filter(s => s.cat === cat); if(!items.length) return '';
+    return `<div class="group"><div class="group-head"><h3>${CATS[cat].title}</h3><span class="muted small">${CATS[cat].sub}</span></div>${items.map(s => srcRow(q,o,d,s)).join('')}</div>`;
+  }).join('');
+  return `<details class="destbox" ${i===0?'open':''}><summary>
+    <div class="pass">
+      <div class="main">
+        <div class="board"><span class="code">${esc(o)}</span>
+          <svg class="plane" width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" transform="rotate(90 12 12)"/></svg>
+          <span class="code">${esc(d)}</span></div>
+        <div class="cities">${esc(A.city)} → ${esc(B.city)}${B.country ? ', ' + esc(B.country) : ''}</div>
+        <div class="meta">
+          <div><span class="label">Ida</span><span class="v">${nice(q.d1)}</span></div>
+          <div><span class="label">Vuelta</span><span class="v">${q.d2 ? nice(q.d2) : 'Solo ida'}</span></div>
+          ${nights !== null ? `<div><span class="label">Noches</span><span class="v mono">${nights}</span></div>` : ''}
+          <div><span class="label">Pasajeros</span><span class="v">${paxText(q)}</span></div>
+          <div><span class="label">Clase</span><span class="v">${CABIN_TXT[q.cabin]}</span></div>
+        </div>
+      </div>
+      <div class="stub">
+        <span class="label">Revisadas</span>
+        <span class="n" data-count="${o}-${d}">0/${srcs.length}</span>
+        <div class="progress" aria-hidden="true"><i data-bar="${o}-${d}"></i></div>
+      </div>
+    </div></summary>
+    <div class="dest" style="margin-top:14px">${groups}${exNote()}${flexBlock(q,o,d)}</div>
+  </details>`;
+}
+function srcRow(q,o,d,s){
+  const key = `${o}-${d}-${s.id}`; const done = opened.has(key);
+  const badge = s.mode === 'lista' ? '<span class="pill ok">Búsqueda lista</span>' : '<span class="pill warn">Datos copiados</span>';
+  return `<div class="src ${done?'done':''}" data-key="${key}">
+    <div class="mono-ic" aria-hidden="true">${esc(s.mono)}</div>
+    <div class="info">
+      <span class="name">${esc(s.name)} ${badge} ${done ? '<span class="pill seen">Abierta</span>' : ''}</span>
+      <span class="dom">${esc(s.domain)}</span>
+      <span class="why">${esc(s.why)}</span>
+    </div>
+    <div class="acts">
+      <a class="btn primary sm" href="${esc(s.url(q,o,d))}" target="_blank" rel="noopener" data-open="${key}" data-mode="${s.mode}" data-trip="${esc(tripText(q,o,d))}">Abrir</a>
+      <button type="button" class="btn ghost sm" data-note="${s.id}" data-o="${o}" data-d="${d}">Anotar precio</button>
+    </div>
+  </div>`;
+}
+function flexBlock(q,o,d){
+  if(!q.flex) return '';
+  const f = q.flex, offs = []; for(let i=-f;i<=f;i++) offs.push(i);
+  const link = (a,b) => esc(gq(q,o,d,a,b));
+  let html;
+  if(!q.d2){
+    const cells = offs.map(n => { const a = addDays(q.d1,n); if(a < TODAY) return `<td class="na">—</td>`;
+      return `<td class="${n===0?'base':''}"><a href="${link(a,null)}" target="_blank" rel="noopener">${short(a)}</a></td>`; }).join('');
+    html = `<table class="flex"><tr><th>Ida</th>${offs.map(n => `<th>${n>0?'+':''}${n||'tu fecha'}</th>`).join('')}</tr><tr><th>Ver</th>${cells}</tr></table>`;
+  } else {
+    const head = `<tr><th>Ida ↓ · Vuelta →</th>${offs.map(n => `<th>${short(addDays(q.d2,n))}</th>`).join('')}</tr>`;
+    const rows = offs.map(r => { const a = addDays(q.d1,r);
+      return `<tr><th>${short(a)}</th>${offs.map(c => { const b = addDays(q.d2,c);
+        if(a < TODAY || b < a) return '<td class="na">—</td>';
+        return `<td class="${r===0&&c===0?'base':''}"><a href="${link(a,b)}" target="_blank" rel="noopener" title="${nice(a)} → ${nice(b)}">${daysBetween(a,b)} n</a></td>`; }).join('')}</tr>`; }).join('');
+    html = `<table class="flex">${head}${rows}</table>`;
+  }
+  return `<div class="group"><div class="group-head"><h3>Fechas flexibles</h3><span class="muted small">Cada casilla abre Google Flights con esas fechas. En amarillo, tus fechas.${q.d2 ? ' “n” = noches.' : ''}</span></div><div class="flexwrap">${html}</div></div>`;
+}
+function exNote(){
+  const ex = EXCLUDED.filter(x => x.level === 'excluida').map(x => x.name);
+  const pre = EXCLUDED.filter(x => x.level === 'precaucion').map(x => x.name);
+  return `<p class="exnote small"><span class="pill warn">Ojo</span> Los comparadores y agencias pueden mostrar vuelos o escalas de aerolíneas excluidas: <b>${esc(ex.join(', '))}</b>. Salteálas aunque salgan más baratas.${pre.length ? ` Con precaución: ${esc(pre.join(', '))}.` : ''} <a href="#excluidas">Ver por qué</a></p>`;
+}
+function updateProgress(){
+  if(!lastQ) return;
+  lastQ.dests.forEach(d => {
+    const o = lastQ.o, srcs = sourcesFor(o,d), n = srcs.filter(s => opened.has(`${o}-${d}-${s.id}`)).length;
+    const c = document.querySelector(`[data-count="${o}-${d}"]`); if(c) c.textContent = `${n}/${srcs.length}`;
+    const b = document.querySelector(`[data-bar="${o}-${d}"]`); if(b) b.style.width = (100*n/srcs.length) + '%';
+  });
+}
+$('#resultados').addEventListener('click', e => {
+  const a = e.target.closest('[data-open]');
+  if(a){
+    const key = a.dataset.open;
+    if(a.dataset.mode === 'copia'){
+      const txt = a.dataset.trip;
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).then(() => toast('Copiamos tu viaje. Pegalo o completalo en el buscador.'), () => toast('Completá en el sitio: ' + txt));
+      } else toast('Completá en el sitio: ' + txt);
+    }
+    opened.add(key);
+    const row = a.closest('.src'); row.classList.add('done');
+    const name = row.querySelector('.name'); if(!name.querySelector('.seen')) name.insertAdjacentHTML('beforeend','<span class="pill seen">Abierta</span>');
+    updateProgress();
+    return;
+  }
+  const n = e.target.closest('[data-note]');
+  if(n){ prefillPrice(n.dataset.note, n.dataset.o, n.dataset.d); }
+});
+
+/* ---------- Mis precios ---------- */
+$('#pSource').innerHTML = SOURCES.map(s => `<option value="${s.id}">${esc(s.name)}</option>`).join('') + '<option value="otra">Otra página</option>';
+$('#srcIndex').innerHTML = Object.keys(CATS).map(cat => SOURCES.filter(s => s.cat===cat).map(s =>
+  `<li><span><b>${esc(s.name)}</b> <span class="muted">· ${CATS[cat].title}</span></span><a class="mono small" href="https://${esc(s.domain.split('/')[0])}" target="_blank" rel="noopener">${esc(s.domain)}</a></li>`).join('')).join('');
+
+function fillRouteSuggestions(){}
+$('#exList').innerHTML = EXCLUDED.map(x => `<div class="exitem"><div class="line1">${x.level === 'excluida' ? '<span class="pill bad">Excluida</span>' : '<span class="pill warn">Con precaución</span>'} <b>${esc(x.name)}</b> <span class="muted small">· ${esc(x.scope)}</span></div>
+  <p class="small">${esc(x.reason)}</p>${x.compare ? `<p class="small muted">${esc(x.compare)}</p>` : ''}
+  <p class="small">Fuente: ${x.sources.map(([t,u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`).join(' · ')}</p></div>`).join('');
+$('#pAirline').addEventListener('input', () => { const x = excludedIn($('#pAirline').value); const e = $('#pWarn');
+  e.hidden = !x; if(x) e.innerHTML = `${esc(x.name)} ${x.level === 'excluida' ? 'está excluida por sus cancelaciones y reclamos. Podés guardar el precio igual, pero te recomendamos otra opción.' : 'está en precaución: tuvo muchas demoras. Revisá las condiciones antes de comprar.'} <a href="#excluidas">Ver por qué</a>`; });
+function prefillPrice(srcId,o,d){
+  $('#pSource').value = srcId; $('#pRoute').value = `${o} → ${d}`;
+  if(lastQ) $('#pDates').value = lastQ.d2 ? `${short(lastQ.d1)} → ${short(lastQ.d2)}` : `${short(lastQ.d1)} solo ida`;
+  if(lastQ) $('#pCur').value = lastQ.cur;
+  document.getElementById('precios').scrollIntoView({behavior:'smooth', block:'start'});
+  setTimeout(() => $('#pAmount').focus({preventScroll:true}), 450);
+}
+$('#pform').addEventListener('submit', e => {
+  e.preventDefault();
+  const err = $('#pErr');
+  const amount = parseFloat($('#pAmount').value);
+  const route = $('#pRoute').value.trim().toUpperCase().replace(/\s*(->|-|>|→)\s*/,' → ');
+  if(!route){ err.textContent = 'Escribí la ruta, por ejemplo BUE → MAD.'; err.hidden = false; return; }
+  if(!(amount > 0)){ err.textContent = 'Escribí el precio total que viste, solo el número.'; err.hidden = false; return; }
+  err.hidden = true;
+  const srcId = $('#pSource').value; const s = SRC[srcId];
+  let url = s ? 'https://' + s.domain.split('/')[0] : '';
+  if(s && lastQ){ const m = route.match(/^([A-Z]{3}) → ([A-Z]{3})$/); if(m) url = s.url(lastQ, m[1], m[2]); }
+  state.precios = [{
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+    src: srcId, srcName: s ? s.name : 'Otra página', url,
+    route, dates: $('#pDates').value.trim(), airline: $('#pAirline').value.trim(),
+    amount, cur: $('#pCur').value, final: $('#pTaxes').checked, at: new Date().toISOString()
+  }, ...state.precios].slice(0,300);
+  persist(); renderPrices();
+  $('#pAmount').value = ''; $('#pAirline').value = '';
+  toast('Precio guardado');
+});
+const money = (n,c) => new Intl.NumberFormat('es-AR',{style:'currency',currency:c,maximumFractionDigits:0}).format(n);
+function ago(isoStr){
+  const d = new Date(isoStr), mins = Math.round((Date.now()-d)/60000);
+  if(mins < 1) return 'recién'; if(mins < 60) return `hace ${mins} min`;
+  const h = Math.round(mins/60); if(h < 24) return `hace ${h} h`;
+  const days = Math.round(h/24); return days === 1 ? 'ayer' : `hace ${days} días`;
+}
+function renderPrices(){
+  const routes = [...new Set(state.precios.map(p => p.route))];
+  const sel = $('#pFilter'), cur = sel.value;
+  sel.innerHTML = '<option value="">Todas las rutas</option>' + routes.map(r => `<option ${r===cur?'selected':''}>${esc(r)}</option>`).join('');
+  const list = state.precios.filter(p => !sel.value || p.route === sel.value);
+  if(!list.length){
+    $('#plist').innerHTML = `<div class="empty"><b style="color:var(--ink)">Todavía no anotaste precios</b><span class="small">Abrí una página desde “Dónde buscar”, mirá el precio y tocá “Anotar precio”. Acá vas a ver cuál es el más barato y de qué página salió.</span></div>`;
+    return;
+  }
+  const groups = {};
+  list.forEach(p => { (groups[p.route + '|' + p.cur] ||= []).push(p); });
+  $('#plist').innerHTML = Object.entries(groups).map(([k,arr]) => {
+    arr.sort((a,b) => a.amount - b.amount);
+    const [route, c] = k.split('|'); const min = arr[0].amount;
+    return `<div class="group"><div class="group-head"><h3><span class="mono">${esc(route)}</span> · ${esc(c)}</h3><span class="muted small">${arr.length} precio${arr.length>1?'s':''}</span></div>` +
+      arr.map((p,i) => `<article class="price ${i===0?'top':''}">
+        <div>
+          <div class="line1">${i===0 ? '<span class="pill best">Más barato</span>' : ''}<span>${esc(p.srcName)}</span>${p.final ? '' : '<span class="pill warn">Sin impuestos</span>'}${(x => x ? (x.level === 'excluida' ? '<span class="pill bad">Aerolínea excluida</span>' : '<span class="pill warn">Con precaución</span>') : '')(excludedIn(p.airline))}</div>
+          <div class="line2">${p.dates ? `<span>${esc(p.dates)}</span>` : ''}${p.airline ? `<span>${esc(p.airline)}</span>` : ''}</div>
+        </div>
+        <div><div class="amt">${money(p.amount, p.cur)}</div>${i>0 ? `<div class="diff">+${money(p.amount-min, p.cur)}</div>` : ''}</div>
+        <div class="foot"><span class="muted">Fuente: ${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc((p.url.split('/')[2]||'').replace('www.',''))}</a>` : esc(p.srcName)} · anotado ${ago(p.at)}${p.by ? ' por ' + esc(p.by) : ''}</span>
+          <button type="button" class="btn ghost sm" data-del="${p.id}">Borrar</button></div>
+      </article>`).join('') + '</div>';
+  }).join('');
+}
+$('#pFilter').addEventListener('change', renderPrices);
+$('#plist').addEventListener('click', e => {
+  const b = e.target.closest('[data-del]'); if(!b) return;
+  if(b.dataset.armed){ state.precios = state.precios.filter(p => p.id !== b.dataset.del); persist(); renderPrices(); toast('Precio borrado'); return; }
+  b.dataset.armed = '1'; b.textContent = '¿Borrar? Tocá de nuevo';
+  setTimeout(() => { if(b.isConnected){ delete b.dataset.armed; b.textContent = 'Borrar'; } }, 3000);
+});
+$('#copyPrices').addEventListener('click', () => {
+  const list = state.precios.filter(p => !$('#pFilter').value || p.route === $('#pFilter').value).slice().sort((a,b) => a.route.localeCompare(b.route) || a.cur.localeCompare(b.cur) || a.amount - b.amount);
+  if(!list.length){ toast('No hay precios para copiar'); return; }
+  const txt = list.map(p => `${p.route} · ${money(p.amount,p.cur)}${p.final?'':' (sin impuestos)'} · ${p.srcName}${p.dates?' · '+p.dates:''}${p.airline?' · '+p.airline:''} · ${p.url||''}`).join('\n');
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(() => toast('Lista copiada'), () => toast('No se pudo copiar en esta vista'));
+  } else toast('No se pudo copiar en esta vista');
+});
+
+/* ---------- Guardado ---------- */
+// Sin cuenta: se guarda en este dispositivo. Con Google: los precios se comparten con la lista de "Qué hacemos hoy".
+let REMOTE = null, known = null;
+function setSync(t){ $('#sync').textContent = t; }
+function saveLocal(){ try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){} }
+const clean = p => { const o = {}; ['id','src','srcName','url','route','dates','airline','amount','cur','final','at','by'].forEach(k => { if(p[k] !== undefined && p[k] !== null) o[k] = p[k]; }); return o; };
+function persist(){
+  saveLocal();
+  if(!REMOTE || !known) return;
+  const now = new Set(state.precios.map(p => p.id));
+  state.precios.filter(p => !known.has(p.id)).forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(clean(p)); });
+  [...known].filter(id => !now.has(id)).forEach(id => REMOTE.del(id));
+  known = now; saveLocal();
+}
+window.__vb = {
+  connect(api){ REMOTE = api; known = null; },
+  disconnect(){ REMOTE = null; known = null; state.precios = state.precios.filter(p => !p.g); saveLocal(); renderPrices(); setSync('Guardado en este dispositivo'); },
+  remote(list){
+    if(!REMOTE) return;
+    list = list.map(p => ({...p, g: REMOTE.gid}));
+    if(known === null){
+      // la primera vez se suben los precios que estaban solo en este dispositivo
+      const ids = new Set(list.map(p => p.id));
+      const solos = state.precios.filter(p => !p.g && !ids.has(p.id));
+      solos.forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(clean(p)); });
+      list = [...solos, ...list];
+    }
+    state.precios = list.sort((a,b) => String(b.at||'').localeCompare(String(a.at||'')));
+    known = new Set(state.precios.map(p => p.id));
+    saveLocal(); renderPrices(); setSync('Compartido');
+  },
+  sync: setSync
+};
+function initStore(){
+  try{ const raw = localStorage.getItem(LS); if(raw){ const d = JSON.parse(raw); state = {precios:d.precios||[], busquedas:d.busquedas||[]}; } }catch(e){}
+  renderPrices(); renderRecent();
+}
+
+/* ---------- Arranque con ejemplo ---------- */
+const example = {o:'BUE', dests:['MAD','MIA'], d1: TODAY < '2026-12-10' ? '2026-12-10' : addDays(TODAY,30), d2: null, adults:1, kids:0, cabin:'economy', cur:'ARS', flex:3};
+example.d2 = addDays(example.d1, 14);
+fillForm(example);
+renderResults(example);
+initStore();
+})();
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, getDocs, setDoc, deleteDoc, collection, onSnapshot, query, where }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+// Mismo proyecto de Firebase que "Qué hacemos hoy": se usan las mismas listas compartidas.
+const app = initializeApp({
+  apiKey: "AIzaSyBB2YeVAAisCXTyfRAPm0MIHLUPv_JP9eg",
+  authDomain: "que-hacemos-hoy-59b81.firebaseapp.com",
+  projectId: "que-hacemos-hoy-59b81",
+  storageBucket: "que-hacemos-hoy-59b81.firebasestorage.app",
+  messagingSenderId: "484182237158",
+  appId: "1:484182237158:web:62d2b437e50df691e14027"
+});
+const QHH = "https://lucasvyte.github.io/que-hacemos-hoy/";
+const auth = getAuth(app), fs = getFirestore(app);
+const box = document.getElementById("cuenta");
+const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const firstName = n => (n || "").split(" ")[0];
+let unsub = null, me = null, groups = [];
+const vb = () => window.__vb;
+
+function show(html){ box.innerHTML = html; box.hidden = false; }
+function loggedOut(){
+  show(`<p class="small">Entrá con la misma cuenta de Google que usás en <b>Qué hacemos hoy</b> y estos precios se comparten con tu lista.</p>
+    <div class="acts"><button type="button" class="btn primary sm" id="login">Entrar con Google</button></div>`);
+  document.getElementById("login").onclick = login;
+}
+async function login(){
+  const prov = new GoogleAuthProvider(); prov.setCustomParameters({ prompt: "select_account" });
+  try{ await signInWithPopup(auth, prov); }
+  catch(e){
+    if(["auth/popup-blocked","auth/operation-not-supported-in-this-environment","auth/cancelled-popup-request"].includes(e.code)) return signInWithRedirect(auth, prov);
+    if(e.code !== "auth/popup-closed-by-user") vb().sync("No se pudo entrar. Probá de nuevo.");
+  }
+}
+function stop(){ if(unsub){ unsub(); unsub = null; } }
+function useGroup(gid){
+  stop();
+  try{ localStorage.setItem("vb-gid", gid); }catch(e){}
+  const g = groups.find(x => x.id === gid);
+  const names = Object.values(g.memberInfo || {}).map(m => firstName(m.name)).filter(Boolean).join(", ");
+  const opts = groups.length > 1 ? `<select id="glist" aria-label="Lista">${groups.map(x => `<option value="${esc(x.id)}" ${x.id === gid ? "selected" : ""}>${esc(x.name || "Lista")}</option>`).join("")}</select>` : "";
+  show(`<p class="small">Compartido con la lista <b>${esc(g.name || "de Qué hacemos hoy")}</b>${names ? ` (${esc(names)})` : ""}. Lo que anote cualquiera aparece acá.</p>
+    <div class="acts">${opts}<button type="button" class="btn ghost sm" id="logout">Salir</button></div>`);
+  document.getElementById("logout").onclick = () => { stop(); vb().disconnect(); signOut(auth); };
+  if(opts) document.getElementById("glist").onchange = e => { vb().disconnect(); useGroup(e.target.value); };
+  const col = collection(fs, `groups/${gid}/vuelos`);
+  vb().connect({
+    gid, name: firstName(me.displayName),
+    add: p => setDoc(doc(col, p.id), p).catch(err => { console.error(err); vb().sync("No se pudo compartir"); }),
+    del: id => deleteDoc(doc(col, id)).catch(err => console.error(err))
+  });
+  vb().sync("Conectando…");
+  unsub = onSnapshot(col, s => vb().remote(s.docs.map(d => d.data())), err => {
+    console.error(err);
+    vb().sync(err.code === "permission-denied" ? "Falta habilitar el guardado compartido" : "Sin conexión: guardado en este dispositivo");
+  });
+}
+onAuthStateChanged(auth, async u => {
+  me = u; stop();
+  if(!u){ loggedOut(); return; }
+  show(`<p class="small">Buscando tu lista…</p>`);
+  try{
+    const s = await getDocs(query(collection(fs, "groups"), where("members", "array-contains", u.uid)));
+    groups = s.docs.map(d => ({ id: d.id, ...d.data() }));
+    if(!groups.length){
+      show(`<p class="small">Entraste como ${esc(u.email)}, pero todavía no tenés una lista en Qué hacemos hoy. Creala allá (o sumate a la de tu pareja) y volvé.</p>
+        <div class="acts"><a class="btn primary sm" href="${QHH}" target="_blank" rel="noopener">Abrir Qué hacemos hoy</a><button type="button" class="btn ghost sm" id="logout">Salir</button></div>`);
+      document.getElementById("logout").onclick = () => signOut(auth);
+      return;
+    }
+    let pick = null;
+    try{ pick = localStorage.getItem("vb-gid"); }catch(e){}
+    if(!groups.some(g => g.id === pick)){
+      try{ const p = await getDoc(doc(fs, "users", u.uid)); pick = p.exists() ? p.data().groupId : null; }catch(e){}
+    }
+    if(!groups.some(g => g.id === pick)) pick = (groups.find(g => (g.members || []).length > 1) || groups[0]).id;
+    useGroup(pick);
+  }catch(e){ console.error(e); show(`<p class="small">No se pudo leer tu lista. Revisá la conexión y recargá.</p>`); }
+});
+getRedirectResult(auth).catch(e => console.error(e));
+</script>
+
+</body></html>
