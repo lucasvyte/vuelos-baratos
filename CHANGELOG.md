@@ -7,6 +7,17 @@ La app está en **beta**: las versiones van a seguir siendo `0.X.Y` hasta que se
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
 
+## 0.6.0 — 31/10/2026
+
+Listas propias para compartir precios.
+
+- Vuelos Baratos tiene su propio Firebase, separado de cualquier otra app.
+- En Mis precios aparece "Compartí tus precios": entrás con Google, creás una lista y aparece un código de 6 letras para invitar.
+- El botón "Invitar" manda por WhatsApp (o donde elijas) un enlace que abre la app lista para sumarse. También se puede escribir el código a mano.
+- Lo que anota cualquiera de la lista aparece al instante en los celulares de todos, con el nombre de quien lo anotó.
+- Los precios que ya tenías en el celular se suben a la lista cuando la creás o te sumás.
+- Se puede dejar la lista o cerrar sesión en cualquier momento. Sin entrar con Google, todo sigue funcionando y se guarda en el celular.
+
 ## 0.5.0 — 30/10/2026
 
 Vuelos Baratos pasa a ser una app independiente.

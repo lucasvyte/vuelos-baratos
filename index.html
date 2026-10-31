@@ -257,6 +257,26 @@ section{scroll-margin-top:16px}
 .backbar{font:inherit;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px;width:100%;text-align:left;cursor:pointer;color:var(--brand);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
 .backbar svg{flex:none}
 .screen [tabindex="-1"]:focus{outline:none}
+/* Compartir precios */
+.share{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:14px;box-shadow:0 1px 2px rgba(19,32,59,.04),0 8px 24px -16px rgba(19,32,59,.2)}
+.share .top{display:flex;gap:12px;align-items:flex-start}
+.share .ic{flex:none;width:42px;height:42px;border-radius:14px;background:color-mix(in srgb,var(--brand) 14%,transparent);color:var(--brand);display:grid;place-items:center}
+.share h3{font-size:1.05rem;margin-bottom:2px}
+.share .top p{font-size:.88rem;color:var(--muted)}
+.share .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.share .acts .btn{flex:1 1 auto}
+.share .join{display:flex;gap:8px}
+.share .join input{flex:1;min-width:0;font-family:var(--f-mono);letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.share .or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.8rem}
+.share .or::before,.share .or::after{content:"";flex:1;height:1px;background:var(--line)}
+.share .invite{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:var(--surface-2);border:1px dashed var(--line);border-radius:14px;padding:12px}
+.share .invite .code{font-size:1.35rem;display:inline-block;margin-top:4px}
+.share .people{display:flex;gap:6px;flex-wrap:wrap}
+.share .person{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:.86rem;background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px 10px 3px 3px}
+.share .person i{font-style:normal;width:24px;height:24px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-size:.78rem;font-weight:700}
+.share .foot{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+.share .foot button{font:inherit;font-weight:600;color:var(--brand);background:none;border:0;padding:6px 0;cursor:pointer}
+.share .msg{font-size:.86rem;font-weight:600;color:var(--warn)}
 </style>
 
 <div class="wrap">
@@ -379,6 +399,7 @@ section{scroll-margin-top:16px}
     <span class="sync small" id="sync">Guardado en este dispositivo</span>
   </header>
   <button type="button" class="backbar" id="backSearch" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg><span>Volver a las páginas</span></button>
+  <section class="share" id="share" aria-label="Compartir precios" aria-live="polite" hidden></section>
   <section id="precios" class="panel" aria-labelledby="t-precios">
 
     <details class="addbox" id="pformBox">
@@ -478,7 +499,7 @@ section{scroll-margin-top:16px}
   </div>
 
   <footer class="app">
-    <span class="ver">v0.5.0 · beta</span>
+    <span class="ver">v0.6.0 · beta</span>
     <span><a href="https://github.com/lucasvyte/vuelos-baratos/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Novedades de cada versión</a></span>
   </footer>
 </div>
@@ -629,7 +650,7 @@ let dests = [];
 let lastQ = null;
 const opened = new Set();
 const LS = 'vuelos-baratos-v1';
-const VERSION = '0.5.0';
+const VERSION = '0.6.0';
 
 /* ---------- Toast ---------- */
 let tt;
@@ -930,11 +951,44 @@ $('#copyPrices').addEventListener('click', () => {
 });
 
 /* ---------- Guardado ---------- */
-// Todo se guarda en este dispositivo. La app no está conectada con ninguna otra.
+// Sin cuenta: se guarda en este dispositivo. Con Google y una lista de Vuelos Baratos: los precios se comparten
+// con las personas de la lista (Firebase propio de esta app, no está conectada con ninguna otra).
+let REMOTE = null, known = null;
+function setSync(t){ $('#sync').textContent = t; }
 function saveLocal(){ try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){} }
-function persist(){ saveLocal(); }
+const clean = p => { const o = {}; ['id','src','srcName','url','route','dates','airline','amount','cur','final','at','by'].forEach(k => { if(p[k] !== undefined && p[k] !== null) o[k] = p[k]; }); return o; };
+function persist(){
+  saveLocal();
+  if(!REMOTE || !known) return;
+  const now = new Set(state.precios.map(p => p.id));
+  state.precios.filter(p => !known.has(p.id)).forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(clean(p)); });
+  [...known].filter(id => !now.has(id)).forEach(id => REMOTE.del(id));
+  known = now; saveLocal();
+}
+window.__vb = {
+  connect(api){ REMOTE = api; known = null; },
+  disconnect(){ REMOTE = null; known = null; state.precios = state.precios.filter(p => !p.g); saveLocal(); renderPrices(); setSync('Guardado en este dispositivo'); },
+  remote(list){
+    if(!REMOTE) return;
+    list = list.map(p => ({...p, g: REMOTE.gid}));
+    if(known === null){
+      // la primera vez se suben los precios que estaban solo en este dispositivo
+      const ids = new Set(list.map(p => p.id));
+      const solos = state.precios.filter(p => !p.g && !ids.has(p.id));
+      solos.forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(clean(p)); });
+      list = [...solos, ...list];
+    }
+    state.precios = list.sort((a,b) => String(b.at||'').localeCompare(String(a.at||'')));
+    known = new Set(state.precios.map(p => p.id));
+    saveLocal(); renderPrices(); setSync('Compartido con tu lista');
+  },
+  sync: setSync,
+  toast: m => toast(m)
+};
 function initStore(){
-  try{ const raw = localStorage.getItem(LS); if(raw){ const d = JSON.parse(raw); state = {precios:(d.precios||[]).map(({g, ...p}) => p), busquedas:d.busquedas||[]}; saveLocal(); } }catch(e){}
+  try{ const raw = localStorage.getItem(LS); if(raw){ const d = JSON.parse(raw); // los precios de una lista vieja (o de otra app) quedan como propios de este celular
+    let cur = null; try{ cur = localStorage.getItem('vb-lista'); }catch(e){}
+    state = {precios:(d.precios||[]).map(({g, ...p}) => g && g === cur ? {...p, g} : p), busquedas:d.busquedas||[]}; } }catch(e){}
   renderPrices(); renderRecent();
   if(state.busquedas.length || state.precios.length) $('#s-buscar .hero').classList.add('returning');
 }
@@ -993,4 +1047,177 @@ if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch
 </script>
 
 
+<script type="module">
+// Firebase propio de Vuelos Baratos (proyecto vuelos-baratos-40152). Listas para compartir precios con un código.
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, getDocs, setDoc, deleteDoc, updateDoc, collection, onSnapshot, query, where, writeBatch, arrayUnion, arrayRemove, deleteField }
+  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyChToq6jhFQ5D1JcxrSfg9vdRIHJG4sIBA",
+  authDomain: "vuelos-baratos-40152.firebaseapp.com",
+  projectId: "vuelos-baratos-40152",
+  storageBucket: "vuelos-baratos-40152.firebasestorage.app",
+  messagingSenderId: "478080407748",
+  appId: "1:478080407748:web:92e557a39729f1daadd191"
+});
+const auth = getAuth(app), fs = getFirestore(app);
+const box = document.getElementById("share");
+const vb = () => window.__vb;
+const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const firstName = n => (n || "").trim().split(/\s+/)[0] || "Alguien";
+const ABC = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+const genCode = () => { const a = new Uint32Array(6); crypto.getRandomValues(a); return [...a].map(n => ABC[n % ABC.length]).join(""); };
+const normCode = v => String(v || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 6);
+const APP_URL = location.origin + location.pathname;
+const IC_USERS = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2A6.5 6.5 0 0 1 21.5 20"/></svg>';
+const IC_G = '<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3 0 5.8 1.1 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2A12 12 0 0 1 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3a12 12 0 0 1-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+
+// Código que llega por un enlace de invitación: ?unirse=ABC123
+let pending = normCode(new URLSearchParams(location.search).get("unirse"));
+if(pending){ history.replaceState(null, "", location.pathname + "#/precios"); window.dispatchEvent(new PopStateEvent("popstate")); }
+
+let me = null, lid = null, offList = null, offPrecios = null;
+function stop(){ if(offList){ offList(); offList = null; } if(offPrecios){ offPrecios(); offPrecios = null; } lid = null; }
+function render(head, body = "", foot = ""){
+  box.innerHTML = `<div class="top"><span class="ic">${IC_USERS}</span><div>${head}</div></div>${body}${foot ? `<div class="foot">${foot}</div>` : ""}`;
+  box.hidden = false;
+}
+const why = e => e && e.code === "permission-denied" ? "Falta pegar las reglas en Firebase (Firestore → Reglas)." :
+  e && e.code === "unavailable" ? "Sin conexión. Probá de nuevo en un rato." : "Algo falló. Probá de nuevo.";
+function msg(t){ const m = box.querySelector(".msg"); if(m){ m.textContent = t; m.hidden = !t; } }
+const meFoot = () => `<span>Entraste como ${esc(me.email)}</span><button type="button" data-a="salir">Cerrar sesión</button>`;
+
+/* ----- sin sesión ----- */
+function loggedOut(){
+  render(pending
+      ? `<h3>Te invitaron a una lista</h3><p>Entrá con Google y te sumamos con el código <b class="mono">${esc(pending)}</b>. Vas a ver los precios que anote la otra persona, y ella los tuyos.</p>`
+      : `<h3>Compartí tus precios</h3><p>Entrá con Google y armá una lista con quien viajás: lo que anote cualquiera aparece en los dos celulares. Sin entrar, los precios quedan solo en este celular.</p>`,
+    `<div class="acts"><button type="button" class="btn primary" data-a="login">${IC_G} Entrar con Google</button></div><p class="msg" hidden></p>`);
+}
+async function login(){
+  const prov = new GoogleAuthProvider(); prov.setCustomParameters({ prompt: "select_account" });
+  try{ await signInWithPopup(auth, prov); }
+  catch(e){
+    if(["auth/popup-blocked","auth/operation-not-supported-in-this-environment","auth/cancelled-popup-request"].includes(e.code)) return signInWithRedirect(auth, prov);
+    if(e.code === "auth/unauthorized-domain") msg("Falta autorizar lucasvyte.github.io en Firebase (Authentication → Configuración → Dominios autorizados).");
+    else if(e.code === "auth/operation-not-allowed" || e.code === "auth/configuration-not-found") msg("Falta activar el inicio con Google en Firebase (Authentication → Método de acceso).");
+    else if(e.code !== "auth/popup-closed-by-user") msg("No se pudo entrar. Probá de nuevo.");
+  }
+}
+
+/* ----- con sesión, sin lista ----- */
+function noList(){
+  render(`<h3>Armá tu lista</h3><p>Creá una lista e invitá a quien quieras con un código, o sumate a una con el código que te pasaron.</p>`,
+    `<div class="acts"><button type="button" class="btn primary" data-a="crear">Crear una lista</button></div>
+     <div class="or">o sumate con un código</div>
+     <form class="join" data-a="unirme" novalidate>
+       <input id="joinCode" maxlength="6" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="ABC123" aria-label="Código de la lista" value="${esc(pending)}">
+       <button type="submit" class="btn ${pending ? "primary" : "ghost"}">Sumarme</button>
+     </form>
+     <p class="msg" hidden></p>`, meFoot());
+}
+async function crear(btn){
+  btn.disabled = true; msg("");
+  const ref = doc(collection(fs, "listas"));
+  for(let i = 0; i < 5; i++){
+    const code = genCode();
+    const b = writeBatch(fs);
+    b.set(ref, { name: "Vuelos", owner: me.uid, members: [me.uid], memberInfo: { [me.uid]: { name: firstName(me.displayName) } }, code, at: new Date().toISOString() });
+    b.set(doc(fs, "codigos", code), { lista: ref.id });
+    try{ await b.commit(); vb().toast("Lista creada. Invitá con el código."); return usar(ref.id); }
+    catch(e){ console.error(e); if(i === 4 || e.code !== "permission-denied"){ btn.disabled = false; return msg(why(e)); } }
+  }
+}
+async function unirme(code){
+  code = normCode(code); msg("");
+  if(code.length !== 6) return msg("El código tiene 6 letras y números.");
+  try{
+    const c = await getDoc(doc(fs, "codigos", code));
+    if(!c.exists()) return msg("No encontramos ese código. Revisalo con quien te lo pasó.");
+    const id = c.data().lista;
+    await updateDoc(doc(fs, "listas", id), { members: arrayUnion(me.uid), [`memberInfo.${me.uid}`]: { name: firstName(me.displayName) } });
+    pending = "";
+    vb().toast("Te sumaste a la lista");
+    usar(id);
+  }catch(e){ console.error(e); msg(why(e)); }
+}
+
+/* ----- en una lista ----- */
+function usar(id){
+  stop(); lid = id;
+  try{ localStorage.setItem("vb-lista", id); }catch(e){}
+  vb().connect({
+    gid: id, name: firstName(me.displayName),
+    add: p => setDoc(doc(fs, `listas/${id}/precios`, p.id), p).catch(e => { console.error(e); vb().sync("No se pudo compartir"); }),
+    del: pid => deleteDoc(doc(fs, `listas/${id}/precios`, pid)).catch(e => console.error(e))
+  });
+  vb().sync("Conectando…");
+  offList = onSnapshot(doc(fs, "listas", id), snap => {
+    const l = snap.data();
+    if(!snap.exists() || !(l.members || []).includes(me.uid)){ stop(); vb().disconnect(); return noList(); }
+    inList(l);
+  }, e => { console.error(e); if(e.code === "permission-denied"){ stop(); vb().disconnect(); noList(); } });
+  offPrecios = onSnapshot(collection(fs, `listas/${id}/precios`), s => vb().remote(s.docs.map(d => d.data())), e => {
+    console.error(e); vb().sync(e.code === "permission-denied" ? "Falta pegar las reglas en Firebase" : "Sin conexión: guardado en este celular");
+  });
+}
+function inList(l){
+  const people = Object.entries(l.memberInfo || {}).map(([uid, m]) => ({ name: uid === me.uid ? `${m.name} (vos)` : m.name }));
+  const solo = (l.members || []).length < 2;
+  render(`<h3>${solo ? "Tu lista está lista" : "Lista compartida"}</h3><p>${solo ? "Pasale el código a quien viaja con vos. Cuando se sume, van a ver los mismos precios." : "Lo que anote cualquiera aparece acá al instante."}</p>`,
+    `<div class="people">${people.map(p => `<span class="person"><i>${esc((p.name || "?")[0])}</i>${esc(p.name)}</span>`).join("")}</div>
+     <div class="invite"><div><span class="label">Código para invitar</span><div><span class="code">${esc(l.code)}</span></div></div>
+       <div class="acts"><button type="button" class="btn primary sm" data-a="invitar" data-code="${esc(l.code)}">Invitar</button><button type="button" class="btn ghost sm" data-a="copiar" data-code="${esc(l.code)}">Copiar código</button></div></div>`,
+    meFoot() + `<button type="button" data-a="dejar">Dejar la lista</button>`);
+}
+async function invitar(code){
+  const url = `${APP_URL}?unirse=${code}#/precios`;
+  const text = `Sumate a mi lista de Vuelos Baratos para ver los precios que anotamos. Código: ${code}`;
+  if(navigator.share){ try{ await navigator.share({ title: "Vuelos Baratos", text, url }); return; }catch(e){ if(e.name === "AbortError") return; } }
+  copiar(`${text}\n${url}`, "Invitación copiada. Pegala en WhatsApp.");
+}
+function copiar(t, ok){
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(() => vb().toast(ok), () => vb().toast(t));
+  else vb().toast(t);
+}
+async function dejar(btn){
+  if(!btn.dataset.armed){ btn.dataset.armed = "1"; btn.textContent = "¿Seguro? Tocá de nuevo"; setTimeout(() => { if(btn.isConnected){ delete btn.dataset.armed; btn.textContent = "Dejar la lista"; } }, 3000); return; }
+  const id = lid; stop(); vb().disconnect();
+  try{ localStorage.removeItem("vb-lista"); }catch(e){}
+  try{ await updateDoc(doc(fs, "listas", id), { members: arrayRemove(me.uid), [`memberInfo.${me.uid}`]: deleteField() }); }catch(e){ console.error(e); }
+  noList();
+}
+
+/* ----- botones ----- */
+box.addEventListener("click", e => {
+  const b = e.target.closest("button[data-a]"); if(!b) return;
+  const a = b.dataset.a;
+  if(a === "login") login();
+  else if(a === "crear") crear(b);
+  else if(a === "invitar") invitar(b.dataset.code);
+  else if(a === "copiar") copiar(b.dataset.code, "Código copiado");
+  else if(a === "dejar") dejar(b);
+  else if(a === "salir"){ stop(); vb().disconnect(); signOut(auth); }
+});
+box.addEventListener("submit", e => { if(e.target.matches('[data-a="unirme"]')){ e.preventDefault(); unirme(e.target.querySelector("input").value); } });
+box.addEventListener("input", e => { if(e.target.id === "joinCode"){ const v = normCode(e.target.value); if(v !== e.target.value) e.target.value = v; } });
+
+onAuthStateChanged(auth, async u => {
+  me = u; stop();
+  if(!u){ loggedOut(); return; }
+  render(`<h3>Buscando tu lista…</h3>`);
+  try{
+    if(pending){ noList(); return unirme(pending); }
+    const s = await getDocs(query(collection(fs, "listas"), where("members", "array-contains", u.uid)));
+    const ids = s.docs.map(d => d.id);
+    if(!ids.length) return noList();
+    let pick = null; try{ pick = localStorage.getItem("vb-lista"); }catch(e){}
+    usar(ids.includes(pick) ? pick : ids[0]);
+  }catch(e){ console.error(e); noList(); msg(why(e)); }
+});
+getRedirectResult(auth).catch(e => console.error(e));
+</script>
 </body></html>

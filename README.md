@@ -4,7 +4,7 @@ Buscador de vuelos baratos: arma búsquedas en comparadores, agencias y aerolín
 
 Publicada con GitHub Pages: https://lucasvyte.github.io/vuelos-baratos/ — se puede instalar como app (PWA).
 
-Versión actual: **0.5.0 (beta)**. Ver [CHANGELOG.md](CHANGELOG.md).
+Versión actual: **0.6.0 (beta)**. Ver [CHANGELOG.md](CHANGELOG.md).
 
 Mientras la app esté en beta, las versiones son `0.X.Y` (X: funciones o cambios nuevos, Y: arreglos). Pasa a 1.0.0 solo cuando el dueño de la app decida que salió de la beta.
 
@@ -13,3 +13,10 @@ Al subir una versión nueva:
 1. Cambiar el número en `index.html` (`VERSION` y el pie de página) y `CACHE` en `sw.js`.
 2. Anotar los cambios en `CHANGELOG.md`.
 3. Crear la etiqueta de git `v0.X.Y`.
+
+## Firebase
+
+Proyecto propio: `vuelos-baratos-40152` (no se comparte con ninguna otra app).
+
+- Authentication: inicio con Google activado y `lucasvyte.github.io` en dominios autorizados.
+- Firestore: las reglas están en `firestore.rules`. Cada vez que cambian, hay que pegarlas en la consola (Firestore Database → Reglas → Publicar).
