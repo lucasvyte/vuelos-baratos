@@ -1,12 +1,48 @@
 {
- "updated": "2026-10-31T13:30:13.585Z",
- "checked": "2026-10-31T13:30:13.585Z",
+ "updated": "2026-10-31T19:24:13.031Z",
+ "checked": "2026-10-31T19:24:13.031Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-10-cyber-monday-cuando-es-como-prepararte-y-los-mejores-tips-para-viajar-mas-barato",
+   "url": "https://promociones-aereas.com.ar/2026/10/cyber-monday-cuando-es-como-prepararte-y-los-mejores-tips-para-viajar-mas-barato.html",
+   "title": "Cyber Monday 2026: cuándo es, cómo prepararte y los mejores tips para viajar más barato ✈️🌎",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-31T15:30:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-directos-a-rio-de-janeiro-en-verano-desde-aeroparque-jetsmart-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/directos-a-rio-de-janeiro-en-verano-desde-aeroparque-jetsmart-ho-p.html",
+   "title": "Directos a Río de Janeiro a partir de U$D 278 🔥🔥 en Verano 🤩 desde Aeroparque",
+   "tipo": "hotel",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 278
+   },
+   "at": "2026-10-31T15:02:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-muy-baratos-vuelos-a-santa-marta-caribe-colombiano-desde-buenos-aires-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/muy-baratos-vuelos-a-santa-marta-caribe-colombiano-desde-buenos-aires-ho-p.html",
+   "title": "¡Muy baratos! ⛱️ Vuelos a Santa Marta a partir de U$D 473 🔥 🔥 (Caribe Colombiano) desde Buenos Aires",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 473
+   },
+   "at": "2026-10-31T14:13:14.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
   {
    "id": "2026-10-vuelos-directos-a-roma-con-carry-on-con-regreso-desde-madrid-directo-a-buenos-aires-aerolineas-argentinas-rt-p",
    "url": "https://promociones-aereas.com.ar/2026/10/vuelos-directos-a-roma-con-carry-on-con-regreso-desde-madrid-directo-a-buenos-aires-aerolineas-argentinas-rt-p.html",
@@ -495,6 +531,212 @@
    "precio": null,
    "at": "2026-10-29T14:31:00.000Z",
    "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-vuelos-a-cartagena-de-indias-desde-buenos-aires-fechas-en-copa-sudamericana-jetsmart-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-cartagena-de-indias-desde-buenos-aires-fechas-en-copa-sudamericana-jetsmart-rt-p.html",
+   "title": "Vuelos a Cartagena de Indias ⛱️ a partir de U$D 595 🔥 desde Bs As",
+   "tipo": "vuelo",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 595
+   },
+   "at": "2026-10-29T14:00:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-viaja-a-bayahibe-paquetes-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-opcion-de-pago-en-cuotas-araj",
+   "url": "https://promociones-aereas.com.ar/2026/10/viaja-a-bayahibe-paquetes-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-opcion-de-pago-en-cuotas-arajet-pa-p.html",
+   "title": "¡Viaja a Bayahibe 🌴 ! Paquetes a partir de U$D 1.093 🔥 Hotel All Inclusive y Vuelos Directos (por persona en base doble) Desde Buenos Aires ¡Opción de pago e…",
+   "tipo": "paquete",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 1093
+   },
+   "at": "2026-10-29T13:45:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-hasta-off-en-all-inclusive-en-florianopolis-y-en-un-pago-y-hay-opciones-en-cuotas-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/hasta-off-en-all-inclusive-en-florianopolis-y-en-un-pago-y-hay-opciones-en-cuotas-ho-p.html",
+   "title": "¡Hasta 14% OFF! 🔥 en All Inclusive 5 ⭐ en Florianópolis y desde U$D 340 en un pago y hay opciones en cuotas🌴",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 340
+   },
+   "at": "2026-10-29T13:30:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-locura-de-paquetes-a-curazao-vuelos-con-carry-on-alojamiento-desde-buenos-aires-copa-airlines-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/locura-de-paquetes-a-curazao-vuelos-con-carry-on-alojamiento-desde-buenos-aires-copa-airlines-pa-p.html",
+   "title": "Locura de Paquetes a Curazao 🐠 a partir de U$D 962 🔥 Vuelos con Carry on + Alojamiento -por persona en base triple- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "Copa",
+   "precio": {
+    "cur": "USD",
+    "amount": 962
+   },
+   "at": "2026-10-29T12:38:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-vuelos-a-buenos-aires-desde-paises-limitrofes-para-la-visita-del-papa-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-buenos-aires-desde-paises-limitrofes-para-la-visita-del-papa-rt-p.html",
+   "title": "Vuelos a Buenos Aires desde países limítrofes para la visita del Papa ⛪",
+   "tipo": "vuelo",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-29T12:30:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-para-emitir-ya-tu-proximo-vuelo-internacional-con-hasta-20-de-reintegro-aerolineas-argentinas-gol-latam-jetsmart",
+   "url": "https://promociones-aereas.com.ar/2026/10/para-emitir-ya-tu-proximo-vuelo-internacional-con-hasta-20-de-reintegro-aerolineas-argentinas-gol-latam-jetsmart-iberia-rt-p.html",
+   "title": "¡Emití YA! 💥 Tu próximo Vuelo Internacional con hasta 20% OFF",
+   "tipo": "vuelo",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": null,
+   "at": "2026-10-28T20:59:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-hoteles-en-porto-de-galinhas-all-inclusive-o-media-pension-y-opciones-en-cuotas-ho-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/10/hoteles-en-porto-de-galinhas-all-inclusive-o-media-pension-y-opciones-en-cuotas-ho-p-2.html",
+   "title": "Hoteles en Porto de Galinhas 🏖️ ¿All Inclusive o Media Pensión? 🔍 desde U$D 110 y opciones en cuotas",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 110
+   },
+   "at": "2026-10-28T20:01:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-lindos-paquetes-a-tamandare-vuelos-directos-y-alojamiento-desde-buenos-aires-jetsmart-latam-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/lindos-paquetes-a-tamandare-vuelos-directos-y-alojamiento-desde-buenos-aires-jetsmart-latam-pa-p.html",
+   "title": "Lindos Paquetes a Tamandaré 🏖️ a partir de U$D 509 🔥 Vuelos Directos y Alojamiento -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 509
+   },
+   "at": "2026-10-28T19:30:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-boca-suena-con-la-sudamericana-hoteles-en-barranquilla-colombia-disponibilidad-y-diferentes-opciones-ho-p-2-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/boca-suena-con-la-sudamericana-hoteles-en-barranquilla-colombia-disponibilidad-y-diferentes-opciones-ho-p-2-ho-p.html",
+   "title": "¡Boca sueña con la Sudamericana! 🏆 Hoteles en Barranquilla, Colombia 🛎️ Disponibilidad y diferentes opciones",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-28T19:17:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-vuelos-a-atenas-con-carry-on-desde-buenos-aires-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-atenas-con-carry-on-desde-buenos-aires-rt-p.html",
+   "title": "Vuelos a Atenas con Carry On a partir de U$D 1.169 🧿 desde Buenos Aires",
+   "tipo": "vuelo",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 1169
+   },
+   "at": "2026-10-28T19:00:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-vuelos-a-florianopolis-directos-desde-buenos-aires-algunas-fechas-en-verano-gol-jetsmart-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-florianopolis-directos-desde-buenos-aires-algunas-fechas-en-verano-gol-jetsmart-rt-p.html",
+   "title": "Vuelos a Florianópolis 🏖️ a partir de U$D 275 Directos desde Buenos Aires ¡Algunas Fechas en Verano!",
+   "tipo": "vuelo",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 275
+   },
+   "at": "2026-10-28T18:15:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-natal-directo-desde-aeroparque-gol-jetsmart-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/natal-directo-desde-aeroparque-gol-jetsmart-rt-p.html",
+   "title": "Natal Directo a partir de U$D 487 desde Aeroparque",
+   "tipo": "vuelo",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 487
+   },
+   "at": "2026-10-28T18:03:44.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-vuelos-a-barcelona-en-primavera-europea-desde-buenos-aires-con-carry-on-british-airways-iberia-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-barcelona-en-primavera-europea-desde-buenos-aires-con-carry-on-british-airways-iberia-rt-p.html",
+   "title": "Lindos Vuelos a Barcelona 🪭 en Primavera a partir de U$D 1.110",
+   "tipo": "vuelo",
+   "aerolinea": "Iberia",
+   "precio": {
+    "cur": "USD",
+    "amount": 1110
+   },
+   "at": "2026-10-28T18:00:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-paquetazos-a-cancun-hotel-all-inclusive-y-vuelos-con-carry-desde-buenos-aires-aerolineas-argentinas-latam-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/paquetazos-a-cancun-hotel-all-inclusive-y-vuelos-con-carry-desde-buenos-aires-aerolineas-argentinas-latam-pa-p.html",
+   "title": "¡Paquetazos a Cancún 😎 ! Hotel All Inclusive y Vuelos con Carry on a partir de U$D 968 🔥 -por persona en base cuádruple- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "USD",
+    "amount": 968
+   },
+   "at": "2026-10-28T17:45:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-hermoso-descuento-para-walt-disney-world-orlando-off-en-tus-entradas-ac-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/hermoso-descuento-para-walt-disney-world-orlando-off-en-tus-entradas-ac-p.html",
+   "title": "Hermoso Descuento para Walt Disney World Orlando 🏰 ¡Hasta 15 % OFF en tus entradas! 🤩",
+   "tipo": "actividad",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-28T17:30:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-aca-estan-las-mochilas-virales-y-con-descuento-m",
+   "url": "https://promociones-aereas.com.ar/2026/10/aca-estan-las-mochilas-virales-y-con-descuento-m.html",
+   "title": "Acá están las Mochilas virales y con Descuento 🎒👀",
+   "tipo": "nota",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-28T17:00:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
+  },
+  {
+   "id": "2026-10-maragogi-te-espera-paquetes-vuelos-directos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-latam-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/maragogi-te-espera-paquetes-vuelos-directos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-latam-pa-p.html",
+   "title": "¡Maragogi 🏖️ te espera! Paquetes a partir de U$D 485 🔥Vuelos Directos y Hotel con Desayuno -por persona en base Doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 485
+   },
+   "at": "2026-10-28T16:30:00.000Z",
+   "seen": "2026-10-31T19:24:13.031Z"
   },
   {
    "id": "2026-10-asistencia-al-viajero-por-dia-con-este-super-descuento-av",
