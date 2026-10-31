@@ -4,7 +4,7 @@ Buscador de vuelos baratos: arma búsquedas en comparadores, agencias y aerolín
 
 Publicada con GitHub Pages: https://lucasvyte.github.io/vuelos-baratos/ — se puede instalar como app (PWA).
 
-Versión actual: **1.2.1**. Ver [CHANGELOG.md](CHANGELOG.md).
+Versión actual: **1.3.0**. Ver [CHANGELOG.md](CHANGELOG.md).
 
 Al subir una versión nueva (formato `MAYOR.MENOR.ARREGLO`):
 

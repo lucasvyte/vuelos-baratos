@@ -6,6 +6,20 @@ Las versiones siguen el formato `MAYOR.MENOR.ARREGLO` (por ejemplo 1.1.0):
 - **MENOR**: funciones nuevas o rediseños que no rompen nada de lo anterior.
 - **ARREGLO**: corrección de errores o ajustes chicos.
 
+## 1.3.0 — 30/10/2026
+
+Revisión de diseño y accesibilidad.
+
+- "Más barato" ahora marca el precio más bajo que se puede comprar: si el más barato es de una aerolínea excluida (por ejemplo Flybondi), queda tachado al final de la lista y la corona pasa al siguiente.
+- Cuando falta un dato en el formulario, el campo con problema se marca en rojo y el cursor va directo ahí.
+- El aviso de aerolíneas excluidas se lee de un vistazo: una frase corta y los nombres en etiquetas tachadas.
+- En "Fechas flexibles" la columna de la ida queda fija al deslizar la tabla en el celular.
+- Los bordes de los campos se ven mejor (más contraste) y la cruz para quitar un destino es más fácil de tocar.
+- Los títulos de los campos y las etiquetas ya no van todo en mayúsculas.
+- En Mis precios, "Borrar" es más discreto, "hace 2 h" ya no se corta en dos renglones y el resumen muestra cuánto pasó desde el último precio sin cortarse.
+- Si ya usaste la app, el encabezado de Buscar oculta los tres pasos de ayuda y el formulario queda más arriba.
+- En modo oscuro la app ya no muestra un destello blanco al abrir.
+
 ## 1.2.1 — 30/10/2026
 
 - Se sacó el viaje de ejemplo (Buenos Aires → Madrid y Miami): la app arranca con el formulario vacío y un mensaje que explica qué hacer.
