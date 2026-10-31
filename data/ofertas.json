@@ -1,12 +1,25 @@
 {
- "updated": "2026-10-31T13:28:40.541Z",
- "checked": "2026-10-31T13:28:40.541Z",
+ "updated": "2026-10-31T13:30:13.585Z",
+ "checked": "2026-10-31T13:30:13.585Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-10-vuelos-directos-a-roma-con-carry-on-con-regreso-desde-madrid-directo-a-buenos-aires-aerolineas-argentinas-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-directos-a-roma-con-carry-on-con-regreso-desde-madrid-directo-a-buenos-aires-aerolineas-argentinas-rt-p.html",
+   "title": "Vuelos Directos a Roma con Carry On, con regreso desde Madrid Directo a Buenos Aires a partir de U$D 1.040 ❤️‍🔥",
+   "tipo": "vuelo",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "USD",
+    "amount": 1040
+   },
+   "at": "2026-10-31T13:30:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
   {
    "id": "2026-10-lisboa-con-carry-on-desde-buenos-aires-latam-rt-p-2",
    "url": "https://promociones-aereas.com.ar/2026/10/lisboa-con-carry-on-desde-buenos-aires-latam-rt-p-2.html",
@@ -86,7 +99,7 @@
    "id": "2026-10-lisboa-desde-san-pablo-con-regreso-desde-roma-a-buenos-aires-brithish-iberia-md-p",
    "url": "https://promociones-aereas.com.ar/2026/10/lisboa-desde-san-pablo-con-regreso-desde-roma-a-buenos-aires-brithish-iberia-md-p.html",
    "title": "Lisboa 🚃 desde San Pablo con regreso desde Roma 🍝 a Buenos Aires a partir de U$D 585",
-   "tipo": "otro",
+   "tipo": "vuelo",
    "aerolinea": "Iberia",
    "precio": {
     "cur": "USD",
@@ -239,7 +252,7 @@
    "id": "2026-10-vuelos-madrid-con-carry-on-con-regreso-desde-barcelona-a-buenos-aires-md-p",
    "url": "https://promociones-aereas.com.ar/2026/10/vuelos-madrid-con-carry-on-con-regreso-desde-barcelona-a-buenos-aires-md-p.html",
    "title": "¡Olé! 💃 Vuelos Madrid con Carry On, con regreso desde Barcelona a Buenos Aires a partir de U$D 1.026",
-   "tipo": "otro",
+   "tipo": "vuelo",
    "aerolinea": "",
    "precio": {
     "cur": "USD",
@@ -247,6 +260,241 @@
    },
    "at": "2026-10-30T13:00:00.000Z",
    "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-tremendos-paquetes-a-arraial-do-cabo-vuelos-directos-hotel-desde-buenos-aires-gol-jetsmart-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/tremendos-paquetes-a-arraial-do-cabo-vuelos-directos-hotel-desde-buenos-aires-gol-jetsmart-pa-p.html",
+   "title": "Tremendos Paquetes a Arraial Do Cabo 🪸 a partir de U$D 383 🔥 Vuelos Directos + Hotel -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 383
+   },
+   "at": "2026-10-30T12:30:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-hoteles-en-copacabana-rio-de-janeiro-con-desayuno-y-opciones-en-cuotas-ho-p-3",
+   "url": "https://promociones-aereas.com.ar/2026/10/hoteles-en-copacabana-rio-de-janeiro-con-desayuno-y-opciones-en-cuotas-ho-p-3.html",
+   "title": "Hoteles en Copacabana 🛎️ Río de Janeiro desde U$D 80 con desayuno y opciones en cuotas 𓆉",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 80
+   },
+   "at": "2026-10-30T12:15:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-hermoso-vuelos-directos-a-florianopolis-en-verano-con-descuento-desde-buenos-aires-jetsmart-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/hermoso-vuelos-directos-a-florianopolis-en-verano-con-descuento-desde-buenos-aires-jetsmart-rt-p.html",
+   "title": "¡Hermoso! Directos a Florianópolis en Verano a partir de AR$ 399.089 🔥",
+   "tipo": "vuelo",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "ARS",
+    "amount": 399089
+   },
+   "at": "2026-10-29T21:45:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-vuelos-directos-a-miami-con-descuento-en-pesos-con-carry-on-desde-buenos-aires-aerolineas-argentinas-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-directos-a-miami-con-descuento-en-pesos-con-carry-on-desde-buenos-aires-aerolineas-argentinas-rt-p.html",
+   "title": "¡Corré a Emitir! 💥 Vuelos a Miami Directos a partir de AR$ 889.801",
+   "tipo": "vuelo",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "ARS",
+    "amount": 889801
+   },
+   "at": "2026-10-29T21:30:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-para-sacar-ya-vuelos-directos-a-madrid-con-descuento-con-equipaje-y-desde-buenos-aires-plus-ultra-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/para-sacar-ya-vuelos-directos-a-madrid-con-descuento-con-equipaje-y-desde-buenos-aires-plus-ultra-rt-p.html",
+   "title": "Vuelos Directos a Madrid con Descuento de AR$ 200.000 💃 con Equipaje",
+   "tipo": "vuelo",
+   "aerolinea": "",
+   "precio": {
+    "cur": "ARS",
+    "amount": 200000
+   },
+   "at": "2026-10-29T21:15:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-vuelos-directos-desde-aeroparque-a-rio-de-janeiro-con-descuento-y-carry-on-gol-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-directos-desde-aeroparque-a-rio-de-janeiro-con-descuento-y-carry-on-gol-rt-p.html",
+   "title": "¡Dalee! ⏱️ Vuelos Directos a Río de Janeiro 🍹 a partir de $474.344",
+   "tipo": "vuelo",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "ARS",
+    "amount": 474344
+   },
+   "at": "2026-10-29T20:59:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-mira-los-productos-playeros-que-vas-a-necesitar-este-verano-m",
+   "url": "https://promociones-aereas.com.ar/2026/10/mira-los-productos-playeros-que-vas-a-necesitar-este-verano-m.html",
+   "title": "Mirá los productos 🏖️ playeros que vas a necesitar este verano 🩴",
+   "tipo": "nota",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-29T20:00:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-verano-a-pura-playa-vuelos-a-maceio-temporada-alta-cuotas-desde-bs-as-gol-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/verano-a-pura-playa-vuelos-a-maceio-temporada-alta-cuotas-desde-bs-as-gol-rt-p.html",
+   "title": "Verano a pura Playa 🌴😎 Vuelos a Maceió a partir de US$ 461 🛩️",
+   "tipo": "vuelo",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "USD",
+    "amount": 461
+   },
+   "at": "2026-10-29T18:00:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-paquetes-a-miami-vuelos-directos-y-hotel-con-muy-buena-ubicacion-desde-buenos-aires-aerolineas-argentinas-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/paquetes-a-miami-vuelos-directos-y-hotel-con-muy-buena-ubicacion-desde-buenos-aires-aerolineas-argentinas-pa-p.html",
+   "title": "Paquetes a Miami 🛍️ a partir de U$D 913 🔥 Vuelos DIRECTOS y Hotel con muy buena ubicación -por persona en base triple- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "USD",
+    "amount": 913
+   },
+   "at": "2026-10-29T17:30:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-las-mejores-actividades-en-espanol-en-milan-ac-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/las-mejores-actividades-en-espanol-en-milan-ac-p.html",
+   "title": "Las mejores actividades en español en Milán 🍕🍹",
+   "tipo": "actividad",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-29T17:12:50.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-vuelos-a-milan-con-equipaje-despachado-desde-buenos-aires-latam-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-milan-con-equipaje-despachado-desde-buenos-aires-latam-rt-p.html",
+   "title": "Vuelos a Milán con Equipaje despachado a partir de U$D 1.155 desde Buenos Aires 🛵",
+   "tipo": "vuelo",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 1155
+   },
+   "at": "2026-10-29T17:00:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-boca-a-la-final-vuelos-a-barranquilla-desde-buenos-aires-para-ver-la-copa-sudamericana-2026-latam-avianca-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/boca-a-la-final-vuelos-a-barranquilla-desde-buenos-aires-para-ver-la-copa-sudamericana-2026-latam-avianca-rt-p.html",
+   "title": "Vuelos a Barranquilla 🌴 desde Buenos Aires para alentar a Boca 🔵🟡",
+   "tipo": "vuelo",
+   "aerolinea": "LATAM",
+   "precio": null,
+   "at": "2026-10-29T16:45:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-alquiler-de-autos-en-miami-y-orlando-por-dia-au-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/alquiler-de-autos-en-miami-y-orlando-por-dia-au-p.html",
+   "title": "Alquiler de Autos en Miami u Orlando a partir de U$D 13 por día 🚘",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 13
+   },
+   "at": "2026-10-29T16:37:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-hoteles-en-mar-del-plata-en-hasta-cuotas-sin-interes-con-desayuno-por-noche-para-dos-personas-ho-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/10/hoteles-en-mar-del-plata-en-hasta-cuotas-sin-interes-con-desayuno-por-noche-para-dos-personas-ho-p-2.html",
+   "title": "Hoteles 3 ⭐ en Mar del Plata desde AR$ 100.000 en hasta 12 cuotas sin interés🏩 con desayuno por noche para dos personas",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "ARS",
+    "amount": 100000
+   },
+   "at": "2026-10-29T16:23:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-excelentes-paquetes-a-praia-da-pipa-vuelos-directos-alojamiento-desde-buenos-aires-gol-jetsmart-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/excelentes-paquetes-a-praia-da-pipa-vuelos-directos-alojamiento-desde-buenos-aires-gol-jetsmart-pa-p.html",
+   "title": "Excelentes Paquetes a Praia Da Pipa 🐬 a partir de U$D 464 🔥 Vuelos Directos + Alojamiento -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 464
+   },
+   "at": "2026-10-29T15:31:19.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-vuelos-a-florianopolis-directos-desde-buenos-aires-fechas-en-verano-jetsmart-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-florianopolis-directos-desde-buenos-aires-fechas-en-verano-jetsmart-rt-p.html",
+   "title": "Vuelos Directos a Florianópolis a partir de U$D 285 y en Cuotas 🌴",
+   "tipo": "vuelo",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 285
+   },
+   "at": "2026-10-29T15:15:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-vuelos-directos-a-miami-con-carry-on-desde-buenos-aires-cuotas-aerolineas-argentinas-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-directos-a-miami-con-carry-on-desde-buenos-aires-cuotas-aerolineas-argentinas-rt-p.html",
+   "title": "Vuelos Directos a Miami 🛍️ a partir de U$D 743 con Carry On y en Cuotas",
+   "tipo": "vuelo",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "USD",
+    "amount": 743
+   },
+   "at": "2026-10-29T15:00:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-lindos-paquetes-a-angra-dos-reis-vuelos-directos-con-carry-on-hotel-desde-buenos-aires-aerolineas-argentinas-gol",
+   "url": "https://promociones-aereas.com.ar/2026/10/lindos-paquetes-a-angra-dos-reis-vuelos-directos-con-carry-on-hotel-desde-buenos-aires-aerolineas-argentinas-gol-pa-p.html",
+   "title": "Lindos Paquetes a Angra Dos Reis 👑 a partir de U$D 459 🔥 Vuelos Directos con Carry on + Hotel -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "USD",
+    "amount": 459
+   },
+   "at": "2026-10-29T14:45:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
+  },
+  {
+   "id": "2026-10-hoteles-en-buenos-aires-para-ver-al-papa-en-noviembre-disponibilidad-y-diferentes-opciones-ho-p-3",
+   "url": "https://promociones-aereas.com.ar/2026/10/hoteles-en-buenos-aires-para-ver-al-papa-en-noviembre-disponibilidad-y-diferentes-opciones-ho-p-3.html",
+   "title": "Hoteles en Buenos Aires 🛎️ para ver al Papa en Noviembre ⛪ Disponibilidad y diferentes opciones",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-29T14:31:00.000Z",
+   "seen": "2026-10-31T13:30:13.585Z"
   },
   {
    "id": "2026-10-asistencia-al-viajero-por-dia-con-este-super-descuento-av",
