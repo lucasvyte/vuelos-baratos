@@ -1,0 +1,7 @@
+# Configuración para publicar el servidor intermedio en Cloudflare desde GitHub
+# (.github/workflows/servidor.yml). La clave IGNAV_KEY no está acá: queda guardada en Cloudflare.
+name = "vuelos-baratos-api"
+main = "ignav.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+keep_vars = true
