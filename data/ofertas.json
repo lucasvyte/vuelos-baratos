@@ -1,7 +1,265 @@
 {
- "updated": "",
- "checked": "",
+ "updated": "2026-10-31T13:28:40.541Z",
+ "checked": "2026-10-31T13:28:40.541Z",
  "ok": true,
- "source": { "name": "Promociones Aéreas", "url": "https://promociones-aereas.com.ar/" },
- "items": []
+ "source": {
+  "name": "Promociones Aéreas",
+  "url": "https://promociones-aereas.com.ar/"
+ },
+ "items": [
+  {
+   "id": "2026-10-lisboa-con-carry-on-desde-buenos-aires-latam-rt-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/10/lisboa-con-carry-on-desde-buenos-aires-latam-rt-p-2.html",
+   "title": "Lisboa con Carry On a partir de U$D 860 desde Buenos Aires 🚃",
+   "tipo": "vuelo",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 860
+   },
+   "at": "2026-10-30T20:00:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-mira-estos-tours-y-excursiones-en-barcelona-por-persona-ac-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/mira-estos-tours-y-excursiones-en-barcelona-por-persona-ac-p.html",
+   "title": "Mirá estos tours y excursiones en Barcelona desde U$D 39 por persona ❤️‍🔥🌹",
+   "tipo": "actividad",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 39
+   },
+   "at": "2026-10-30T19:30:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-llega-bien-preparado-a-tu-proximo-viaje-con-estos-articulos-m",
+   "url": "https://promociones-aereas.com.ar/2026/10/llega-bien-preparado-a-tu-proximo-viaje-con-estos-articulos-m.html",
+   "title": "Llegá bien preparado a tu próximo viaje ✈️ con estos artículos 👀",
+   "tipo": "nota",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-30T19:00:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-oferton-hoteles-en-londres-con-muy-buena-ubicacion-por-noche-para-dos-personas-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/oferton-hoteles-en-londres-con-muy-buena-ubicacion-por-noche-para-dos-personas-ho-p.html",
+   "title": "¡Ofertón! Hoteles 3 ⭐ en Londres con muy buena ubicación desde U$D 88 por noche para dos personas 💂🏻‍♂️",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 88
+   },
+   "at": "2026-10-30T18:28:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-bombazo-de-paquetes-a-praia-da-pipa-vuelos-directos-hotel-desde-buenos-aires-gol-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/bombazo-de-paquetes-a-praia-da-pipa-vuelos-directos-hotel-desde-buenos-aires-gol-pa-p.html",
+   "title": "Bombazo 💣 de Paquetes a Praia da Pipa 🐬 a partir de U$D 388 🔥 Vuelos Directos + Hotel -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "USD",
+    "amount": 388
+   },
+   "at": "2026-10-30T18:15:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-vuelos-a-aruba-desde-aeroparque-con-carry-on-incluido-en-cuotas-latam-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-aruba-desde-aeroparque-con-carry-on-incluido-en-cuotas-latam-rt-p.html",
+   "title": "Vuelos a Aruba 🦩 a partir de U$D 652 con Carry On y en Cuotas",
+   "tipo": "vuelo",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 652
+   },
+   "at": "2026-10-30T18:00:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-lisboa-desde-san-pablo-con-regreso-desde-roma-a-buenos-aires-brithish-iberia-md-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/lisboa-desde-san-pablo-con-regreso-desde-roma-a-buenos-aires-brithish-iberia-md-p.html",
+   "title": "Lisboa 🚃 desde San Pablo con regreso desde Roma 🍝 a Buenos Aires a partir de U$D 585",
+   "tipo": "otro",
+   "aerolinea": "Iberia",
+   "precio": {
+    "cur": "USD",
+    "amount": 585
+   },
+   "at": "2026-10-30T17:30:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-excelentes-paquetes-a-porto-de-galinhas-opcion-de-pago-en-cuotas-vuelos-hotel-desde-buenos-aires-latam-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/excelentes-paquetes-a-porto-de-galinhas-opcion-de-pago-en-cuotas-vuelos-hotel-desde-buenos-aires-latam-pa-p.html",
+   "title": "Excelentes Paquetes a Porto de Galinhas 🏖️ a partir de U$D 494 🔥 ¡Opción de pago en cuotas! 😎 Vuelos + Hotel -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 494
+   },
+   "at": "2026-10-30T17:00:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-vuelos-a-florianopolis-desde-mendoza-en-verano-con-carry-on-en-cuotas-aerolineas-argentinas-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-a-florianopolis-desde-mendoza-en-verano-con-carry-on-en-cuotas-aerolineas-argentinas-rt-p.html",
+   "title": "Vuelos a Florianópolis desde Mendoza 🍹 a partir de U$D 358 🔥",
+   "tipo": "vuelo",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "USD",
+    "amount": 358
+   },
+   "at": "2026-10-30T16:30:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-muy-buenos-hoteles-en-nueva-york-con-excelente-ubicacion-la-noche-en-base-doble-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/muy-buenos-hoteles-en-nueva-york-con-excelente-ubicacion-la-noche-en-base-doble-ho-p.html",
+   "title": "Muy buenos Hoteles en Nueva York 🗽 con excelente ubicación 4 ⭐ a partir de U$D 120 la noche (en base doble)",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 120
+   },
+   "at": "2026-10-30T16:02:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-vuelos-directos-a-rio-de-janeiro-en-verano-desde-cordoba-pago-en-cuotas-jetsmart-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-directos-a-rio-de-janeiro-en-verano-desde-cordoba-pago-en-cuotas-jetsmart-rt-p.html",
+   "title": "¡Atención Córdoba! 💥 Directos a Río en Verano a partir de U$D 360 🔥",
+   "tipo": "vuelo",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 360
+   },
+   "at": "2026-10-30T16:00:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-locura-paquetes-a-natal-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-gol-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/locura-paquetes-a-natal-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-gol-pa-p.html",
+   "title": "¡Locura 🤩 ! Paquetes a Natal 🏖️ a partir de U$D 667 ❤️‍🔥 Hotel All Inclusive y Vuelos Directos -por persona en base Cuádruple- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "USD",
+    "amount": 667
+   },
+   "at": "2026-10-30T15:45:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-bruselas-desde-buenos-aires-opciones-en-agosto-latam-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/bruselas-desde-buenos-aires-opciones-en-agosto-latam-rt-p.html",
+   "title": "Bruselas a partir de U$D 948 desde Buenos Aires ¡Opciones en agosto! 🧇",
+   "tipo": "vuelo",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 948
+   },
+   "at": "2026-10-30T15:30:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-punta-cana-te-espera-paquetes-hotel-all-inclusive-vuelos-directos-desde-bs-as-arajet-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/punta-cana-te-espera-paquetes-hotel-all-inclusive-vuelos-directos-desde-bs-as-arajet-pa-p.html",
+   "title": "¡Punta Cana 🌴 te Espera! Paquetes a partir de U$D 1.123 🔥 Hotel All Inclusive + Vuelos Directos -por persona en base Triple- Desde Bs. As.",
+   "tipo": "paquete",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 1123
+   },
+   "at": "2026-10-30T15:00:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-la-asistencia-al-viajero-mas-completa-para-este-verano-cuotas-sin-interes-av-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/la-asistencia-al-viajero-mas-completa-para-este-verano-cuotas-sin-interes-av-p.html",
+   "title": "¡¡La Asistencia al Viajero más completa para este verano con hasta 68 % OFF + 3 cuotas sin Interés! 🌞",
+   "tipo": "asistencia",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-10-30T14:30:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-imperdibles-paquetes-a-buzios-vuelos-directos-alojamiento-desde-buenos-aires-aerolineas-argentinas-jetsmart-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/imperdibles-paquetes-a-buzios-vuelos-directos-alojamiento-desde-buenos-aires-aerolineas-argentinas-jetsmart-pa-p.html",
+   "title": "Imperdibles Paquetes a Búzios ⛵ a partir de U$D 376 🔥 Vuelos Directos + Alojamiento -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "USD",
+    "amount": 376
+   },
+   "at": "2026-10-30T14:15:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-bajo-la-tarifa-del-hotel-llao-llao-en-bariloche-por-noche-para-dos-personas-con-desayuno-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/bajo-la-tarifa-del-hotel-llao-llao-en-bariloche-por-noche-para-dos-personas-con-desayuno-ho-p.html",
+   "title": "Bajo la tarifa del Hotel Llao Llao en Bariloche desde AR$ 345.000 por noche, para dos personas ☕🥯 con Desayuno",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "ARS",
+    "amount": 345000
+   },
+   "at": "2026-10-30T14:00:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-vuelos-directos-a-punta-cana-desde-buenos-aires-cuotas-arajet-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-directos-a-punta-cana-desde-buenos-aires-cuotas-arajet-rt-p.html",
+   "title": "¡Muy Bueno! 😎 Vuelos Directos a Punta Cana 🌴 a partir de U$D 620",
+   "tipo": "vuelo",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 620
+   },
+   "at": "2026-10-30T13:30:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-vuelos-madrid-con-carry-on-con-regreso-desde-barcelona-a-buenos-aires-md-p",
+   "url": "https://promociones-aereas.com.ar/2026/10/vuelos-madrid-con-carry-on-con-regreso-desde-barcelona-a-buenos-aires-md-p.html",
+   "title": "¡Olé! 💃 Vuelos Madrid con Carry On, con regreso desde Barcelona a Buenos Aires a partir de U$D 1.026",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 1026
+   },
+   "at": "2026-10-30T13:00:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  },
+  {
+   "id": "2026-10-asistencia-al-viajero-por-dia-con-este-super-descuento-av",
+   "url": "https://promociones-aereas.com.ar/2026/10/asistencia-al-viajero-por-dia-con-este-super-descuento-av.html",
+   "title": "¡Asistencia al Viajero a partir de AR$ 11.793 por día con este super descuento! 🚨",
+   "tipo": "asistencia",
+   "aerolinea": "",
+   "precio": {
+    "cur": "ARS",
+    "amount": 11793
+   },
+   "at": "2026-10-28T14:00:00.000Z",
+   "seen": "2026-10-31T13:28:40.541Z"
+  }
+ ]
 }
