@@ -1,11 +1,15 @@
 # Novedades
 
-La app está en **beta**: las versiones van a seguir siendo `0.X.Y` hasta que se decida que está lista. Recién ahí pasa a la **1.0.0**.
+Mientras la app no esté terminada, las versiones van a seguir siendo `0.X.Y` hasta que se decida que está lista. Recién ahí pasa a la **1.0.0**.
 
 - **X (MENOR)**: funciones nuevas, rediseños o cambios en cómo se guardan los datos.
 - **Y (ARREGLO)**: corrección de errores o ajustes chicos.
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
+
+## 0.8.1 — 31/10/2026
+
+- El número de versión al pie de la app ya no dice "beta".
 
 ## 0.8.0 — 31/10/2026
 
@@ -99,7 +103,7 @@ Rediseño pensado para el celular.
 
 ## 0.1.0 — 30/10/2026
 
-- Primera versión beta publicada en GitHub Pages.
+- Primera versión publicada en GitHub Pages.
 - Búsqueda en comparadores, agencias argentinas y aerolíneas, con fechas flexibles.
 - Mis precios compartidos con la lista de "Qué hacemos hoy" al entrar con Google.
 - Aerolíneas excluidas (Flybondi y otras) con sus fuentes.
