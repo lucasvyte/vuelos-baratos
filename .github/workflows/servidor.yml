@@ -49,4 +49,8 @@ jobs:
           exit $code
       - name: Probar
         if: env.HAS_TOKEN == 'true'
-        run: curl -fsS https://vuelos-baratos-api.978-llv.workers.dev/
+        run: |
+          r=$(curl -fsS https://vuelos-baratos-api.978-llv.workers.dev/)
+          echo "$r"
+          echo "$r" | grep -q '"clave":"cargada"' || { echo "::error title=Falta la clave::El servidor está publicado pero no tiene IGNAV_KEY."; exit 1; }
+          echo "::notice title=Servidor publicado::La clave de Ignav está cargada."
