@@ -712,7 +712,7 @@ html[data-mode="estadias"] nav.tabs a[data-m="vuelos"],html:not([data-mode="esta
   </div>
 
   <footer class="app">
-    <span class="ver">v0.10.0</span>
+    <span class="ver">v0.10.1</span>
     <span><a href="https://github.com/lucasvyte/vuelos-baratos/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Novedades de cada versión</a></span>
   </footer>
 </div>
@@ -864,7 +864,7 @@ let dests = [];
 let lastQ = null;
 const opened = new Set();
 const LS = 'vuelos-baratos-v1';
-const VERSION = '0.10.0';
+const VERSION = '0.10.1';
 
 /* ---------- Toast ---------- */
 let tt;
@@ -1114,8 +1114,8 @@ function legHtml(l, label){
     <span class="tm"><b>${hhmm(s0.departure_time_local)}</b> ${esc(s0.departure_airport)} → <b>${hhmm(sN.arrival_time_local)}</b>${dd > 0 ? `<sup>+${dd}</sup>` : ''} ${esc(sN.arrival_airport)}</span>
     <span class="dt">${esc(who)} · ${durTxt(legMin(l))} · ${stops ? `${stops} escala${stops > 1 ? 's' : ''} (${esc(via)})` : 'directo'}</span></div>`;
 }
-function flightCard(q, o, d, it, min){
-  const legs = legsOf(it), caution = cautionOf(it), best = it.price.amount === min;
+function flightCard(q, o, d, it, bestId){
+  const legs = legsOf(it), caution = cautionOf(it), best = it.ignav_id === bestId;
   return `<article class="flight ${best ? 'best' : ''}" data-ig="${esc(it.ignav_id)}">
     <div class="ftop"><div class="fprice">${money(it.price.amount, it.price.currency)}</div>
       <div class="pills">${best ? '<span class="pill best">Más barato</span>' : ''}${totalStops(it) === 0 ? '<span class="pill ok">Directo</span>' : ''}${caution ? '<span class="pill warn">Con precaución</span>' : ''}</div></div>
@@ -1133,10 +1133,12 @@ function renderLive(q, o, d){
   const list = st.data.slice().sort(SORTS[st.sort]);
   if(!list.length){ el.innerHTML = head + `<div class="empty"><b style="color:var(--ink)">No encontramos vuelos con precio para estas fechas</b><span class="small">Probá con las fechas flexibles o con las páginas de abajo.</span></div>`; return; }
   const min = Math.min(...list.map(x => x.price.amount));
+  // solo un "Más barato": el primero de la lista con el precio más bajo
+  const bestId = (list.find(x => x.price.amount === min) || {}).ignav_id;
   const shown = st.all ? list : list.slice(0, 5);
   el.innerHTML = head +
     `<div class="chiprow" role="group" aria-label="Ordenar vuelos">${[['precio','Más barato'],['rapido','Más rápido'],['escalas','Menos escalas']].map(([k,t]) => `<button type="button" class="fchip" data-live-sort="${k}" data-d="${esc(d)}" aria-pressed="${st.sort === k}">${t}</button>`).join('')}</div>
-     <div class="live-list">${shown.map(it => flightCard(q, o, d, it, min)).join('')}</div>
+     <div class="live-list">${shown.map(it => flightCard(q, o, d, it, bestId)).join('')}</div>
      ${list.length > 5 ? `<button type="button" class="btn ghost" data-live-all="${esc(d)}">${st.all ? 'Mostrar menos' : `Ver los ${list.length} vuelos`}</button>` : ''}
      <p class="muted small">Solo vuelos casados: cada viaje es un mismo pasaje, aunque tenga escalas. Precios del momento, vía Ignav. Pueden cambiar: confirmalos al comprar${q.cur === 'ARS' ? '. Pagando desde Argentina pueden sumarse impuestos y percepciones de la tarjeta' : ''}.</p>`;
 }

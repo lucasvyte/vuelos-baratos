@@ -7,6 +7,10 @@ Mientras la app no esté terminada, las versiones van a seguir siendo `0.X.Y` ha
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
 
+## 0.10.1 — 31/10/2026
+
+- Precios en vivo: si dos vuelos cuestan lo mismo, solo el primero aparece como "Más barato".
+
 ## 0.10.0 — 31/10/2026
 
 Nueva parte: Estadías.
