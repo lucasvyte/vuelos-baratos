@@ -7,6 +7,19 @@ La app está en **beta**: las versiones van a seguir siendo `0.X.Y` hasta que se
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
 
+## 0.8.0 — 31/10/2026
+
+Precios en vivo dentro de la app.
+
+- Al tocar "Buscar vuelos" aparecen los vuelos con su precio del momento, sin salir de la app: horarios, aerolínea, duración y escalas de la ida y la vuelta.
+- Se ordenan por más barato (de entrada), más rápido o menos escalas. Se ven 5 y se pueden ver todos.
+- "Ver dónde comprar" muestra los links a la aerolínea y a agencias, cada uno con su precio. La aerolínea aparece primero.
+- "Guardar precio" lo manda directo a Mis precios.
+- Las aerolíneas excluidas no aparecen, ni siquiera en una escala. BoA queda marcada "con precaución".
+- Los vuelos armados con pasajes separados quedan marcados como "Conexión por tu cuenta", con la explicación del riesgo.
+- Los precios vienen de Ignav a través del servidor intermedio de la app (la clave no queda a la vista). Con varios destinos, cada uno busca recién cuando abrís su tarjeta, para no gastar consultas de más.
+- Las páginas de siempre siguen abajo, en "También en estas páginas".
+
 ## 0.7.1 — 31/10/2026
 
 - Ofertas: los vuelos multidestino (ida a una ciudad y regreso desde otra) ahora aparecen en "Vuelos".

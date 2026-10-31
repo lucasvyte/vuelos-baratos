@@ -307,6 +307,30 @@ section{scroll-margin-top:16px}
 .links a span.small{color:var(--muted)}
 .links a:hover{border-color:var(--brand)}
 .soon{border-style:dashed}
+/* Precios en vivo */
+.live{display:flex;flex-direction:column;gap:10px}
+.live-list{display:flex;flex-direction:column;gap:10px}
+.flight{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.flight.best{border-color:var(--sign);box-shadow:0 0 0 1px var(--sign),0 8px 20px -14px rgba(242,183,5,.8)}
+.flight.sk{height:150px;background:linear-gradient(90deg,var(--surface) 0%,var(--surface-2) 50%,var(--surface) 100%);background-size:200% 100%;animation:sk 1.2s linear infinite}
+@keyframes sk{to{background-position:-200% 0}}
+@media (prefers-reduced-motion: reduce){.flight.sk{animation:none}}
+.ftop{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.fprice{font-family:var(--f-mono);font-weight:600;font-size:1.4rem;line-height:1.2}
+.ftop .pills{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+.leg{display:grid;grid-template-columns:48px minmax(0,1fr);gap:0 10px;align-items:baseline}
+.leg .lbl{grid-row:span 2;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.leg .tm b{font-family:var(--f-mono);font-size:1.05rem;font-variant-numeric:tabular-nums}
+.leg sup{color:var(--warn);font-weight:700;margin-left:1px}
+.leg .dt{font-size:.84rem;color:var(--muted)}
+.facts{display:flex;gap:8px;flex-wrap:wrap}
+.facts .btn{flex:1 1 auto}
+.buylist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.buylist a{display:flex;justify-content:space-between;align-items:center;gap:10px;text-decoration:none;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.buylist a b{display:block}
+.buylist a:hover{border-color:var(--brand)}
+.buylist .bp{font-family:var(--f-mono);font-weight:600;white-space:nowrap}
+.also{margin-top:6px}
 </style>
 
 <div class="wrap">
@@ -326,7 +350,7 @@ section{scroll-margin-top:16px}
     </div>
     <button type="button" class="btn sm hero-btn" id="installBtn" hidden>Instalar app</button>
     </div>
-    <p class="lead">Cargá tu viaje una vez y abrí la misma búsqueda en comparadores, agencias y aerolíneas. Cada precio que guardes queda con la página de donde salió.</p>
+    <p class="lead">Cargá tu viaje y mirá los precios del momento, ordenados del más barato al más caro. También podés abrir la misma búsqueda en comparadores, agencias y aerolíneas.</p>
     <ol class="steps">
       <li><span><b>Cargá el viaje</b><small>Origen, uno o varios destinos y fechas.</small></span></li>
       <li><span><b>Abrí cada página</b><small>La búsqueda llega lista o con los datos copiados.</small></span></li>
@@ -406,7 +430,7 @@ section{scroll-margin-top:16px}
       </div>
       <p class="err" id="formErr" role="alert" hidden></p>
       <div style="margin-top:14px">
-        <button type="submit" class="btn primary big">Buscar en todas las páginas</button>
+        <button type="submit" class="btn primary big">Buscar vuelos</button>
       </div>
     </form>
     <div class="recent" id="recentWrap" hidden>
@@ -544,7 +568,9 @@ section{scroll-margin-top:16px}
       <details class="note acc" open>
         <summary><h3>Cómo funciona<span class="sub">La app no inventa precios: te lleva a cada página oficial.</span></h3></summary>
         <div class="body"><ul>
-          <li>La app no inventa ni estima precios. Te lleva a la página oficial de cada sitio con tu búsqueda armada, y el precio lo ves ahí.</li>
+          <li>La app no inventa ni estima precios. Los <b>precios en vivo</b> vienen de Ignav, un servicio de datos de vuelos: son los del momento de la búsqueda y pueden cambiar, por eso cada vuelo te lleva a la aerolínea o agencia para comprar y confirmar.</li>
+          <li>Las aerolíneas excluidas no aparecen en los precios en vivo, ni siquiera en una escala.</li>
+          <li>Además, la app te lleva a la página oficial de cada sitio con tu búsqueda armada, para comparar.</li>
           <li><span class="pill ok">Búsqueda lista</span> abre la página con origen, destino, fechas y pasajeros cargados.</li>
           <li><span class="pill warn">Datos copiados</span> abre el buscador del sitio y copia tu viaje para que lo pegues o lo completes en segundos.</li>
           <li>Si un sitio cambia su formato y la búsqueda llega vacía, cargá los datos a mano: el resumen ya está copiado.</li>
@@ -578,7 +604,7 @@ section{scroll-margin-top:16px}
   </div>
 
   <footer class="app">
-    <span class="ver">v0.7.1 · beta</span>
+    <span class="ver">v0.8.0 · beta</span>
     <span><a href="https://github.com/lucasvyte/vuelos-baratos/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Novedades de cada versión</a></span>
   </footer>
 </div>
@@ -729,7 +755,7 @@ let dests = [];
 let lastQ = null;
 const opened = new Set();
 const LS = 'vuelos-baratos-v1';
-const VERSION = '0.7.1';
+const VERSION = '0.8.0';
 
 /* ---------- Toast ---------- */
 let tt;
@@ -817,9 +843,10 @@ $('#recent').addEventListener('click', e => { const b = e.target.closest('[data-
 function renderResults(q){
   lastQ = q;
   const out = q.dests.map((d,i) => destBlock(q,q.o,d,i)).join('');
-  $('#resultados').innerHTML = `<div class="row" style="justify-content:space-between"><h2>Dónde buscar</h2><span class="muted small">${q.dests.length} destino${q.dests.length>1?'s':''} · ${sourcesFor(q.o,q.dests[0]).length} páginas cada uno</span></div>` + out;
+  $('#resultados').innerHTML = `<div class="row" style="justify-content:space-between"><h2>Resultados</h2><span class="muted small">${q.dests.length} destino${q.dests.length>1?'s':''} · ${sourcesFor(q.o,q.dests[0]).length} páginas cada uno</span></div>` + out;
   updateProgress();
   fillRouteSuggestions();
+  loadLive(q, q.o, q.dests[0]);
 }
 function destBlock(q,o,d,i){
   const A = apInfo(o), B = apInfo(d);
@@ -829,7 +856,7 @@ function destBlock(q,o,d,i){
     const items = srcs.filter(s => s.cat === cat); if(!items.length) return '';
     return `<div class="group"><div class="group-head"><h3>${CATS[cat].title}</h3><span class="muted small">${CATS[cat].sub}</span></div><div class="srcs">${items.map(s => srcRow(q,o,d,s)).join('')}</div></div>`;
   }).join('');
-  return `<details class="destbox" ${i===0?'open':''}><summary>
+  return `<details class="destbox" data-d="${esc(d)}" ${i===0?'open':''}><summary>
     <div class="pass">
       <span class="chev" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
       <div class="main">
@@ -852,7 +879,7 @@ function destBlock(q,o,d,i){
         <span class="hint"><span class="hint-c">Ver ${srcs.length} páginas</span><span class="hint-o">Ocultar páginas</span></span>
       </div>
     </div></summary>
-    <div class="dest" style="margin-top:14px">${groups}${exNote()}${flexBlock(q,o,d)}</div>
+    <div class="dest" style="margin-top:14px"><div class="live" data-live="${o}-${d}"></div><p class="label also">También en estas páginas</p>${groups}${exNote()}${flexBlock(q,o,d)}</div>
   </details>`;
 }
 function srcRow(q,o,d,s){
@@ -924,6 +951,137 @@ $('#resultados').addEventListener('click', e => {
   const n = e.target.closest('[data-note]');
   if(n){ prefillPrice(n.dataset.note, n.dataset.o, n.dataset.d); }
 });
+
+/* ---------- Precios en vivo (Ignav, a través del servidor intermedio) ---------- */
+// La clave de Ignav está guardada en el servidor (worker/ignav.js), no acá.
+const API = 'https://vuelos-baratos-api.978-llv.workers.dev';
+const MARKET = {ARS:'AR', USD:'US', EUR:'ES'};
+const CABIN_API = {economy:'economy', premium:'premium_economy', business:'business', first:'first'};
+const liveCache = new Map();
+const liveKey = (q,o,d) => [o,d,q.d1,q.d2||'',q.adults,q.kids,q.cabin,q.cur].join('|');
+const legsOf = it => [it.outbound, it.inbound].filter(Boolean);
+const hhmm = t => String(t || '').slice(11,16);
+const legMin = l => l.duration_minutes || Math.round((new Date(l.segments[l.segments.length-1].arrival_time_utc) - new Date(l.segments[0].departure_time_utc)) / 60000) || 0;
+const totalMin = it => legsOf(it).reduce((a,l) => a + legMin(l), 0);
+const totalStops = it => legsOf(it).reduce((a,l) => a + l.segments.length - 1, 0);
+const durTxt = m => { const h = Math.floor(m/60), mm = m % 60; return mm ? `${h} h ${pad(mm)}` : `${h} h`; };
+const SORTS = {
+  precio: (a,b) => a.price.amount - b.price.amount || totalMin(a) - totalMin(b),
+  rapido: (a,b) => totalMin(a) - totalMin(b) || a.price.amount - b.price.amount,
+  escalas: (a,b) => totalStops(a) - totalStops(b) || a.price.amount - b.price.amount
+};
+const carriersOf = it => [...new Set(legsOf(it).flatMap(l => l.segments.map(s => s.operating_carrier_name || l.carrier || '')).filter(Boolean))];
+const hasExcluded = it => legsOf(it).some(l => [l.carrier, ...l.segments.map(s => s.operating_carrier_name)].some(n => { const x = excludedIn(n || ''); return x && x.level === 'excluida'; }));
+const cautionOf = it => carriersOf(it).map(n => excludedIn(n)).find(x => x && x.level === 'precaucion');
+
+async function loadLive(q, o, d, force){
+  if(!q) return;
+  const k = liveKey(q,o,d); let st = liveCache.get(k);
+  if(st && !force && st.status !== 'error'){ renderLive(q,o,d); return; }
+  st = {status:'loading', sort: st ? st.sort : 'precio', all:false, data:[]}; liveCache.set(k, st); renderLive(q,o,d);
+  try{
+    const body = {origin:o, destination:d, departure_date:q.d1, adults:q.adults, children:q.kids, cabin_class:CABIN_API[q.cabin] || 'economy', market:MARKET[q.cur] || 'AR'};
+    if(q.d2) body.return_date = q.d2;
+    const r = await fetch(API + '/buscar', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
+    const data = await r.json().catch(() => ({}));
+    if(!r.ok){ const e = new Error('api'); e.status = r.status; e.code = data.error && (data.error.code || data.error.type); throw e; }
+    st.data = (data.itineraries || []).filter(it => it.price && it.outbound && it.outbound.segments && it.outbound.segments.length && !hasExcluded(it));
+    st.status = 'ok';
+  }catch(e){
+    st.status = 'error';
+    st.err = e.status === 402 || e.code === 'billing_blocked' || e.code === 'billing_error' ? 'Se terminaron las consultas gratis del servicio de precios.'
+      : e.status === 400 ? 'Esta búsqueda no se puede hacer con precios en vivo. Revisá las fechas o los aeropuertos.'
+      : 'No pudimos traer los precios en este momento.';
+  }
+  if(lastQ && liveKey(lastQ,o,d) === k) renderLive(q,o,d);
+}
+function legHtml(l, label){
+  const s0 = l.segments[0], sN = l.segments[l.segments.length-1], stops = l.segments.length - 1;
+  const dd = daysBetween(String(s0.departure_time_local).slice(0,10), String(sN.arrival_time_local).slice(0,10));
+  const via = l.segments.slice(0,-1).map(s => s.arrival_airport).join(', ');
+  const who = l.carrier || s0.operating_carrier_name || '';
+  return `<div class="leg"><span class="lbl">${label}</span>
+    <span class="tm"><b>${hhmm(s0.departure_time_local)}</b> ${esc(s0.departure_airport)} → <b>${hhmm(sN.arrival_time_local)}</b>${dd > 0 ? `<sup>+${dd}</sup>` : ''} ${esc(sN.arrival_airport)}</span>
+    <span class="dt">${esc(who)} · ${durTxt(legMin(l))} · ${stops ? `${stops} escala${stops > 1 ? 's' : ''} (${esc(via)})` : 'directo'}</span></div>`;
+}
+function flightCard(q, o, d, it, min){
+  const legs = legsOf(it), caution = cautionOf(it), best = it.price.amount === min;
+  return `<article class="flight ${best ? 'best' : ''}" data-ig="${esc(it.ignav_id)}">
+    <div class="ftop"><div class="fprice">${money(it.price.amount, it.price.currency)}</div>
+      <div class="pills">${best ? '<span class="pill best">Más barato</span>' : ''}${totalStops(it) === 0 ? '<span class="pill ok">Directo</span>' : ''}${it.requires_self_transfer ? '<span class="pill warn">Conexión por tu cuenta</span>' : ''}${caution ? '<span class="pill warn">Con precaución</span>' : ''}</div></div>
+    ${legHtml(legs[0], legs.length > 1 ? 'Ida' : 'Vuelo')}${legs[1] ? legHtml(legs[1], 'Vuelta') : ''}
+    ${it.requires_self_transfer ? '<p class="small muted" style="margin:0">Son pasajes separados: si se demora un vuelo, el siguiente no te espera y la valija puede no pasar sola.</p>' : ''}
+    <div class="facts"><button type="button" class="btn primary sm" data-buy="${esc(it.ignav_id)}" aria-expanded="false">Ver dónde comprar</button><button type="button" class="btn ghost sm" data-save-live="${esc(it.ignav_id)}" data-route="${esc(o)} → ${esc(d)}">Guardar precio</button></div>
+    <div class="buy" hidden></div>
+  </article>`;
+}
+function renderLive(q, o, d){
+  const el = document.querySelector(`[data-live="${o}-${d}"]`); if(!el) return;
+  const st = liveCache.get(liveKey(q,o,d)); if(!st){ el.innerHTML = ''; return; }
+  const head = `<div class="group-head"><h3>Precios en vivo</h3><span class="muted small">Total para ${esc(paxText(q))}${q.d2 ? ', ida y vuelta' : ''}</span></div>`;
+  if(st.status === 'loading'){ el.innerHTML = head + `<div class="live-list" aria-busy="true">${'<div class="flight sk" aria-hidden="true"></div>'.repeat(3)}</div><p class="muted small">Buscando precios… tarda unos segundos.</p>`; return; }
+  if(st.status === 'error'){ el.innerHTML = head + `<div class="empty"><b style="color:var(--ink)">${esc(st.err)}</b><span class="small">Mientras tanto, podés buscar en las páginas de abajo.</span><button type="button" class="btn ghost sm" data-live-retry="${esc(d)}">Reintentar</button></div>`; return; }
+  const list = st.data.slice().sort(SORTS[st.sort]);
+  if(!list.length){ el.innerHTML = head + `<div class="empty"><b style="color:var(--ink)">No encontramos vuelos con precio para estas fechas</b><span class="small">Probá con las fechas flexibles o con las páginas de abajo.</span></div>`; return; }
+  const min = Math.min(...list.map(x => x.price.amount));
+  const shown = st.all ? list : list.slice(0, 5);
+  el.innerHTML = head +
+    `<div class="chiprow" role="group" aria-label="Ordenar vuelos">${[['precio','Más barato'],['rapido','Más rápido'],['escalas','Menos escalas']].map(([k,t]) => `<button type="button" class="fchip" data-live-sort="${k}" data-d="${esc(d)}" aria-pressed="${st.sort === k}">${t}</button>`).join('')}</div>
+     <div class="live-list">${shown.map(it => flightCard(q, o, d, it, min)).join('')}</div>
+     ${list.length > 5 ? `<button type="button" class="btn ghost" data-live-all="${esc(d)}">${st.all ? 'Mostrar menos' : `Ver los ${list.length} vuelos`}</button>` : ''}
+     <p class="muted small">Precios del momento, vía Ignav. Pueden cambiar: confirmalos al comprar${q.cur === 'ARS' ? '. Pagando desde Argentina pueden sumarse impuestos y percepciones de la tarjeta' : ''}.</p>`;
+}
+const findLive = id => { for(const st of liveCache.values()){ const it = (st.data || []).find(x => x.ignav_id === id); if(it) return it; } return null; };
+async function showBuy(btn){
+  const card = btn.closest('.flight'), box = card.querySelector('.buy');
+  if(!box.hidden){ box.hidden = true; btn.setAttribute('aria-expanded','false'); btn.textContent = 'Ver dónde comprar'; return; }
+  box.hidden = false; btn.setAttribute('aria-expanded','true'); btn.textContent = 'Ocultar';
+  if(box.dataset.loaded) return;
+  box.innerHTML = '<p class="small muted" style="margin:0">Buscando dónde comprar…</p>';
+  try{
+    const r = await fetch(API + '/comprar', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ignav_id: btn.dataset.buy})});
+    const data = await r.json().catch(() => ({}));
+    if(!r.ok) throw new Error('api');
+    const fix = u => /^https?:\/\//i.test(u) ? u : 'https://' + String(u).replace(/^\/+/, '');
+    const links = (data.booking_options || []).flatMap(o => o.links || []).filter(l => l.url)
+      .sort((a,b) => (a.provider_type === 'airline' ? 0 : 1) - (b.provider_type === 'airline' ? 0 : 1) || ((a.price && a.price.amount) || 1e15) - ((b.price && b.price.amount) || 1e15));
+    box.innerHTML = links.length
+      ? `<ul class="buylist">${links.map(l => `<li><a href="${esc(fix(l.url))}" target="_blank" rel="noopener"><span><b>${esc(l.provider_name || 'Ver oferta')}</b><span class="small muted">${l.provider_type === 'airline' ? 'Aerolínea' : 'Agencia'}${l.fare_name ? ' · ' + esc(l.fare_name) : ''}</span></span><span class="bp">${l.price ? money(l.price.amount, l.price.currency) : ''} ↗</span></a></li>`).join('')}</ul><p class="small muted" style="margin:0">Revisá el precio final y si incluye valija antes de pagar.</p>`
+      : '<p class="small muted" style="margin:0">No hay links de compra para este vuelo. Buscalo en las páginas de abajo.</p>';
+    box.dataset.loaded = '1';
+  }catch(e){ box.innerHTML = '<p class="small err" style="margin:0">No se pudieron traer los links. Probá de nuevo.</p>'; }
+}
+function saveLive(btn){
+  const it = findLive(btn.dataset.saveLive); if(!it || !lastQ) return;
+  const stops = it.outbound.segments.length - 1;
+  state.precios = [{
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+    src: 'vivo', srcName: 'Precios en vivo', url: '',
+    route: btn.dataset.route,
+    dates: lastQ.d2 ? `${short(lastQ.d1)} → ${short(lastQ.d2)}` : `${short(lastQ.d1)} solo ida`,
+    airline: `${carriersOf(it).join(' + ')} · ${stops ? stops + ' escala' + (stops > 1 ? 's' : '') : 'directo'}`.slice(0, 80),
+    amount: it.price.amount, cur: it.price.currency, final: true, at: new Date().toISOString()
+  }, ...state.precios].slice(0,300);
+  persist(); renderPrices();
+  btn.disabled = true; btn.textContent = 'Guardado ✓';
+  toast('Precio guardado en Mis precios');
+}
+$('#resultados').addEventListener('click', e => {
+  const t = e.target.closest('[data-live-sort],[data-live-all],[data-live-retry],[data-buy],[data-save-live]'); if(!t || !lastQ) return;
+  if(t.dataset.buy) return showBuy(t);
+  if(t.dataset.saveLive) return saveLive(t);
+  const d = t.dataset.d || t.dataset.liveAll || t.dataset.liveRetry, st = liveCache.get(liveKey(lastQ, lastQ.o, d));
+  if(t.dataset.liveRetry) return loadLive(lastQ, lastQ.o, d, true);
+  if(!st) return;
+  if(t.dataset.liveSort){ st.sort = t.dataset.liveSort; st.all = false; }
+  if(t.dataset.liveAll) st.all = !st.all;
+  renderLive(lastQ, lastQ.o, d);
+});
+// los demás destinos buscan precios recién cuando abrís su tarjeta (así no se gastan consultas de más)
+$('#resultados').addEventListener('toggle', e => {
+  const det = e.target; if(!det.matches || !det.matches('details.destbox') || !det.open || !lastQ) return;
+  loadLive(lastQ, lastQ.o, det.dataset.d);
+}, true);
 
 /* ---------- Mis precios ---------- */
 $('#pSource').innerHTML = SOURCES.map(s => `<option value="${s.id}">${esc(s.name)}</option>`).join('') + '<option value="otra">Otra página</option>';
@@ -1074,7 +1232,7 @@ function initStore(){
 
 /* ---------- Arranque: formulario vacío ---------- */
 function emptyResults(){
-  $('#resultados').innerHTML = `<div class="empty start"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></span><b style="color:var(--ink)">¿A dónde querés viajar?</b><span class="small">Cargá el origen, los destinos y las fechas, y tocá “Buscar en todas las páginas”. Acá vas a ver dónde buscar cada vuelo.</span></div>`;
+  $('#resultados').innerHTML = `<div class="empty start"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></span><b style="color:var(--ink)">¿A dónde querés viajar?</b><span class="small">Cargá el origen, los destinos y las fechas, y tocá “Buscar vuelos”. Acá vas a ver los precios del momento y dónde comprar.</span></div>`;
 }
 emptyResults();
 initStore();
