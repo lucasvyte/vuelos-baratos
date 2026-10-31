@@ -1,19 +1,20 @@
 # Novedades
 
-Las versiones siguen el formato `MAYOR.MENOR.ARREGLO` (por ejemplo 1.1.0):
+La app está en **beta**: las versiones van a seguir siendo `0.X.Y` hasta que se decida que está lista. Recién ahí pasa a la **1.0.0**.
 
-- **MAYOR**: cambios grandes que modifican cómo se usa la app o cómo se guardan los datos.
-- **MENOR**: funciones nuevas o rediseños que no rompen nada de lo anterior.
-- **ARREGLO**: corrección de errores o ajustes chicos.
+- **X (MENOR)**: funciones nuevas, rediseños o cambios en cómo se guardan los datos.
+- **Y (ARREGLO)**: corrección de errores o ajustes chicos.
 
-## 2.0.0 — 30/10/2026
+Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
+
+## 0.5.0 — 30/10/2026
 
 Vuelos Baratos pasa a ser una app independiente.
 
 - Se quitó la conexión con "Qué hacemos hoy": ya no está el botón "Entrar con Google" ni las listas compartidas de esa app.
 - Los precios se guardan solo en el dispositivo. Los que ya estaban compartidos y se habían bajado al celular se conservan.
 
-## 1.3.0 — 30/10/2026
+## 0.4.0 — 30/10/2026
 
 Revisión de diseño y accesibilidad.
 
@@ -27,11 +28,11 @@ Revisión de diseño y accesibilidad.
 - Si ya usaste la app, el encabezado de Buscar oculta los tres pasos de ayuda y el formulario queda más arriba.
 - En modo oscuro la app ya no muestra un destello blanco al abrir.
 
-## 1.2.1 — 30/10/2026
+## 0.3.1 — 30/10/2026
 
 - Se sacó el viaje de ejemplo (Buenos Aires → Madrid y Miami): la app arranca con el formulario vacío y un mensaje que explica qué hacer.
 
-## 1.2.0 — 30/10/2026
+## 0.3.0 — 30/10/2026
 
 Cada pestaña tiene su propia pantalla.
 
@@ -43,7 +44,7 @@ Cada pestaña tiene su propia pantalla.
 - Cada pantalla recuerda hasta dónde bajaste. Tocar la pestaña en la que ya estás te lleva arriba.
 - Funciona el botón "atrás" del celular para volver a la pantalla anterior.
 
-## 1.1.0 — 30/10/2026
+## 0.2.0 — 30/10/2026
 
 Rediseño pensado para el celular.
 
@@ -56,9 +57,9 @@ Rediseño pensado para el celular.
 - El origen se muestra sin cortarse ("BUE — Buenos Aires (todos)").
 - Número de versión al pie de la app.
 
-## 1.0.0 — 30/10/2026
+## 0.1.0 — 30/10/2026
 
-- Primera versión publicada en GitHub Pages.
+- Primera versión beta publicada en GitHub Pages.
 - Búsqueda en comparadores, agencias argentinas y aerolíneas, con fechas flexibles.
 - Mis precios compartidos con la lista de "Qué hacemos hoy" al entrar con Google.
 - Aerolíneas excluidas (Flybondi y otras) con sus fuentes.
