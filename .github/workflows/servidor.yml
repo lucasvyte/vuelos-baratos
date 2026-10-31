@@ -33,6 +33,11 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set +e
+          # del ID se toma solo el código de 32 caracteres (por si se copió con barras, espacios o la dirección entera)
+          ACC=$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | grep -oiE '[0-9a-f]{32}' | head -n1)
+          if [ -z "$ACC" ]; then echo "::error title=No se pudo publicar::El secreto CLOUDFLARE_ACCOUNT_ID no tiene un ID de cuenta válido (32 letras y números)."; exit 1; fi
+          export CLOUDFLARE_ACCOUNT_ID="$ACC"
+          export CLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"
           npx --yes wrangler@4 deploy > ../deploy.log 2>&1
           code=$?
           cat ../deploy.log
