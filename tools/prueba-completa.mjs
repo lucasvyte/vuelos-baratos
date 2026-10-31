@@ -27,6 +27,8 @@ const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, deviceSc
   userAgent: "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Mobile Safari/537.36" });
 const p = await ctx.newPage();
 p.on("pageerror", e => R.errores_js.push(e.message));
+R.api_errores = [];
+p.on("response", async r => { if (r.url().includes("workers.dev") && r.status() >= 400) { let body = ""; try { body = (await r.text()).slice(0, 400); } catch {} let req = ""; try { req = (r.request().postData() || "").slice(0, 200); } catch {} R.api_errores.push({ url: r.url(), estado: r.status(), pedido: req, respuesta: body }); } });
 p.on("console", m => { if (m.type() === "error" && !/favicon|ERR_BLOCKED|fonts/.test(m.text())) R.errores_js.push("console: " + m.text().slice(0, 200)); });
 const shot = async n => p.screenshot({ path: `${OUT}/${n}.png` });
 const txt = async sel => ((await p.locator(sel).first().textContent().catch(() => "")) || "").replace(/\s+/g, " ").trim();
