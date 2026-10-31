@@ -1,5 +1,5 @@
 /* Service worker: guarda la app para abrirla sin conexión. Cambiar CACHE en cada versión. */
-const CACHE = "vb-0.7.0";
+const CACHE = "vb-0.7.1";
 const SHELL = ["./", "manifest.webmanifest", "icons/icon-192.png", "icons/icon-512.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => {

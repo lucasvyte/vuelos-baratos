@@ -44,8 +44,8 @@ export function allowed(robots, path) {
 }
 
 /* Tipo según el final de la dirección: …-rt-p.html (vuelos), -pa- (paquetes), -ho- (hoteles)… */
-const TIPOS = { rt: "vuelo", pa: "paquete", ho: "hotel", ac: "actividad", av: "asistencia", m: "nota", n: "nota" };
-export const tipoDe = slug => { const m = slug.match(/-(rt|pa|ho|ac|av|m|n)(?:-p)?(?:-\d+)?$/); return m ? TIPOS[m[1]] : "otro"; };
+const TIPOS = { rt: "vuelo", md: "vuelo", pa: "paquete", ho: "hotel", ac: "actividad", av: "asistencia", m: "nota", n: "nota" };
+export const tipoDe = slug => { const m = slug.match(/-(rt|md|pa|ho|ac|av|m|n)(?:-p)?(?:-\d+)?$/); return m ? TIPOS[m[1]] : "otro"; };
 
 const AEROLINEAS = [
   ["aerolineas-argentinas", "Aerolíneas Argentinas"], ["latam", "LATAM"], ["jetsmart", "JetSMART"], ["jet-smart", "JetSMART"],
@@ -117,6 +117,8 @@ async function main() {
         at: d.at || now, seen: now
       });
     }
+    // se vuelve a clasificar todo por si cambiaron las reglas
+    for (const x of out.items) { const slug = (x.url.match(/\/([a-z0-9-]+)\.html$/) || [])[1] || ""; x.tipo = tipoDe(slug); x.aerolinea = aerolineaDe(slug); }
     const limit = Date.now() - DAYS * 864e5;
     out.items = [...nuevos, ...out.items]
       .filter(x => new Date(x.seen || x.at).getTime() > limit)

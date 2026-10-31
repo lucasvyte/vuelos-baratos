@@ -7,6 +7,10 @@ La app está en **beta**: las versiones van a seguir siendo `0.X.Y` hasta que se
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
 
+## 0.7.1 — 31/10/2026
+
+- Ofertas: los vuelos multidestino (ida a una ciudad y regreso desde otra) ahora aparecen en "Vuelos".
+
 ## 0.7.0 — 31/10/2026
 
 Pestaña nueva: Ofertas.
