@@ -6,6 +6,13 @@ Las versiones siguen el formato `MAYOR.MENOR.ARREGLO` (por ejemplo 1.1.0):
 - **MENOR**: funciones nuevas o rediseños que no rompen nada de lo anterior.
 - **ARREGLO**: corrección de errores o ajustes chicos.
 
+## 2.0.0 — 30/10/2026
+
+Vuelos Baratos pasa a ser una app independiente.
+
+- Se quitó la conexión con "Qué hacemos hoy": ya no está el botón "Entrar con Google" ni las listas compartidas de esa app.
+- Los precios se guardan solo en el dispositivo. Los que ya estaban compartidos y se habían bajado al celular se conservan.
+
 ## 1.3.0 — 30/10/2026
 
 Revisión de diseño y accesibilidad.

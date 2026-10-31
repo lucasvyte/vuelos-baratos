@@ -204,10 +204,6 @@ table.flex td.na{color:var(--muted)}
 .price .foot{grid-column:1/-1;display:flex;justify-content:space-between;gap:8px;align-items:center;border-top:1px dashed var(--line);padding-top:8px;font-size:.84rem}
 .empty{border:1px dashed var(--line);border-radius:16px;padding:22px 18px;text-align:center;color:var(--muted);display:flex;flex-direction:column;gap:6px;align-items:center}
 .sync{font-size:.8rem;color:var(--muted)}
-.cuenta{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;background:var(--warn-bg);border-radius:10px;padding:10px 12px;margin:10px 0 4px}
-.cuenta p{margin:0;flex:1 1 220px}
-.cuenta .acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.cuenta select{font:inherit;padding:6px 8px;border-radius:8px}
 .diff{font-size:.78rem;color:var(--muted);text-align:right}
 .empty .ic{width:44px;height:44px;border-radius:14px;background:var(--surface-2);display:grid;place-items:center;color:var(--brand)}
 details.addbox{border:1px solid var(--line);border-radius:16px;background:var(--surface-2)}
@@ -384,7 +380,6 @@ section{scroll-margin-top:16px}
   </header>
   <button type="button" class="backbar" id="backSearch" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg><span>Volver a las páginas</span></button>
   <section id="precios" class="panel" aria-labelledby="t-precios">
-    <div class="cuenta" id="cuenta" hidden></div>
 
     <details class="addbox" id="pformBox">
     <summary><span>Anotar un precio</span><span class="plus" aria-hidden="true">+</span></summary>
@@ -483,7 +478,7 @@ section{scroll-margin-top:16px}
   </div>
 
   <footer class="app">
-    <span class="ver">v1.3.0</span>
+    <span class="ver">v2.0.0</span>
     <span><a href="https://github.com/lucasvyte/vuelos-baratos/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Novedades de cada versión</a></span>
   </footer>
 </div>
@@ -634,7 +629,7 @@ let dests = [];
 let lastQ = null;
 const opened = new Set();
 const LS = 'vuelos-baratos-v1';
-const VERSION = '1.3.0';
+const VERSION = '2.0.0';
 
 /* ---------- Toast ---------- */
 let tt;
@@ -935,40 +930,11 @@ $('#copyPrices').addEventListener('click', () => {
 });
 
 /* ---------- Guardado ---------- */
-// Sin cuenta: se guarda en este dispositivo. Con Google: los precios se comparten con la lista de "Qué hacemos hoy".
-let REMOTE = null, known = null;
-function setSync(t){ $('#sync').textContent = t; }
+// Todo se guarda en este dispositivo. La app no está conectada con ninguna otra.
 function saveLocal(){ try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){} }
-const clean = p => { const o = {}; ['id','src','srcName','url','route','dates','airline','amount','cur','final','at','by'].forEach(k => { if(p[k] !== undefined && p[k] !== null) o[k] = p[k]; }); return o; };
-function persist(){
-  saveLocal();
-  if(!REMOTE || !known) return;
-  const now = new Set(state.precios.map(p => p.id));
-  state.precios.filter(p => !known.has(p.id)).forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(clean(p)); });
-  [...known].filter(id => !now.has(id)).forEach(id => REMOTE.del(id));
-  known = now; saveLocal();
-}
-window.__vb = {
-  connect(api){ REMOTE = api; known = null; },
-  disconnect(){ REMOTE = null; known = null; state.precios = state.precios.filter(p => !p.g); saveLocal(); renderPrices(); setSync('Guardado en este dispositivo'); },
-  remote(list){
-    if(!REMOTE) return;
-    list = list.map(p => ({...p, g: REMOTE.gid}));
-    if(known === null){
-      // la primera vez se suben los precios que estaban solo en este dispositivo
-      const ids = new Set(list.map(p => p.id));
-      const solos = state.precios.filter(p => !p.g && !ids.has(p.id));
-      solos.forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(clean(p)); });
-      list = [...solos, ...list];
-    }
-    state.precios = list.sort((a,b) => String(b.at||'').localeCompare(String(a.at||'')));
-    known = new Set(state.precios.map(p => p.id));
-    saveLocal(); renderPrices(); setSync('Compartido');
-  },
-  sync: setSync
-};
+function persist(){ saveLocal(); }
 function initStore(){
-  try{ const raw = localStorage.getItem(LS); if(raw){ const d = JSON.parse(raw); state = {precios:d.precios||[], busquedas:d.busquedas||[]}; } }catch(e){}
+  try{ const raw = localStorage.getItem(LS); if(raw){ const d = JSON.parse(raw); state = {precios:(d.precios||[]).map(({g, ...p}) => p), busquedas:d.busquedas||[]}; saveLocal(); } }catch(e){}
   renderPrices(); renderRecent();
   if(state.busquedas.length || state.precios.length) $('#s-buscar .hero').classList.add('returning');
 }
@@ -1026,90 +992,5 @@ if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch
 })();
 </script>
 
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut }
-  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import { getFirestore, doc, getDoc, getDocs, setDoc, deleteDoc, collection, onSnapshot, query, where }
-  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-// Mismo proyecto de Firebase que "Qué hacemos hoy": se usan las mismas listas compartidas.
-const app = initializeApp({
-  apiKey: "AIzaSyBB2YeVAAisCXTyfRAPm0MIHLUPv_JP9eg",
-  authDomain: "que-hacemos-hoy-59b81.firebaseapp.com",
-  projectId: "que-hacemos-hoy-59b81",
-  storageBucket: "que-hacemos-hoy-59b81.firebasestorage.app",
-  messagingSenderId: "484182237158",
-  appId: "1:484182237158:web:62d2b437e50df691e14027"
-});
-const QHH = "https://lucasvyte.github.io/que-hacemos-hoy/";
-const auth = getAuth(app), fs = getFirestore(app);
-const box = document.getElementById("cuenta");
-const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const firstName = n => (n || "").split(" ")[0];
-let unsub = null, me = null, groups = [];
-const vb = () => window.__vb;
-
-function show(html){ box.innerHTML = html; box.hidden = false; }
-function loggedOut(){
-  show(`<p class="small">Entrá con la misma cuenta de Google que usás en <b>Qué hacemos hoy</b> y estos precios se comparten con tu lista.</p>
-    <div class="acts"><button type="button" class="btn primary sm" id="login">Entrar con Google</button></div>`);
-  document.getElementById("login").onclick = login;
-}
-async function login(){
-  const prov = new GoogleAuthProvider(); prov.setCustomParameters({ prompt: "select_account" });
-  try{ await signInWithPopup(auth, prov); }
-  catch(e){
-    if(["auth/popup-blocked","auth/operation-not-supported-in-this-environment","auth/cancelled-popup-request"].includes(e.code)) return signInWithRedirect(auth, prov);
-    if(e.code !== "auth/popup-closed-by-user") vb().sync("No se pudo entrar. Probá de nuevo.");
-  }
-}
-function stop(){ if(unsub){ unsub(); unsub = null; } }
-function useGroup(gid){
-  stop();
-  try{ localStorage.setItem("vb-gid", gid); }catch(e){}
-  const g = groups.find(x => x.id === gid);
-  const names = Object.values(g.memberInfo || {}).map(m => firstName(m.name)).filter(Boolean).join(", ");
-  const opts = groups.length > 1 ? `<select id="glist" aria-label="Lista">${groups.map(x => `<option value="${esc(x.id)}" ${x.id === gid ? "selected" : ""}>${esc(x.name || "Lista")}</option>`).join("")}</select>` : "";
-  show(`<p class="small">Compartido con la lista <b>${esc(g.name || "de Qué hacemos hoy")}</b>${names ? ` (${esc(names)})` : ""}. Lo que anote cualquiera aparece acá.</p>
-    <div class="acts">${opts}<button type="button" class="btn ghost sm" id="logout">Salir</button></div>`);
-  document.getElementById("logout").onclick = () => { stop(); vb().disconnect(); signOut(auth); };
-  if(opts) document.getElementById("glist").onchange = e => { vb().disconnect(); useGroup(e.target.value); };
-  const col = collection(fs, `groups/${gid}/vuelos`);
-  vb().connect({
-    gid, name: firstName(me.displayName),
-    add: p => setDoc(doc(col, p.id), p).catch(err => { console.error(err); vb().sync("No se pudo compartir"); }),
-    del: id => deleteDoc(doc(col, id)).catch(err => console.error(err))
-  });
-  vb().sync("Conectando…");
-  unsub = onSnapshot(col, s => vb().remote(s.docs.map(d => d.data())), err => {
-    console.error(err);
-    vb().sync(err.code === "permission-denied" ? "Falta habilitar el guardado compartido" : "Sin conexión: guardado en este dispositivo");
-  });
-}
-onAuthStateChanged(auth, async u => {
-  me = u; stop();
-  if(!u){ loggedOut(); return; }
-  show(`<p class="small">Buscando tu lista…</p>`);
-  try{
-    const s = await getDocs(query(collection(fs, "groups"), where("members", "array-contains", u.uid)));
-    groups = s.docs.map(d => ({ id: d.id, ...d.data() }));
-    if(!groups.length){
-      show(`<p class="small">Entraste como ${esc(u.email)}, pero todavía no tenés una lista en Qué hacemos hoy. Creala allá (o sumate a la de tu pareja) y volvé.</p>
-        <div class="acts"><a class="btn primary sm" href="${QHH}" target="_blank" rel="noopener">Abrir Qué hacemos hoy</a><button type="button" class="btn ghost sm" id="logout">Salir</button></div>`);
-      document.getElementById("logout").onclick = () => signOut(auth);
-      return;
-    }
-    let pick = null;
-    try{ pick = localStorage.getItem("vb-gid"); }catch(e){}
-    if(!groups.some(g => g.id === pick)){
-      try{ const p = await getDoc(doc(fs, "users", u.uid)); pick = p.exists() ? p.data().groupId : null; }catch(e){}
-    }
-    if(!groups.some(g => g.id === pick)) pick = (groups.find(g => (g.members || []).length > 1) || groups[0]).id;
-    useGroup(pick);
-  }catch(e){ console.error(e); show(`<p class="small">No se pudo leer tu lista. Revisá la conexión y recargá.</p>`); }
-});
-getRedirectResult(auth).catch(e => console.error(e));
-</script>
 
 </body></html>
