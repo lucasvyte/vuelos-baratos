@@ -4,7 +4,7 @@ Buscador de vuelos baratos: arma búsquedas en comparadores, agencias y aerolín
 
 Publicada con GitHub Pages: https://lucasvyte.github.io/vuelos-baratos/ — se puede instalar como app (PWA).
 
-Versión actual: **0.6.0 (beta)**. Ver [CHANGELOG.md](CHANGELOG.md).
+Versión actual: **0.7.0 (beta)**. Ver [CHANGELOG.md](CHANGELOG.md).
 
 Mientras la app esté en beta, las versiones son `0.X.Y` (X: funciones o cambios nuevos, Y: arreglos). Pasa a 1.0.0 solo cuando el dueño de la app decida que salió de la beta.
 
@@ -20,3 +20,7 @@ Proyecto propio: `vuelos-baratos-40152` (no se comparte con ninguna otra app).
 
 - Authentication: inicio con Google activado y `lucasvyte.github.io` en dominios autorizados.
 - Firestore: las reglas están en `firestore.rules`. Cada vez que cambian, hay que pegarlas en la consola (Firestore Database → Reglas → Publicar).
+
+## Robot de ofertas
+
+`tools/ofertas.mjs` corre cada 3 horas en GitHub Actions (`.github/workflows/ofertas.yml`), lee la portada de Promociones Aéreas y guarda en `data/ofertas.json` solo título, precio, tipo, fecha y enlace de cada publicación. Las fechas de sales están en `SALES` dentro de `index.html`.

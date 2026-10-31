@@ -277,11 +277,42 @@ section{scroll-margin-top:16px}
 .share .foot{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
 .share .foot button{font:inherit;font-weight:600;color:var(--brand);background:none;border:0;padding:6px 0;cursor:pointer}
 .share .msg{font-size:.86rem;font-weight:600;color:var(--warn)}
+/* Ofertas */
+.hero.mini.deal::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'%3E%3Cpath d='M12 2c1 4 5 5.5 5 10.5a5 5 0 0 1-10 0c0-2.2 1.2-3.8 2.3-4.8 0 2 .9 3.3 2.2 3.3C11.5 8 10.5 5.5 12 2z'/%3E%3C/svg%3E");width:150px;height:150px;right:-16px;top:-22px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(19,32,59,.04),0 8px 24px -16px rgba(19,32,59,.2)}
+.card h3{font-size:1.05rem}
+.card .sub{font-size:.88rem;color:var(--muted)}
+.sales{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.sale{flex:1 0 140px;border-radius:14px;padding:10px 12px;background:var(--surface-2);border:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.sale b{font-size:.95rem}
+.sale .when{font-size:.82rem;color:var(--muted)}
+.sale.now{background:var(--sign);border-color:var(--sign);color:var(--sign-ink)}
+.sale.now .when{color:var(--sign-ink)}
+.chiprow{display:flex;gap:6px;flex-wrap:wrap}
+.fchip{font:inherit;font-size:.86rem;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer}
+.fchip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.deals{display:flex;flex-direction:column;gap:10px}
+.deal-it{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;text-decoration:none;color:var(--ink)}
+.deal-it:hover{border-color:var(--brand)}
+.deal-it.bad{opacity:.72}
+.deal-it .tic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--surface-2);font-size:1.25rem}
+.deal-it .t{font-weight:700;line-height:1.3}
+.deal-it .m{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:.8rem;color:var(--muted);margin-top:6px}
+.deal-it .price{font-family:var(--f-mono);font-weight:600;font-size:1.05rem;color:var(--ink);background:var(--sign);color:var(--sign-ink);padding:1px 8px;border-radius:6px}
+.deal-it .go{color:var(--brand);font-weight:700;margin-left:auto}
+.pill.new{background:var(--brand);color:var(--brand-ink)}
+.links{display:flex;flex-direction:column;gap:8px}
+.links a{display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.links a b{display:block}
+.links a span.small{color:var(--muted)}
+.links a:hover{border-color:var(--brand)}
+.soon{border-style:dashed}
 </style>
 
 <div class="wrap">
   <nav class="tabs" aria-label="Pantallas">
     <a href="#/buscar" data-tab="buscar" class="on" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar</a>
+    <a href="#/ofertas" data-tab="ofertas"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 4 5 5.5 5 10.5a5 5 0 0 1-10 0c0-2.2 1.2-3.8 2.3-4.8 0 2 .9 3.3 2.2 3.3C11.5 8 10.5 5.5 12 2z"/></svg>Ofertas<span class="cnt" id="tabOfertas"></span></a>
     <a href="#/precios" data-tab="precios"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg>Mis precios<span class="cnt" id="tabCount"></span></a>
     <a href="#/fuentes" data-tab="fuentes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>Fuentes</a>
   </nav>
@@ -387,6 +418,53 @@ section{scroll-margin-top:16px}
   <section id="resultados" class="dest" aria-live="polite"></section>
   </div>
 
+  <div class="screen" id="s-ofertas" hidden>
+  <header class="hero mini deal">
+    <h2 id="t-ofertas" tabindex="-1">Ofertas</h2>
+    <p class="lead">Promociones y precios por debajo de lo normal que publican sitios argentinos. Se actualiza solo cada 3 horas.</p>
+    <span class="sync small" id="ofUpd">Buscando ofertas…</span>
+  </header>
+
+  <section class="card" aria-labelledby="t-sales">
+    <h3 id="t-sales">Fechas de ofertas</h3>
+    <div class="sales" id="sales"></div>
+    <p class="sub">En estas fechas aerolíneas y agencias suelen lanzar descuentos y cuotas. <a href="https://www.turismocity.com.ar/eventos/cybermonday" target="_blank" rel="noopener">Fuente: Turismocity</a></p>
+  </section>
+
+  <section class="dest" aria-labelledby="t-promos">
+    <div class="group-head"><h3 id="t-promos">Últimas promos</h3><span class="muted small" id="ofCount"></span></div>
+    <div class="chiprow" role="group" aria-label="Qué mostrar">
+      <button type="button" class="fchip" data-f="vuelo" aria-pressed="true">Vuelos</button>
+      <button type="button" class="fchip" data-f="paquete" aria-pressed="false">Paquetes</button>
+      <button type="button" class="fchip" data-f="" aria-pressed="false">Todo</button>
+    </div>
+    <div class="deals" id="deals" aria-live="polite"></div>
+  </section>
+
+  <section class="card" aria-labelledby="t-mas">
+    <h3 id="t-mas">Más ofertas</h3>
+    <div class="links">
+      <a href="https://promociones-aereas.com.ar/" target="_blank" rel="noopener"><span><b>Promociones Aéreas</b><span class="small">Promos y tarifas bajas desde Argentina, todos los días</span></span><span aria-hidden="true">↗</span></a>
+      <a href="https://www.turismocity.com.ar/promociones_aereas/c-promociones_aereas-1" target="_blank" rel="noopener"><span><b>Turismocity · Promociones</b><span class="small">Notas de sales y ofertas de vuelos</span></span><span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="t-tips">
+    <h3 id="t-tips">Si aparece una tarifa muy baja</h3>
+    <ul class="sub" style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px">
+      <li>Las tarifas cargadas por error y las promos relámpago duran horas: si te sirve, comprala rápido.</li>
+      <li>No pagues hotel ni nada que no se pueda devolver hasta que te llegue el pasaje emitido: a veces la aerolínea cancela las tarifas con error.</li>
+      <li>Revisá si incluye valija y el precio final con impuestos antes de comparar.</li>
+      <li>Si la promo es de una aerolínea excluida (por ejemplo Flybondi), la app la marca. <a href="#excluidas">Ver por qué</a></li>
+    </ul>
+  </section>
+
+  <section class="card soon" aria-labelledby="t-alertas">
+    <h3 id="t-alertas">Próximamente: alertas de tus rutas</h3>
+    <p class="sub">Un robot va a revisar todos los días los precios de las rutas que elijas y te va a avisar cuando bajen mucho de lo normal. Para eso falta conectar un proveedor de precios (Ignav).</p>
+  </section>
+  </div>
+
   <div class="screen" id="s-precios" hidden>
   <header class="hero mini tag">
         <h2 id="t-precios" tabindex="-1">Mis precios</h2>
@@ -471,6 +549,7 @@ section{scroll-margin-top:16px}
           <li><span class="pill warn">Datos copiados</span> abre el buscador del sitio y copia tu viaje para que lo pegues o lo completes en segundos.</li>
           <li>Si un sitio cambia su formato y la búsqueda llega vacía, cargá los datos a mano: el resumen ya está copiado.</li>
           <li>Cada precio guardado muestra la página, el enlace y la fecha en que lo anotaste, así sabés qué tan reciente es.</li>
+          <li>La pestaña <b>Ofertas</b> muestra las promos que publica Promociones Aéreas: título, precio y enlace a la nota original, actualizado cada 3 horas.</li>
         </ul></div>
       </details>
       <details class="note acc">
@@ -499,7 +578,7 @@ section{scroll-margin-top:16px}
   </div>
 
   <footer class="app">
-    <span class="ver">v0.6.0 · beta</span>
+    <span class="ver">v0.7.0 · beta</span>
     <span><a href="https://github.com/lucasvyte/vuelos-baratos/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Novedades de cada versión</a></span>
   </footer>
 </div>
@@ -650,7 +729,7 @@ let dests = [];
 let lastQ = null;
 const opened = new Set();
 const LS = 'vuelos-baratos-v1';
-const VERSION = '0.6.0';
+const VERSION = '0.7.0';
 
 /* ---------- Toast ---------- */
 let tt;
@@ -1000,11 +1079,77 @@ function emptyResults(){
 emptyResults();
 initStore();
 
+/* ---------- Ofertas ---------- */
+// data/ofertas.json lo arma el robot de GitHub (tools/ofertas.mjs) cada 3 horas.
+const SALES = [
+  {name:'CyberMonday', from:'2026-11-02', to:'2026-11-04'},
+  {name:'Black Friday', from:'2026-11-27', to:'2026-11-27'}
+];
+const TIPO_IC = {vuelo:'✈️', paquete:'🧳', hotel:'🏨', actividad:'🎟️', asistencia:'🩺', nota:'📰', otro:'🏷️'};
+let ofertas = null, ofFiltro = 'vuelo', ofVisto = 0;
+try{ ofVisto = +localStorage.getItem('vb-ofertas-visto') || 0; }catch(e){}
+function renderSales(){
+  const fmt = s => { const d = fromIso(s); return `${d.getDate()} ${MES[d.getMonth()]}`; };
+  const list = SALES.filter(x => x.to >= TODAY);
+  $('#sales').closest('section').hidden = !list.length;
+  $('#sales').innerHTML = list.map(x => {
+    const now = x.from <= TODAY && TODAY <= x.to, dd = daysBetween(TODAY, x.from);
+    const when = now ? '¡Es hoy! Buscá ofertas' : `${fmt(x.from)}${x.to !== x.from ? ' al ' + fmt(x.to) : ''} · ${dd === 1 ? 'mañana' : 'en ' + dd + ' días'}`;
+    return `<div class="sale ${now ? 'now' : ''}"><b>${esc(x.name)}</b><span class="when">${esc(when)}</span></div>`;
+  }).join('');
+}
+function renderOfertas(){
+  if(!ofertas) return;
+  const items = (ofertas.items || []).filter(x => !ofFiltro || x.tipo === ofFiltro);
+  const upd = ofertas.updated ? `Actualizado ${ago(ofertas.updated)}` : 'Todavía no se actualizó';
+  $('#ofUpd').textContent = ofertas.ok === false && !(ofertas.items || []).length ? 'No se pudieron leer las ofertas' : upd + ' · fuente: Promociones Aéreas';
+  $('#ofCount').textContent = items.length ? `${items.length} ${items.length === 1 ? 'promo' : 'promos'}` : '';
+  if(!items.length){
+    $('#deals').innerHTML = `<div class="empty"><b style="color:var(--ink)">${(ofertas.items || []).length ? 'No hay promos de este tipo ahora' : 'Todavía no hay ofertas cargadas'}</b><span class="small">El robot revisa cada 3 horas. Mientras tanto, mirá los sitios de “Más ofertas”.</span></div>`;
+    return;
+  }
+  $('#deals').innerHTML = items.map(x => {
+    const ex = excludedIn(x.aerolinea + ' ' + x.title);
+    const nueva = ofVisto && new Date(x.seen || x.at).getTime() > ofVisto;
+    const price = x.precio ? `<span class="price">${money(x.precio.amount, x.precio.cur)}</span>` : '';
+    return `<a class="deal-it ${ex && ex.level === 'excluida' ? 'bad' : ''}" href="${esc(x.url)}" target="_blank" rel="noopener">
+      <span class="tic" aria-hidden="true">${TIPO_IC[x.tipo] || TIPO_IC.otro}</span>
+      <span><span class="t">${esc(x.title)}</span>
+        <span class="m">${price}${nueva ? '<span class="pill new">Nueva</span>' : ''}${x.aerolinea ? `<span>${esc(x.aerolinea)}</span>` : ''}${ex ? (ex.level === 'excluida' ? '<span class="pill bad">Aerolínea excluida</span>' : '<span class="pill warn">Con precaución</span>') : ''}<span>${esc(ago(x.at))}</span><span class="go">Ver ↗</span></span></span>
+    </a>`;
+  }).join('');
+}
+function badgeOfertas(){
+  const n = ofertas ? (ofertas.items || []).filter(x => x.tipo === 'vuelo' && new Date(x.seen || x.at).getTime() > ofVisto).length : 0;
+  $('#tabOfertas').textContent = ofVisto && n ? String(Math.min(n, 99)) : '';
+}
+async function loadOfertas(){
+  try{
+    const r = await fetch('data/ofertas.json', {cache:'no-cache'});
+    ofertas = await r.json();
+  }catch(e){ ofertas = ofertas || {ok:false, items:[]}; }
+  renderOfertas(); badgeOfertas();
+}
+function onOfertasShown(){
+  renderSales(); renderOfertas();
+  // lo que ya viste deja de contar como nuevo la próxima vez que entres
+  const now = Date.now(); if(!ofVisto) ofVisto = now;
+  try{ localStorage.setItem('vb-ofertas-visto', String(now)); }catch(e){}
+  setTimeout(() => { ofVisto = now; badgeOfertas(); }, 1500);
+}
+document.querySelectorAll('.fchip').forEach(b => b.addEventListener('click', () => {
+  ofFiltro = b.dataset.f;
+  document.querySelectorAll('.fchip').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  renderOfertas();
+}));
+loadOfertas();
+setInterval(loadOfertas, 30 * 60000);
+
 /* ---------- Pantallas ---------- */
 // Cada pestaña tiene su propia pantalla. La dirección cambia (#/precios) para que funcione el botón "atrás"
 // y cada pantalla recuerda hasta dónde bajaste.
-const SCREENS = ['buscar','precios','fuentes'];
-const TITLES = {buscar:'Vuelos Baratos', precios:'Mis precios · Vuelos Baratos', fuentes:'Fuentes · Vuelos Baratos'};
+const SCREENS = ['buscar','ofertas','precios','fuentes'];
+const TITLES = {buscar:'Vuelos Baratos', ofertas:'Ofertas · Vuelos Baratos', precios:'Mis precios · Vuelos Baratos', fuentes:'Fuentes · Vuelos Baratos'};
 const tabs = [...document.querySelectorAll('nav.tabs a')];
 const scrollPos = {};
 let current = null;
@@ -1017,6 +1162,7 @@ function show(name, opts = {}){
   tabs.forEach(a => { const on = a.dataset.tab === name; a.classList.toggle('on', on); on ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'); });
   document.title = TITLES[name];
   if(name === 'precios') $('#backSearch').hidden = !opts.fromSearch;
+  if(name === 'ofertas') onOfertasShown();
   if(changed) window.scrollTo(0, opts.top ? 0 : (scrollPos[name] || 0));
 }
 function navigate(name, opts = {}){

@@ -7,6 +7,18 @@ La app está en **beta**: las versiones van a seguir siendo `0.X.Y` hasta que se
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
 
+## 0.7.0 — 31/10/2026
+
+Pestaña nueva: Ofertas.
+
+- Muestra las últimas promos que publica Promociones Aéreas, con el precio destacado y el enlace a la nota original. Se pueden filtrar por vuelos, paquetes o todo.
+- Un robot las actualiza solo cada 3 horas (respeta lo que el sitio permite leer y no copia textos ni fotos).
+- Las promos nuevas desde tu última visita aparecen marcadas y con un número en la pestaña.
+- Si una promo es de una aerolínea excluida (por ejemplo Flybondi), queda marcada.
+- Calendario de fechas de ofertas: CyberMonday (2 al 4 de noviembre) y Black Friday (27 de noviembre).
+- Accesos directos a Promociones Aéreas y a las promociones de Turismocity.
+- Consejos para cuando aparece una tarifa muy baja o cargada por error.
+
 ## 0.6.0 — 31/10/2026
 
 Listas propias para compartir precios.
