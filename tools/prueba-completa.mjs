@@ -28,7 +28,9 @@ const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, deviceSc
 const p = await ctx.newPage();
 p.on("pageerror", e => R.errores_js.push(e.message));
 R.api_errores = [];
-p.on("response", async r => { if (r.url().includes("workers.dev") && r.status() >= 400) { let body = ""; try { body = (await r.text()).slice(0, 400); } catch {} let req = ""; try { req = (r.request().postData() || "").slice(0, 200); } catch {} R.api_errores.push({ url: r.url(), estado: r.status(), pedido: req, respuesta: body }); } });
+R.api = [];
+p.on("response", async r => { if (r.url().includes("workers.dev") && r.url().endsWith("/comprar")) { let body = ""; try { body = (await r.text()).slice(0, 700); } catch {} R.api.push({ estado: r.status(), pedido: (r.request().postData() || "").slice(0, 120), respuesta: body }); }
+  if (r.url().includes("workers.dev") && r.status() >= 400) { let body = ""; try { body = (await r.text()).slice(0, 400); } catch {} let req = ""; try { req = (r.request().postData() || "").slice(0, 200); } catch {} R.api_errores.push({ url: r.url(), estado: r.status(), pedido: req, respuesta: body }); } });
 p.on("console", m => { if (m.type() === "error" && !/favicon|ERR_BLOCKED|fonts/.test(m.text())) R.errores_js.push("console: " + m.text().slice(0, 200)); });
 const shot = async n => p.screenshot({ path: `${OUT}/${n}.png` });
 const txt = async sel => ((await p.locator(sel).first().textContent().catch(() => "")) || "").replace(/\s+/g, " ").trim();
@@ -59,7 +61,7 @@ try {
     await p.waitForSelector('[data-live="BUE-MAD"] .buy:not([hidden]) .buylist, [data-live="BUE-MAD"] .buy:not([hidden]) p', { timeout: 30000 }).catch(() => {});
     await p.waitForTimeout(1500);
     const compra = await p.locator('[data-live="BUE-MAD"] .buylist a').evaluateAll(as => as.map(a => ({ texto: a.innerText.replace(/\s+/g, " "), url: a.href })));
-    paso("Ver dónde comprar", compra.length > 0, { opciones: compra.slice(0, 5).map(x => x.texto) });
+    paso("Ver dónde comprar", compra.length > 0, { opciones: compra.slice(0, 5).map(x => x.texto), pantalla: (await txt('[data-live="BUE-MAD"] .buy:not([hidden])')).slice(0, 200) });
     compra.slice(0, 2).forEach(x => R.links.push({ tipo: "compra", nombre: x.texto.split(" ")[0], url: x.url }));
     await p.locator('[data-live="BUE-MAD"] .flight').first().scrollIntoViewIfNeeded(); await shot("03-donde-comprar");
 
