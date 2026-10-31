@@ -1,0 +1,271 @@
+{
+ "inicio": "2026-10-31T22:04:03.461Z",
+ "pasos": [
+  {
+   "nombre": "Versión publicada",
+   "ok": true,
+   "repo": "0.10.0",
+   "publicada": "0.10.0"
+  },
+  {
+   "nombre": "Abre la app",
+   "ok": true,
+   "titulo": "Vuelos Baratos",
+   "pie": "v0.10.0"
+  },
+  {
+   "nombre": "Precios en vivo Buenos Aires → Madrid",
+   "ok": true,
+   "vuelos_visibles": 5,
+   "segundos": 1,
+   "primero": "$ 2.044.124 Más barato Ida 13:55 EZE → 10:50+1 MAD ITA · 16 h 55 · 1 escala (FCO)Vuelta 05:55 MAD → 19:55 EZE ITA · 18 h · 1 escala (FCO) Ver dónde comprarGuardar precio🏨 Alojamiento",
+   "flybondi": false,
+   "conexion_por_tu_cuenta": false
+  },
+  {
+   "nombre": "Ordenar vuelos",
+   "ok": true,
+   "despues": "$ 2.044.124"
+  },
+  {
+   "nombre": "Ver dónde comprar",
+   "ok": true,
+   "opciones": [
+    "ITA Aerolínea · Economy Light $ 2.044.124 ↗",
+    "ITA Aerolínea · Economy Comfort $ 2.240.360 ↗",
+    "ITA Aerolínea · Economy Comfort Plus $ 2.436.596 ↗",
+    "ITA Aerolínea · Economy Impact $ 2.600.125 ↗",
+    "Travomint Agencia $ 2.439.732 ↗"
+   ],
+   "pantalla": "ITAAerolínea · Economy Light$ 2.044.124 ↗ITAAerolínea · Economy Comfort$ 2.240.360 ↗ITAAerolínea · Economy Comfort Plus$ 2.436.596 ↗ITAAerolínea · Economy Impact$ 2.600.125 ↗TravomintAgencia$ 2.439.73"
+  },
+  {
+   "nombre": "Guardar precio en vivo",
+   "ok": true
+  },
+  {
+   "nombre": "Alojamiento desde el vuelo",
+   "ok": true,
+   "ciudad": "Madrid",
+   "entrada": "2026-12-16",
+   "salida": "2026-12-29",
+   "modo": "estadias",
+   "paginas": 8
+  },
+  {
+   "nombre": "Ofertas",
+   "ok": true,
+   "promos": 25,
+   "actualizado": "Actualizado hace 3 h · fuente: Promociones Aéreas"
+  },
+  {
+   "nombre": "Mis precios",
+   "ok": true,
+   "compartir": "Compartí tus preciosEntrá con Google y armá una lista con quien viajás: lo que a"
+  },
+  {
+   "nombre": "Fuentes",
+   "ok": true
+  },
+  {
+   "nombre": "Errores de JavaScript",
+   "ok": false,
+   "cantidad": 2
+  }
+ ],
+ "errores_js": [
+  "console: Failed to load resource: the server responded with a status of 400 ()",
+  "console: Failed to load resource: the server responded with a status of 400 ()"
+ ],
+ "links": [
+  {
+   "tipo": "compra",
+   "nombre": "ITA",
+   "url": "https://ad.doubleclick.net/ddm/clk/509395740;316681822;o?https://www.ita-airways.com/deeplink/partner?OriginOut1=EZE&DestinationOut1=FCO&DepartureOut1=2026-12-15T13:55:00&ArrivalOut1=2026-12-16T06:35:00&BookingClassOut1=E&FlightOut1=AZ681&FareBasisOut1=WL6XSXLQ&OperatingFlightOut1=AZ681&OriginOut2=FCO&DestinationOut2=MAD&DepartureOut2=2026-12-16T08:20:00&ArrivalOut2=2026-12-16T10:50:00&BookingClassOut2=E&FlightOut2=AZ58&FareBasisOut2=WL6XSXLQ&OperatingFlightOut2=AZ58&OriginRet1=MAD&DestinationRet1=FCO&DepartureRet1=2026-12-29T05:55:00&ArrivalRet1=2026-12-29T08:15:00&BookingClassRet1=E&FlightRet1=AZ59&FareBasisRet1=VL0XSXLQ&OperatingFlightRet1=AZ59&OriginRet2=FCO&DestinationRet2=EZE&DepartureRet2=2026-12-29T09:45:00&ArrivalRet2=2026-12-29T19:55:00&BookingClassRet2=E&FlightRet2=AZ682&FareBasisRet2=VL0XSXLQ&OperatingFlightRet2=AZ682&PaxAdult=1&OfferedPrice=1337.50&OfferedPriceCurrency=USD&Mode=CART&partnerId=8&Language=es&Country=AR&ENC=6102b7a5b09068d7e7f322c8424a8fa130defebcea13e6bb6438438e1c1c7491&dwmwr=utm_medium%3Dfse%26utm_source%3Dgoogle%26utm_campaign%3Daz_AR_es_EZE-MAD_desktop%26utm_term%3Dgoogle%26utm_content%3Deconomy_light",
+   "estado": 200,
+   "final": "https://www.ita-airways.com/deeplink/partner",
+   "titulo": "Un momento…"
+  },
+  {
+   "tipo": "compra",
+   "nombre": "ITA",
+   "url": "https://ad.doubleclick.net/ddm/clk/509395740;316681822;o?https://www.ita-airways.com/deeplink/partner?OriginOut1=EZE&DestinationOut1=FCO&DepartureOut1=2026-12-15T13:55:00&ArrivalOut1=2026-12-16T06:35:00&BookingClassOut1=E&FlightOut1=AZ681&FareBasisOut1=WL6XJYNC&OperatingFlightOut1=AZ681&OriginOut2=FCO&DestinationOut2=MAD&DepartureOut2=2026-12-16T08:20:00&ArrivalOut2=2026-12-16T10:50:00&BookingClassOut2=E&FlightOut2=AZ58&FareBasisOut2=WL6XJYNC&OperatingFlightOut2=AZ58&OriginRet1=MAD&DestinationRet1=FCO&DepartureRet1=2026-12-29T05:55:00&ArrivalRet1=2026-12-29T08:15:00&BookingClassRet1=E&FlightRet1=AZ59&FareBasisRet1=VL0XJYNC&OperatingFlightRet1=AZ59&OriginRet2=FCO&DestinationRet2=EZE&DepartureRet2=2026-12-29T09:45:00&ArrivalRet2=2026-12-29T19:55:00&BookingClassRet2=E&FlightRet2=AZ682&FareBasisRet2=VL0XJYNC&OperatingFlightRet2=AZ682&PaxAdult=1&OfferedPrice=1465.90&OfferedPriceCurrency=USD&Mode=CART&partnerId=8&Language=es&Country=AR&ENC=6102b7a5b09068d7e7f322c8424a8fa19bd6bc551ee44443ca8df1446073fec1&dwmwr=utm_medium%3Dfse%26utm_source%3Dgoogle%26utm_campaign%3Daz_AR_es_EZE-MAD_desktop%26utm_term%3Dgoogle%26utm_content%3Deconomy_comfort",
+   "estado": 200,
+   "final": "https://shop.ita-airways.com/booking/availability?lang=es-ES&portalCountry=AR&utm_term=google&utm_campaign=az_AR_es_EZE-MAD_desktop&utm_medium=fse&utm_content=e",
+   "titulo": "Un momento…"
+  },
+  {
+   "tipo": "estadia",
+   "nombre": "Booking.com",
+   "url": "https://www.booking.com/searchresults.es.html?ss=Madrid&checkin=2026-12-16&checkout=2026-12-29&group_adults=1&group_children=0&no_rooms=1&selected_currency=ARS",
+   "modo": "lista",
+   "estado": 202,
+   "final": "https://www.booking.com/index.es-ar.html?label=gen173bo-10CAQoggJCDXNlYXJjaF9tYWRyaWRIClgDaKoCiAECmAEzuAEJyAER2AED6AEB-AEBiAIBmAICqAIBuALsy5nXBsACAdICJDgzMDE0NG",
+   "titulo": "Booking.com | Página oficial | Los mejores hoteles, vuelos, alquiler de autos y alojamientos"
+  },
+  {
+   "tipo": "estadia",
+   "nombre": "Google Hoteles",
+   "url": "https://www.google.com/travel/hotels?q=hoteles%20en%20Madrid&hl=es-419&gl=AR&curr=ARS",
+   "modo": "copia",
+   "estado": 200,
+   "final": "https://www.google.com/travel/hotels?q=hoteles%20en%20Madrid&hl=es-419&gl=AR&curr=ARS&utm_campaign=sharing&utm_medium=link&utm_source=htls&ved=0CAAQ5JsGahcKEwiQ",
+   "titulo": "hoteles en Madrid - Búsqueda de hoteles de Google"
+  },
+  {
+   "tipo": "estadia",
+   "nombre": "Expedia",
+   "url": "https://www.expedia.com/Hotel-Search?destination=Madrid&startDate=2026-12-16&endDate=2026-12-29&adults=1&rooms=1",
+   "modo": "lista",
+   "estado": 429,
+   "final": "https://www.expedia.com/Hotel-Search?destination=Madrid&startDate=2026-12-16&endDate=2026-12-29&adults=1&rooms=1",
+   "titulo": "Bot or Not?"
+  },
+  {
+   "tipo": "estadia",
+   "nombre": "Hoteles.com",
+   "url": "https://www.hoteles.com/Hotel-Search?destination=Madrid&startDate=2026-12-16&endDate=2026-12-29&adults=1&rooms=1",
+   "modo": "lista",
+   "error": "Error: page.goto: net::ERR_HTTP2_PROTOCOL_ERROR at https://www.hoteles.com/Hotel-Search?destination=Madrid&startDate=202"
+  },
+  {
+   "tipo": "estadia",
+   "nombre": "Trivago",
+   "url": "https://www.trivago.com.ar/",
+   "modo": "copia",
+   "estado": 403,
+   "final": "https://www.trivago.com.ar/",
+   "titulo": "Access Denied"
+  },
+  {
+   "tipo": "estadia",
+   "nombre": "Airbnb",
+   "url": "https://www.airbnb.com.ar/s/Madrid/homes?checkin=2026-12-16&checkout=2026-12-29&adults=1&children=0",
+   "modo": "lista",
+   "estado": 200,
+   "final": "https://www.airbnb.com.ar/s/Madrid/homes?checkin=2026-12-16&checkout=2026-12-29&adults=1&children=0",
+   "titulo": "Airbnb® | Madrid: Alojamientos para vacaciones y lugares para quedarse - Madrid"
+  },
+  {
+   "tipo": "estadia",
+   "nombre": "Despegar",
+   "url": "https://www.despegar.com.ar/hoteles/",
+   "modo": "copia",
+   "estado": 403,
+   "final": "https://www.despegar.com.ar/hoteles/",
+   "titulo": "despegar.com.ar"
+  },
+  {
+   "tipo": "estadia",
+   "nombre": "Almundo",
+   "url": "https://almundo.com.ar/hoteles",
+   "modo": "copia",
+   "estado": 403,
+   "final": "https://almundo.com.ar/hoteles",
+   "titulo": "Un momento…"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "Google Flights",
+   "url": "https://www.google.com/travel/flights?hl=es-419&gl=AR&curr=ARS&q=Flights%20from%20BUE%20to%20MAD%20on%202026-12-15%20through%202026-12-29",
+   "modo": "lista",
+   "estado": 200,
+   "final": "https://www.google.com/travel/flights?hl=es-419&gl=AR&curr=ARS&q=Flights%20from%20BUE%20to%20MAD%20on%202026-12-15%20through%202026-12-29",
+   "titulo": "De Buenos Aires a Madrid | Vuelos de Google"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "Skyscanner",
+   "url": "https://www.skyscanner.com.ar/transporte/vuelos/buea/mad/261215/261229/?adultsv2=1&cabinclass=economy&rtn=1&preferdirects=false",
+   "modo": "lista",
+   "estado": 200,
+   "final": "https://www.skyscanner.com.ar/sttc/px/captcha-v2/index.html?url=L3RyYW5zcG9ydGUvdnVlbG9zL2J1ZWEvbWFkLzI2MTIxNS8yNjEyMjkvP2FkdWx0c3YyPTEmY2FiaW5jbGFzcz1lY29ub215",
+   "titulo": "Skyscanner"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "Kayak",
+   "url": "https://www.kayak.com.ar/flights/BUE-MAD/2026-12-15/2026-12-29?sort=price_a",
+   "modo": "lista",
+   "estado": 200,
+   "final": "https://www.kayak.com.ar/flights/BUE-MAD/2026-12-15/2026-12-29?sort=price_a",
+   "titulo": "BUE a MAD, 15/12 – 29/12"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "Momondo",
+   "url": "https://www.momondo.com/flight-search/BUE-MAD/2026-12-15/2026-12-29?sort=price_a",
+   "modo": "lista",
+   "estado": 200,
+   "final": "https://www.momondo.com/flight-search/BUE-MAD/2026-12-15/2026-12-29?sort=price_a",
+   "titulo": "BUE to MAD, 12/15 – 12/29"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "Kiwi.com",
+   "url": "https://www.kiwi.com/es/",
+   "modo": "copia",
+   "estado": 200,
+   "final": "https://www.kiwi.com/es/",
+   "titulo": "Kiwi.com | Encontrar vuelos baratos y descubrir nuevos destinos"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "Despegar",
+   "url": "https://www.despegar.com.ar/shop/flights/results/roundtrip/BUE/MAD/2026-12-15/2026-12-29/1/0/0",
+   "modo": "lista",
+   "estado": 403,
+   "final": "https://www.despegar.com.ar/shop/flights/results/roundtrip/BUE/MAD/2026-12-15/2026-12-29/1/0/0",
+   "titulo": "despegar.com.ar"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "Turismocity",
+   "url": "https://www.turismocity.com.ar/vuelos",
+   "modo": "copia",
+   "estado": 403,
+   "final": "https://www.turismocity.com.ar/vuelos",
+   "titulo": "Un momento…"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "Almundo",
+   "url": "https://almundo.com.ar/vuelos",
+   "modo": "copia",
+   "estado": 403,
+   "final": "https://almundo.com.ar/vuelos",
+   "titulo": "Un momento…"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "Aerolíneas Argentinas",
+   "url": "https://www.aerolineas.com.ar/flights-offers?adt=1&inf=0&chd=0&flexDates=false&cabinClass=Economy&flightType=ROUND_TRIP&leg=BUE-MAD-20261215&leg=MAD-BUE-20261229",
+   "modo": "lista",
+   "estado": 200,
+   "final": "https://www.aerolineas.com.ar/flights-offers?adt=1&inf=0&chd=0&flexDates=false&cabinClass=Economy&flightType=ROUND_TRIP&leg=BUE-MAD-20261215&leg=MAD-BUE-2026122",
+   "titulo": "Ofertas de vuelos"
+  },
+  {
+   "tipo": "vuelo",
+   "nombre": "LATAM",
+   "url": "https://www.latamairlines.com/ar/es/ofertas-vuelos?origin=BUE&outbound=2026-12-15T12%3A00%3A00.000Z&destination=MAD&inbound=2026-12-29T12%3A00%3A00.000Z&adt=1&chd=0&inf=0&trip=RT&cabin=Economy&redemption=false&sort=RECOMMENDED",
+   "modo": "lista",
+   "estado": 403,
+   "final": "https://www.latamairlines.com/ar/es/ofertas-vuelos?origin=BUE&outbound=2026-12-15T12%3A00%3A00.000Z&destination=MAD&inbound=2026-12-29T12%3A00%3A00.000Z&adt=1&c",
+   "titulo": "Access Denied"
+  }
+ ],
+ "api_errores": [],
+ "api": [
+  {
+   "estado": 200,
+   "pedido": "{\"ignav_id\":\"a06e83067ace48d2bf1272f8308583e3\"}",
+   "respuesta": "{\"itinerary\":{\"price\":{\"amount\":2044124,\"currency\":\"ARS\",\"status\":\"verified\"},\"outbound\":{\"carrier\":\"ITA\",\"duration_minutes\":1015,\"segments\":[{\"marketing_carrier_code\":\"AZ\",\"flight_number\":\"681\",\"operating_carrier_name\":\"ITA\",\"departure_airport\":\"EZE\",\"departure_time_local\":\"2026-12-15T13:55:00\",\"departure_timezone\":\"America/Argentina/Buenos_Aires\",\"departure_time_utc\":\"2026-12-15T16:55:00Z\",\"arrival_airport\":\"FCO\",\"arrival_time_local\":\"2026-12-16T06:35:00\",\"arrival_timezone\":\"Europe/Rome\",\"arrival_time_utc\":\"2026-12-16T05:35:00Z\",\"duration_minutes\":760,\"aircraft\":\"Airbus A350\"},{\"marketing_carrier_code\":\"AZ\",\"flight_number\":\"58\",\"operating_carrier_name\":\"ITA\",\"departure_airport\":\"FCO\",\"depa"
+  }
+ ],
+ "fallidos": [
+  "400 https://www.googleapis.com/identitytoolkit/v3/relyingparty/getProjectConfig?key=AIzaSyChToq6jhFQ5D1JcxrSfg9vdRIHJG4sIBA&cb=1793484246005",
+  "400 https://www.googleapis.com/identitytoolkit/v3/relyingparty/getProjectConfig?key=AIzaSyChToq6jhFQ5D1JcxrSfg9vdRIHJG4sIBA&cb=1793484246783"
+ ],
+ "fin": "2026-10-31T22:05:19.511Z"
+}
