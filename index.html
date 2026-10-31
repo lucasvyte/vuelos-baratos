@@ -570,6 +570,7 @@ section{scroll-margin-top:16px}
         <div class="body"><ul>
           <li>La app no inventa ni estima precios. Los <b>precios en vivo</b> vienen de Ignav, un servicio de datos de vuelos: son los del momento de la búsqueda y pueden cambiar, por eso cada vuelo te lleva a la aerolínea o agencia para comprar y confirmar.</li>
           <li>Las aerolíneas excluidas no aparecen en los precios en vivo, ni siquiera en una escala.</li>
+          <li>Solo se muestran <b>vuelos casados</b>: todo el viaje en un mismo pasaje. Las combinaciones de pasajes separados (conexión por tu cuenta) quedan afuera, porque si se atrasa un vuelo el siguiente no te espera.</li>
           <li>Además, la app te lleva a la página oficial de cada sitio con tu búsqueda armada, para comparar.</li>
           <li><span class="pill ok">Búsqueda lista</span> abre la página con origen, destino, fechas y pasajeros cargados.</li>
           <li><span class="pill warn">Datos copiados</span> abre el buscador del sitio y copia tu viaje para que lo pegues o lo completes en segundos.</li>
@@ -604,7 +605,7 @@ section{scroll-margin-top:16px}
   </div>
 
   <footer class="app">
-    <span class="ver">v0.8.1</span>
+    <span class="ver">v0.9.0</span>
     <span><a href="https://github.com/lucasvyte/vuelos-baratos/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Novedades de cada versión</a></span>
   </footer>
 </div>
@@ -755,7 +756,7 @@ let dests = [];
 let lastQ = null;
 const opened = new Set();
 const LS = 'vuelos-baratos-v1';
-const VERSION = '0.8.1';
+const VERSION = '0.9.0';
 
 /* ---------- Toast ---------- */
 let tt;
@@ -985,7 +986,8 @@ async function loadLive(q, o, d, force){
     const r = await fetch(API + '/buscar', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)});
     const data = await r.json().catch(() => ({}));
     if(!r.ok){ const e = new Error('api'); e.status = r.status; e.code = data.error && (data.error.code || data.error.type); throw e; }
-    st.data = (data.itineraries || []).filter(it => it.price && it.outbound && it.outbound.segments && it.outbound.segments.length && !hasExcluded(it));
+    // solo vuelos casados: todo el viaje en un mismo pasaje (sin conexiones por tu cuenta)
+    st.data = (data.itineraries || []).filter(it => it.price && it.outbound && it.outbound.segments && it.outbound.segments.length && !it.requires_self_transfer && !hasExcluded(it));
     st.status = 'ok';
   }catch(e){
     st.status = 'error';
@@ -1008,9 +1010,8 @@ function flightCard(q, o, d, it, min){
   const legs = legsOf(it), caution = cautionOf(it), best = it.price.amount === min;
   return `<article class="flight ${best ? 'best' : ''}" data-ig="${esc(it.ignav_id)}">
     <div class="ftop"><div class="fprice">${money(it.price.amount, it.price.currency)}</div>
-      <div class="pills">${best ? '<span class="pill best">Más barato</span>' : ''}${totalStops(it) === 0 ? '<span class="pill ok">Directo</span>' : ''}${it.requires_self_transfer ? '<span class="pill warn">Conexión por tu cuenta</span>' : ''}${caution ? '<span class="pill warn">Con precaución</span>' : ''}</div></div>
+      <div class="pills">${best ? '<span class="pill best">Más barato</span>' : ''}${totalStops(it) === 0 ? '<span class="pill ok">Directo</span>' : ''}${caution ? '<span class="pill warn">Con precaución</span>' : ''}</div></div>
     ${legHtml(legs[0], legs.length > 1 ? 'Ida' : 'Vuelo')}${legs[1] ? legHtml(legs[1], 'Vuelta') : ''}
-    ${it.requires_self_transfer ? '<p class="small muted" style="margin:0">Son pasajes separados: si se demora un vuelo, el siguiente no te espera y la valija puede no pasar sola.</p>' : ''}
     <div class="facts"><button type="button" class="btn primary sm" data-buy="${esc(it.ignav_id)}" aria-expanded="false">Ver dónde comprar</button><button type="button" class="btn ghost sm" data-save-live="${esc(it.ignav_id)}" data-route="${esc(o)} → ${esc(d)}">Guardar precio</button></div>
     <div class="buy" hidden></div>
   </article>`;
@@ -1029,7 +1030,7 @@ function renderLive(q, o, d){
     `<div class="chiprow" role="group" aria-label="Ordenar vuelos">${[['precio','Más barato'],['rapido','Más rápido'],['escalas','Menos escalas']].map(([k,t]) => `<button type="button" class="fchip" data-live-sort="${k}" data-d="${esc(d)}" aria-pressed="${st.sort === k}">${t}</button>`).join('')}</div>
      <div class="live-list">${shown.map(it => flightCard(q, o, d, it, min)).join('')}</div>
      ${list.length > 5 ? `<button type="button" class="btn ghost" data-live-all="${esc(d)}">${st.all ? 'Mostrar menos' : `Ver los ${list.length} vuelos`}</button>` : ''}
-     <p class="muted small">Precios del momento, vía Ignav. Pueden cambiar: confirmalos al comprar${q.cur === 'ARS' ? '. Pagando desde Argentina pueden sumarse impuestos y percepciones de la tarjeta' : ''}.</p>`;
+     <p class="muted small">Solo vuelos casados: cada viaje es un mismo pasaje, aunque tenga escalas. Precios del momento, vía Ignav. Pueden cambiar: confirmalos al comprar${q.cur === 'ARS' ? '. Pagando desde Argentina pueden sumarse impuestos y percepciones de la tarjeta' : ''}.</p>`;
 }
 const findLive = id => { for(const st of liveCache.values()){ const it = (st.data || []).find(x => x.ignav_id === id); if(it) return it; } return null; };
 async function showBuy(btn){

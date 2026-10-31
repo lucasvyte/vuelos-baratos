@@ -7,6 +7,11 @@ Mientras la app no esté terminada, las versiones van a seguir siendo `0.X.Y` ha
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
 
+## 0.9.0 — 31/10/2026
+
+- Precios en vivo: solo se muestran vuelos casados (todo el viaje en un mismo pasaje). Las combinaciones de pasajes separados ("conexión por tu cuenta") ya no aparecen.
+- El servidor intermedio también le pide al proveedor que no arme pasajes separados (requiere volver a pegar el código en Cloudflare).
+
 ## 0.8.1 — 31/10/2026
 
 - El número de versión al pie de la app ya no dice "beta".

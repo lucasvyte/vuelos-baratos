@@ -60,7 +60,9 @@ export default {
         origin: o, destination: d, departure_date: ida, adults, children,
         cabin_class: CABINAS.includes(body.cabin_class) ? body.cabin_class : "economy",
         market: /^[A-Z]{2}$/.test(body.market || "") ? body.market : "AR",
-        airlines_exclude: EXCLUIDAS
+        airlines_exclude: EXCLUIDAS,
+        // solo vuelos casados (un mismo pasaje); la app además filtra los que vengan separados
+        allow_self_transfer: false
       };
       if (vuelta) payload.return_date = vuelta;
       endpoint = vuelta ? "round-trip" : "one-way";
