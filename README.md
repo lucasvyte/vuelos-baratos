@@ -24,3 +24,7 @@ Proyecto propio: `vuelos-baratos-40152` (no se comparte con ninguna otra app).
 ## Robot de ofertas
 
 `tools/ofertas.mjs` corre cada 3 horas en GitHub Actions (`.github/workflows/ofertas.yml`), lee la portada de Promociones Aéreas y guarda en `data/ofertas.json` solo título, precio, tipo, fecha y enlace de cada publicación. Las fechas de sales están en `SALES` dentro de `index.html`.
+
+## Servidor intermedio (precios dentro de la app)
+
+`worker/ignav.js` es un Cloudflare Worker que guarda la clave de Ignav (secreto `IGNAV_KEY`), solo atiende pedidos de la app, excluye las aerolíneas de la lista y guarda cada búsqueda 10 minutos. Se pega en el editor de Cloudflare (Workers) y se publica desde ahí.
