@@ -41,7 +41,7 @@ a{color:var(--brand)}
 
 /* Cabecera */
 .hero{position:relative;overflow:hidden;border-radius:22px;padding:22px 20px 20px;color:#fff;display:flex;flex-direction:column;gap:14px;
-  background:radial-gradient(120% 140% at 100% 0%,#3B6BF0 0%,#1D4ED8 45%,#14318F 100%);box-shadow:0 10px 30px -12px rgba(20,49,143,.55)}
+  background:radial-gradient(120% 140% at 100% 0%,var(--hero-a,#3B6BF0) 0%,var(--hero-b,#1D4ED8) 45%,var(--hero-c,#14318F) 100%);box-shadow:0 10px 30px -12px var(--hero-shadow,rgba(20,49,143,.55))}
 .hero::after{content:"";position:absolute;right:-30px;top:-34px;width:190px;height:190px;opacity:.12;pointer-events:none;
   background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath transform='rotate(45 12 12)' d='M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z'/%3E%3C/svg%3E")}
 .hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative;z-index:1}
@@ -331,13 +331,38 @@ section{scroll-margin-top:16px}
 .buylist a:hover{border-color:var(--brand)}
 .buylist .bp{font-family:var(--f-mono);font-weight:600;white-space:nowrap}
 .also{margin-top:6px}
+/* ===== Modo Estadías: otro color y otra identidad, para que se note que es "otra cosa" ===== */
+:root[data-mode="estadias"]{--brand:#0F766E; --brand-ink:#FFFFFF; --hero-a:#2DD4BF; --hero-b:#0F766E; --hero-c:#134E4A; --hero-shadow:rgba(15,118,110,.5); --sign:#FDBA74; --sign-ink:#431407}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"])[data-mode="estadias"]{--brand:#5EEAD4; --brand-ink:#042F2E; --hero-a:#14B8A6; --hero-b:#0F766E; --hero-c:#0B3B38}}
+:root[data-theme="dark"][data-mode="estadias"]{--brand:#5EEAD4; --brand-ink:#042F2E; --hero-a:#14B8A6; --hero-b:#0F766E; --hero-c:#0B3B38}
+:root[data-mode="estadias"] body{background-image:radial-gradient(80% 50% at 50% 0%,color-mix(in srgb,var(--brand) 9%,transparent),transparent)}
+.modesw{align-self:center;display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--surface);border:1px solid var(--line);box-shadow:0 6px 20px -12px rgba(19,32,59,.35)}
+.modesw button{font:inherit;font-weight:700;font-size:.95rem;border:0;background:transparent;color:var(--muted);padding:9px 18px;border-radius:999px;cursor:pointer;display:flex;gap:8px;align-items:center;transition:background .2s,color .2s}
+.modesw button[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink)}
+.modesw button svg{flex:none}
+html[data-mode="estadias"] nav.tabs a[data-m="vuelos"],html:not([data-mode="estadias"]) nav.tabs a[data-m="estadias"]{display:none}
+.hero.stay::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6'/%3E%3Ccircle cx='7' cy='11' r='2'/%3E%3C/svg%3E");width:170px;height:170px;right:-18px;top:-30px;transform:none}
+.suggest{display:flex;flex-direction:column;gap:8px}
+.sugg{font:inherit;text-align:left;display:flex;align-items:center;gap:10px;cursor:pointer;background:color-mix(in srgb,var(--brand) 10%,var(--surface));border:1px solid color-mix(in srgb,var(--brand) 35%,var(--line));color:var(--ink);border-radius:14px;padding:10px 12px}
+.sugg b{display:block}
+.sugg .small{color:var(--muted)}
+.sugg .ic{flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--brand);color:var(--brand-ink);font-size:1rem}
+.stay-pass .city{font-family:var(--f-display);font-weight:800;font-size:1.6rem;line-height:1.1}
+.stay-go{width:100%;justify-content:flex-start}
+.hprice .pn{font-size:.78rem;color:var(--muted);text-align:right}
 </style>
 
 <div class="wrap">
+  <div class="modesw" role="group" aria-label="Qué querés buscar">
+    <button type="button" data-mode-go="vuelos" aria-pressed="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Vuelos</button>
+    <button type="button" data-mode-go="estadias" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11" r="2"/></svg>Estadías</button>
+  </div>
   <nav class="tabs" aria-label="Pantallas">
-    <a href="#/buscar" data-tab="buscar" class="on" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar</a>
+    <a href="#/buscar" data-tab="buscar" data-m="vuelos" class="on" aria-current="page"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar</a>
+    <a href="#/estadias" data-tab="estadias" data-m="estadias"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Buscar</a>
     <a href="#/ofertas" data-tab="ofertas"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 4 5 5.5 5 10.5a5 5 0 0 1-10 0c0-2.2 1.2-3.8 2.3-4.8 0 2 .9 3.3 2.2 3.3C11.5 8 10.5 5.5 12 2z"/></svg>Ofertas<span class="cnt" id="tabOfertas"></span></a>
-    <a href="#/precios" data-tab="precios"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg>Mis precios<span class="cnt" id="tabCount"></span></a>
+    <a href="#/precios" data-tab="precios" data-m="vuelos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg>Mis precios<span class="cnt" id="tabCount"></span></a>
+    <a href="#/mis-estadias" data-tab="mis-estadias" data-m="estadias"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg>Mis estadías<span class="cnt" id="tabStays"></span></a>
     <a href="#/fuentes" data-tab="fuentes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>Fuentes</a>
   </nav>
 
@@ -460,6 +485,7 @@ section{scroll-margin-top:16px}
     <div class="chiprow" role="group" aria-label="Qué mostrar">
       <button type="button" class="fchip" data-f="vuelo" aria-pressed="true">Vuelos</button>
       <button type="button" class="fchip" data-f="paquete" aria-pressed="false">Paquetes</button>
+      <button type="button" class="fchip" data-f="hotel" aria-pressed="false">Hoteles</button>
       <button type="button" class="fchip" data-f="" aria-pressed="false">Todo</button>
     </div>
     <div class="deals" id="deals" aria-live="polite"></div>
@@ -558,6 +584,83 @@ section{scroll-margin-top:16px}
 
   </div>
 
+  <div class="screen" id="s-estadias" hidden>
+  <header class="hero stay">
+    <div class="hero-top"><div class="brand"><div class="mark" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6"/><circle cx="7" cy="11" r="2"/></svg></div><h2 id="t-estadias" tabindex="-1" style="font-size:1.6rem;font-weight:800;color:#fff">Estadías</h2></div></div>
+    <p class="lead">Encontrá dónde dormir y completá tu viaje: armá la búsqueda una vez y abrila en Booking, Airbnb, Google Hoteles y más.</p>
+  </header>
+
+  <section id="hbuscar" class="panel" aria-labelledby="t-hviaje">
+    <h2 id="t-hviaje">Tu estadía</h2>
+    <div class="suggest" id="hSuggest" hidden></div>
+    <form id="hForm" novalidate>
+      <div class="grid">
+        <div class="field full">
+          <label class="label" for="hCity">Destino</label>
+          <input id="hCity" list="cities" autocomplete="off" placeholder="Ciudad, ej. Madrid" maxlength="60">
+        </div>
+        <div class="field">
+          <label class="label" for="hIn">Entrada</label>
+          <input type="date" id="hIn">
+        </div>
+        <div class="field">
+          <label class="label" for="hOut">Salida</label>
+          <input type="date" id="hOut">
+        </div>
+      </div>
+      <div class="grid g4" style="margin-top:12px">
+        <div class="field"><label class="label" for="hAdults">Adultos</label><select id="hAdults"></select></div>
+        <div class="field"><label class="label" for="hKids">Niños</label><select id="hKids"></select></div>
+        <div class="field"><label class="label" for="hRooms">Habitaciones</label><select id="hRooms"></select></div>
+        <div class="field"><label class="label" for="hCur">Moneda</label>
+          <select id="hCur"><option value="ARS">Pesos (ARS)</option><option value="USD">Dólares (USD)</option><option value="EUR">Euros (EUR)</option></select></div>
+      </div>
+      <p class="err" id="hErr" role="alert" hidden></p>
+      <div style="margin-top:14px"><button type="submit" class="btn primary big">Buscar alojamiento</button></div>
+    </form>
+  </section>
+
+  <section id="hResults" class="dest" aria-live="polite"></section>
+  </div>
+
+  <div class="screen" id="s-mis-estadias" hidden>
+  <header class="hero mini stay">
+    <h2 id="t-mis-estadias" tabindex="-1">Mis estadías</h2>
+    <p class="lead">Los alojamientos que viste, del más barato al más caro, con el precio por noche y la página de donde salió.</p>
+    <div class="stats">
+      <div><b id="hstN">0</b><span id="hstNl">estadías</span></div>
+      <div><b id="hstC">0</b><span id="hstCl">ciudades</span></div>
+      <div><b id="hstLast">—</b><span>desde la última</span></div>
+    </div>
+    <span class="sync small" id="hSync">Guardado en este dispositivo</span>
+  </header>
+  <button type="button" class="backbar" id="hBack" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18 9 12l6-6"/></svg><span>Volver a las páginas</span></button>
+  <section id="hprecios" class="panel" aria-labelledby="t-mis-estadias">
+    <details class="addbox" id="hformBox">
+    <summary><span>Anotar una estadía</span><span class="plus" aria-hidden="true">+</span></summary>
+    <form id="hpform" class="grid" novalidate>
+      <div class="field"><label class="label" for="hpSource">Página</label><select id="hpSource"></select></div>
+      <div class="field"><label class="label" for="hpCity">Ciudad</label><input id="hpCity" maxlength="60" placeholder="Madrid" autocomplete="off" list="cities"></div>
+      <div class="field full"><label class="label" for="hpName">Alojamiento (opcional)</label><input id="hpName" maxlength="80" placeholder="Ej. Hotel Centro, depto 2 ambientes" autocomplete="off"></div>
+      <div class="field"><label class="label" for="hpIn">Entrada</label><input type="date" id="hpIn"></div>
+      <div class="field"><label class="label" for="hpOut">Salida</label><input type="date" id="hpOut"></div>
+      <div class="field"><label class="label" for="hpAmount">Precio total de la estadía</label><input id="hpAmount" type="number" inputmode="decimal" min="0" step="any" placeholder="0"></div>
+      <div class="field"><label class="label" for="hpCur">Moneda</label><select id="hpCur"><option value="ARS">ARS</option><option value="USD">USD</option><option value="EUR">EUR</option></select></div>
+      <p class="err full" id="hpErr" role="alert" hidden></p>
+      <div class="field full"><button type="submit" class="btn primary">Guardar estadía</button></div>
+    </form>
+    </details>
+    <div class="row" style="justify-content:space-between">
+      <div class="field" style="flex:1 1 200px;max-width:320px">
+        <label class="label" for="hpFilter">Mostrar</label>
+        <select id="hpFilter"><option value="">Todas las ciudades</option></select>
+      </div>
+    </div>
+    <div class="prices" id="hlist"></div>
+    <p class="muted small">Si entraste con Google en <a href="#/precios" data-go="precios">Mis precios</a>, las estadías también se comparten con tu lista.</p>
+  </section>
+  </div>
+
   <div class="screen" id="s-fuentes" hidden>
   <section id="fuentes" class="dest" aria-labelledby="t-fuentes">
     <header class="hero mini info">
@@ -600,17 +703,22 @@ section{scroll-margin-top:16px}
       <summary><h3>Todas las páginas que usa la app<span class="sub">Comparadores, agencias y aerolíneas, con su dirección.</span></h3></summary>
       <div class="body"><ul class="srclist" id="srcIndex"></ul></div>
     </details>
+    <details class="note acc">
+      <summary><h3>Páginas de alojamiento<span class="sub">Dónde busca la parte de Estadías.</span></h3></summary>
+      <div class="body"><p class="small muted">Las que dicen <span class="pill ok">Búsqueda lista</span> abren con ciudad, fechas y huéspedes cargados. Las de <span class="pill warn">Datos copiados</span> abren el buscador y copian tu estadía para pegarla.</p><ul class="srclist" id="hSrcIndex"></ul></div>
+    </details>
     </div>
   </section>
   </div>
 
   <footer class="app">
-    <span class="ver">v0.9.0</span>
+    <span class="ver">v0.10.0</span>
     <span><a href="https://github.com/lucasvyte/vuelos-baratos/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Novedades de cada versión</a></span>
   </footer>
 </div>
 
 <datalist id="airports"></datalist>
+<datalist id="cities"></datalist>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -751,12 +859,12 @@ const SRC = Object.fromEntries(SOURCES.map(s => [s.id, s]));
 const sourcesFor = (o,d) => SOURCES.filter(s => !s.regional || (apInfo(o).region !== 'int' && apInfo(d).region !== 'int'));
 
 /* ---------- Estado ---------- */
-let state = {precios:[], busquedas:[]};
+let state = {precios:[], busquedas:[], estadias:[]};
 let dests = [];
 let lastQ = null;
 const opened = new Set();
 const LS = 'vuelos-baratos-v1';
-const VERSION = '0.9.0';
+const VERSION = '0.10.0';
 
 /* ---------- Toast ---------- */
 let tt;
@@ -880,7 +988,7 @@ function destBlock(q,o,d,i){
         <span class="hint"><span class="hint-c">Ver ${srcs.length} páginas</span><span class="hint-o">Ocultar páginas</span></span>
       </div>
     </div></summary>
-    <div class="dest" style="margin-top:14px"><div class="live" data-live="${o}-${d}"></div><p class="label also">También en estas páginas</p>${groups}${exNote()}${flexBlock(q,o,d)}</div>
+    <div class="dest" style="margin-top:14px"><div class="live" data-live="${o}-${d}"></div><button type="button" class="btn ghost stay-go" data-stay="${esc(d)}">🏨 Buscar dónde dormir en ${esc(cityName(d))}</button><p class="label also">También en estas páginas</p>${groups}${exNote()}${flexBlock(q,o,d)}</div>
   </details>`;
 }
 function srcRow(q,o,d,s){
@@ -1012,7 +1120,7 @@ function flightCard(q, o, d, it, min){
     <div class="ftop"><div class="fprice">${money(it.price.amount, it.price.currency)}</div>
       <div class="pills">${best ? '<span class="pill best">Más barato</span>' : ''}${totalStops(it) === 0 ? '<span class="pill ok">Directo</span>' : ''}${caution ? '<span class="pill warn">Con precaución</span>' : ''}</div></div>
     ${legHtml(legs[0], legs.length > 1 ? 'Ida' : 'Vuelo')}${legs[1] ? legHtml(legs[1], 'Vuelta') : ''}
-    <div class="facts"><button type="button" class="btn primary sm" data-buy="${esc(it.ignav_id)}" aria-expanded="false">Ver dónde comprar</button><button type="button" class="btn ghost sm" data-save-live="${esc(it.ignav_id)}" data-route="${esc(o)} → ${esc(d)}">Guardar precio</button></div>
+    <div class="facts"><button type="button" class="btn primary sm" data-buy="${esc(it.ignav_id)}" aria-expanded="false">Ver dónde comprar</button><button type="button" class="btn ghost sm" data-save-live="${esc(it.ignav_id)}" data-route="${esc(o)} → ${esc(d)}">Guardar precio</button><button type="button" class="btn ghost sm" data-stay-flight="${esc(it.ignav_id)}" data-d="${esc(d)}">🏨 Alojamiento</button></div>
     <div class="buy" hidden></div>
   </article>`;
 }
@@ -1068,7 +1176,9 @@ function saveLive(btn){
   toast('Precio guardado en Mis precios');
 }
 $('#resultados').addEventListener('click', e => {
-  const t = e.target.closest('[data-live-sort],[data-live-all],[data-live-retry],[data-buy],[data-save-live]'); if(!t || !lastQ) return;
+  const t = e.target.closest('[data-live-sort],[data-live-all],[data-live-retry],[data-buy],[data-save-live],[data-stay],[data-stay-flight]'); if(!t || !lastQ) return;
+  if(t.dataset.stay) return stayFromTrip(t.dataset.stay);
+  if(t.dataset.stayFlight) return stayFromFlight(t.dataset.stayFlight, t.dataset.d);
   if(t.dataset.buy) return showBuy(t);
   if(t.dataset.saveLive) return saveLive(t);
   const d = t.dataset.d || t.dataset.liveAll || t.dataset.liveRetry, st = liveCache.get(liveKey(lastQ, lastQ.o, d));
@@ -1188,37 +1298,280 @@ $('#copyPrices').addEventListener('click', () => {
   } else toast('No se pudo copiar en esta vista');
 });
 
+/* ---------- Estadías ---------- */
+// La misma idea que los vuelos, para el alojamiento: una búsqueda, muchas páginas, y "Mis estadías" para anotar.
+const cityName = code => apInfo(code).city.replace(/\s*\(todos\)\s*$/i, '').replace(/\s+–.*$/, '').trim();
+const enc = encodeURIComponent;
+const STAY_CATS = {
+  hotel: {title:'Hoteles y alojamientos', sub:'Hoteles, departamentos y hostels de muchas cadenas y dueños.'},
+  alquiler: {title:'Alquileres', sub:'Casas y departamentos de particulares. Conviene para grupos y estadías largas.'},
+  agencia: {title:'Agencias de Argentina', sub:'Precios en pesos, cuotas y promociones con bancos locales.'}
+};
+const STAY_SOURCES = [
+ {id:'booking', name:'Booking.com', domain:'booking.com', cat:'hotel', mono:'B', mode:'lista', why:'La más completa; muchos alojamientos con cancelación gratis.',
+  url:h => `https://www.booking.com/searchresults.es.html?ss=${enc(h.city)}&checkin=${h.checkin}&checkout=${h.checkout}&group_adults=${h.adults}&group_children=${h.kids}${'&age=8'.repeat(h.kids)}&no_rooms=${h.rooms}&selected_currency=${h.cur}`},
+ {id:'ghoteles', name:'Google Hoteles', domain:'google.com/travel/hotels', cat:'hotel', mono:'G', mode:'copia', why:'Compara el mismo hotel en varias páginas y lo muestra en el mapa.',
+  url:h => `https://www.google.com/travel/hotels?q=${enc('hoteles en ' + h.city)}&hl=es-419&gl=AR&curr=${h.cur}`},
+ {id:'expedia', name:'Expedia', domain:'expedia.com', cat:'hotel', mono:'E', mode:'lista', why:'Fuerte en hoteles de cadena; a veces más barato si sumás vuelo.',
+  url:h => `https://www.expedia.com/Hotel-Search?destination=${enc(h.city)}&startDate=${h.checkin}&endDate=${h.checkout}&adults=${h.adults}&rooms=${h.rooms}`},
+ {id:'hotelescom', name:'Hoteles.com', domain:'hoteles.com', cat:'hotel', mono:'H', mode:'lista', why:'Programa de recompensas: juntás noches y después tenés descuento.',
+  url:h => `https://www.hoteles.com/Hotel-Search?destination=${enc(h.city)}&startDate=${h.checkin}&endDate=${h.checkout}&adults=${h.adults}&rooms=${h.rooms}`},
+ {id:'trivago', name:'Trivago', domain:'trivago.com.ar', cat:'hotel', mono:'T', mode:'copia', why:'Comparador: muestra el precio del mismo hotel en varias páginas.',
+  url:() => 'https://www.trivago.com.ar/'},
+ {id:'airbnb', name:'Airbnb', domain:'airbnb.com.ar', cat:'alquiler', mono:'A', mode:'lista', why:'Casas y departamentos enteros. Mirá el total con limpieza y tarifas.',
+  url:h => `https://www.airbnb.com.ar/s/${enc(h.city)}/homes?checkin=${h.checkin}&checkout=${h.checkout}&adults=${h.adults}&children=${h.kids}`},
+ {id:'despegar-h', name:'Despegar', domain:'despegar.com.ar', cat:'agencia', mono:'D', mode:'copia', why:'Cuotas sin interés y promos con bancos argentinos.',
+  url:() => 'https://www.despegar.com.ar/hoteles/'},
+ {id:'almundo-h', name:'Almundo', domain:'almundo.com.ar', cat:'agencia', mono:'Al', mode:'copia', why:'Promociones y financiación con tarjetas locales.',
+  url:() => 'https://almundo.com.ar/hoteles'}
+];
+const HSRC = Object.fromEntries(STAY_SOURCES.map(x => [x.id, x]));
+let lastS = null, stayHint = null;
+const hOpened = new Set();
+for(let i=1;i<=16;i++) $('#hAdults').insertAdjacentHTML('beforeend', `<option value="${i}" ${i===2?'selected':''}>${i}</option>`);
+for(let i=0;i<=6;i++) $('#hKids').insertAdjacentHTML('beforeend', `<option value="${i}">${i}</option>`);
+for(let i=1;i<=8;i++) $('#hRooms').insertAdjacentHTML('beforeend', `<option value="${i}">${i}</option>`);
+$('#hIn').min = TODAY; $('#hOut').min = TODAY;
+$('#hIn').addEventListener('change', () => { $('#hOut').min = $('#hIn').value || TODAY; });
+$('#cities').innerHTML = [...new Set(AIRPORTS.map(a => cityName(a[0])))].map(c => `<option value="${esc(c)}"></option>`).join('');
+$('#hpSource').innerHTML = STAY_SOURCES.map(x => `<option value="${x.id}">${esc(x.name)}</option>`).join('') + '<option value="otra">Otra página</option>';
+$('#hSrcIndex').innerHTML = Object.keys(STAY_CATS).map(cat => STAY_SOURCES.filter(x => x.cat === cat).map(x =>
+  `<li><span><b>${esc(x.name)}</b> <span class="muted">· ${STAY_CATS[cat].title}</span></span><a class="mono small" href="https://${esc(x.domain.split('/')[0])}" target="_blank" rel="noopener">${esc(x.domain)}</a></li>`).join('')).join('');
+
+const guestsText = h => `${h.adults} adulto${h.adults>1?'s':''}${h.kids ? `, ${h.kids} niño${h.kids>1?'s':''}` : ''} · ${h.rooms} habitación${h.rooms>1?'es':''}`;
+const stayText = h => `Alojamiento en ${h.city} · entrada ${nice(h.checkin)} · salida ${nice(h.checkout)} · ${guestsText(h)}`;
+
+// sugerencias con las fechas del vuelo
+function renderSuggest(){
+  const box = $('#hSuggest'), items = [];
+  if(stayHint) items.push({...stayHint, ic:'✈️', t:`Llegás a ${stayHint.city} el ${nice(stayHint.checkin)}`, sub: stayHint.checkout ? `Salís el ${nice(stayHint.checkout)} · ${daysBetween(stayHint.checkin, stayHint.checkout)} noches` : 'Elegí la fecha de salida'});
+  if(lastQ) lastQ.dests.forEach(d => {
+    const city = cityName(d);
+    if(stayHint && stayHint.city === city) return;
+    items.push({city, checkin:lastQ.d1, checkout:lastQ.d2 || '', ic:'🗓️', t:`Usar las fechas de tu vuelo a ${city}`, sub: lastQ.d2 ? `Del ${nice(lastQ.d1)} al ${nice(lastQ.d2)} · ${daysBetween(lastQ.d1, lastQ.d2)} noches` : `Desde el ${nice(lastQ.d1)} (vuelo solo ida)`});
+  });
+  box.hidden = !items.length;
+  box.innerHTML = items.slice(0, 4).map(x => `<button type="button" class="sugg" data-sugg='${esc(JSON.stringify({city:x.city, checkin:x.checkin, checkout:x.checkout}))}'><span class="ic" aria-hidden="true">${x.ic}</span><span><b>${esc(x.t)}</b><span class="small">${esc(x.sub)}</span></span></button>`).join('');
+}
+$('#hSuggest').addEventListener('click', e => {
+  const b = e.target.closest('[data-sugg]'); if(!b) return;
+  const x = JSON.parse(b.dataset.sugg);
+  fillStay(x);
+  if(x.checkout) searchStay(); else $('#hOut').focus();
+});
+function fillStay(x){
+  if(x.city) $('#hCity').value = x.city;
+  if(x.checkin) $('#hIn').value = x.checkin;
+  $('#hOut').min = $('#hIn').value || TODAY;
+  $('#hOut').value = x.checkout || '';
+  if(lastQ && !x.keepGuests){ $('#hAdults').value = String(Math.max(1, lastQ.adults)); $('#hKids').value = String(lastQ.kids); }
+}
+function readStay(){
+  const err = $('#hErr'); clearInvalid('#hForm');
+  const fail = (m, f) => { showErr(err, m, f); return null; };
+  const city = $('#hCity').value.trim().replace(/^[A-Z]{3}\s+—\s+/, '');
+  if(city.length < 2) return fail('Escribí la ciudad donde te vas a quedar.', '#hCity');
+  const checkin = $('#hIn').value, checkout = $('#hOut').value;
+  if(!checkin) return fail('Elegí la fecha de entrada.', '#hIn');
+  if(checkin < TODAY) return fail('La fecha de entrada ya pasó.', '#hIn');
+  if(!checkout) return fail('Elegí la fecha de salida.', '#hOut');
+  if(checkout <= checkin) return fail('La salida tiene que ser al menos un día después de la entrada.', '#hOut');
+  err.hidden = true;
+  return {city, checkin, checkout, adults:+$('#hAdults').value, kids:+$('#hKids').value, rooms:+$('#hRooms').value, cur:$('#hCur').value};
+}
+function searchStay(){
+  const h = readStay(); if(!h) return;
+  renderStayResults(h);
+  $('#hResults').scrollIntoView({behavior:'smooth', block:'start'});
+}
+$('#hForm').addEventListener('submit', e => { e.preventDefault(); searchStay(); });
+
+function stayRow(h, x){
+  const key = `${h.city}|${h.checkin}|${x.id}`, done = hOpened.has(key);
+  const badge = x.mode === 'lista' ? '<span class="pill ok">Búsqueda lista</span>' : '<span class="pill warn">Datos copiados</span>';
+  return `<div class="src ${done?'done':''}">
+    <div class="mono-ic" aria-hidden="true">${esc(x.mono)}</div>
+    <div class="info"><span class="name">${esc(x.name)} ${badge}</span><span class="dom">${esc(x.domain)}</span><span class="why">${esc(x.why)}</span></div>
+    <div class="acts">
+      <a class="btn primary sm" href="${esc(x.url(h))}" target="_blank" rel="noopener" data-hopen="${esc(key)}" data-mode="${x.mode}">Abrir <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <button type="button" class="btn ghost sm" data-hnote="${x.id}" aria-label="Anotar precio de ${esc(x.name)}">+ Precio</button>
+    </div></div>`;
+}
+function renderStayResults(h){
+  lastS = h;
+  const n = daysBetween(h.checkin, h.checkout);
+  const groups = Object.keys(STAY_CATS).map(cat => {
+    const items = STAY_SOURCES.filter(x => x.cat === cat);
+    return `<div class="group"><div class="group-head"><h3>${STAY_CATS[cat].title}</h3><span class="muted small">${STAY_CATS[cat].sub}</span></div><div class="srcs">${items.map(x => stayRow(h, x)).join('')}</div></div>`;
+  }).join('');
+  $('#hResults').innerHTML = `<div class="row" style="justify-content:space-between"><h2>Dónde buscar</h2><span class="muted small">${STAY_SOURCES.length} páginas</span></div>
+    <div class="pass stay-pass"><div class="main">
+      <div class="city">${esc(h.city)}</div>
+      <div class="meta">
+        <div><span class="label">Entrada</span><span class="v">${nice(h.checkin)}</span></div>
+        <div><span class="label">Salida</span><span class="v">${nice(h.checkout)}</span></div>
+        <div><span class="label">Noches</span><span class="v mono">${n}</span></div>
+        <div><span class="label">Huéspedes</span><span class="v">${esc(guestsText(h))}</span></div>
+      </div></div></div>
+    ${groups}
+    <p class="exnote small"><span class="pill warn">Ojo</span> Compará siempre el <b>precio total</b> de la estadía: algunas páginas muestran el precio por noche sin impuestos, limpieza ni tasas.</p>`;
+}
+$('#hResults').addEventListener('click', e => {
+  const a = e.target.closest('[data-hopen]');
+  if(a){
+    if(a.dataset.mode === 'copia' && lastS){
+      const txt = stayText(lastS);
+      if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(() => toast('Copiamos tu estadía. Pegala o completala en el buscador.'), () => toast('Completá en el sitio: ' + txt));
+      else toast('Completá en el sitio: ' + txt);
+    }
+    hOpened.add(a.dataset.hopen);
+    const row = a.closest('.src'); row.classList.add('done');
+    return;
+  }
+  const n = e.target.closest('[data-hnote]');
+  if(n) prefillStayPrice(n.dataset.hnote);
+});
+
+// desde Vuelos
+function goStay(x){
+  fillStay(x);
+  navigate('estadias', {top:true});
+  if(x.checkout) setTimeout(() => searchStay(), 80);
+  else setTimeout(() => $('#hOut').focus(), 120);
+}
+function stayFromTrip(d){
+  goStay({city: cityName(d), checkin: lastQ.d1, checkout: lastQ.d2 || ''});
+}
+function stayFromFlight(id, d){
+  const it = findLive(id); if(!it){ stayFromTrip(d); return; }
+  const out = it.outbound.segments, inn = it.inbound && it.inbound.segments;
+  const checkin = String(out[out.length-1].arrival_time_local).slice(0,10);
+  const checkout = inn ? String(inn[0].departure_time_local).slice(0,10) : (lastQ.d2 || '');
+  stayHint = {city: cityName(d), checkin, checkout};
+  goStay(stayHint);
+  toast(`Fechas de tu vuelo: llegás el ${nice(checkin)}${checkout ? ` y salís el ${nice(checkout)}` : ''}`);
+}
+
+/* ----- Mis estadías ----- */
+function prefillStayPrice(srcId){
+  if(!lastS) return;
+  $('#hpSource').value = srcId; $('#hpCity').value = lastS.city; $('#hpIn').value = lastS.checkin; $('#hpOut').value = lastS.checkout; $('#hpCur').value = lastS.cur;
+  $('#hBack').hidden = false;
+  navigate('mis-estadias', {fromSearch:true});
+  $('#hformBox').open = true;
+  setTimeout(() => $('#hformBox').scrollIntoView({behavior:'smooth', block:'start'}), 60);
+  setTimeout(() => $('#hpAmount').focus({preventScroll:true}), 450);
+}
+$('#hBack').addEventListener('click', () => navigate('estadias'));
+$('#hpform').addEventListener('submit', e => {
+  e.preventDefault();
+  const err = $('#hpErr'); clearInvalid('#hpform');
+  const city = $('#hpCity').value.trim(), checkin = $('#hpIn').value, checkout = $('#hpOut').value, amount = parseFloat($('#hpAmount').value);
+  if(city.length < 2){ showErr(err, 'Escribí la ciudad.', '#hpCity'); return; }
+  if(!checkin || !checkout || checkout <= checkin){ showErr(err, 'Revisá las fechas: la salida tiene que ser después de la entrada.', checkin ? '#hpOut' : '#hpIn'); return; }
+  if(!(amount > 0)){ showErr(err, 'Escribí el precio total de la estadía, solo el número.', '#hpAmount'); return; }
+  err.hidden = true;
+  const srcId = $('#hpSource').value, x = HSRC[srcId];
+  let url = x ? 'https://' + x.domain.split('/')[0] : '';
+  if(x && lastS && lastS.city.toLowerCase() === city.toLowerCase() && lastS.checkin === checkin && lastS.checkout === checkout) url = x.url(lastS);
+  state.estadias = [{
+    id: Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+    src: srcId, srcName: x ? x.name : 'Otra página', url,
+    city, name: $('#hpName').value.trim(), checkin, checkout,
+    amount, cur: $('#hpCur').value, at: new Date().toISOString()
+  }, ...state.estadias].slice(0,300);
+  persist(); renderStays();
+  $('#hpAmount').value = ''; $('#hpName').value = '';
+  $('#hformBox').open = false;
+  toast('Estadía guardada');
+});
+function renderStays(){
+  const list0 = state.estadias || [];
+  const cities = [...new Set(list0.map(p => p.city))];
+  const sel = $('#hpFilter'), cur = sel.value;
+  sel.innerHTML = '<option value="">Todas las ciudades</option>' + cities.map(c => `<option ${c===cur?'selected':''}>${esc(c)}</option>`).join('');
+  $('#tabStays').textContent = list0.length ? String(list0.length) : '';
+  $('#hstN').textContent = list0.length; $('#hstNl').textContent = list0.length === 1 ? 'estadía' : 'estadías';
+  $('#hstC').textContent = cities.length; $('#hstCl').textContent = cities.length === 1 ? 'ciudad' : 'ciudades';
+  const last = list0.reduce((m,p) => !m || String(p.at) > String(m.at) ? p : m, null);
+  $('#hstLast').textContent = last ? ago(last.at) : '—';
+  const list = list0.filter(p => !sel.value || p.city === sel.value);
+  if(!list.length){
+    $('#hlist').innerHTML = `<div class="empty"><span class="ic">${'🏨'}</span><b style="color:var(--ink)">Todavía no anotaste estadías</b><span class="small">Buscá alojamiento, mirá el precio en una página y tocá “+ Precio”. Acá vas a ver cuál conviene y cuánto sale por noche.</span></div>`;
+    return;
+  }
+  const groups = {};
+  list.forEach(p => { (groups[p.city.toLowerCase() + '|' + p.cur] ||= []).push(p); });
+  $('#hlist').innerHTML = Object.values(groups).map(arr => {
+    arr.sort((a,b) => a.amount / Math.max(1, daysBetween(a.checkin, a.checkout)) - b.amount / Math.max(1, daysBetween(b.checkin, b.checkout)));
+    const per = p => p.amount / Math.max(1, daysBetween(p.checkin, p.checkout));
+    const min = per(arr[0]);
+    return `<div class="group"><div class="group-head"><h3>${esc(arr[0].city)} · ${esc(arr[0].cur)}</h3><span class="muted small">${arr.length} estadía${arr.length>1?'s':''} · ordenadas por precio por noche</span></div>` +
+      arr.map((p,i) => { const n = Math.max(1, daysBetween(p.checkin, p.checkout)); return `<article class="price hprice ${i===0?'top':''}">
+        <div>
+          <div class="line1">${i===0 ? '<span class="pill best">Más barata</span>' : ''}<span>${esc(p.name || p.srcName)}</span></div>
+          <div class="line2"><span>${esc(p.srcName)}</span><span>${short(p.checkin)} → ${short(p.checkout)} · ${n} noche${n>1?'s':''}</span></div>
+        </div>
+        <div><div class="amt">${money(p.amount, p.cur)}</div><div class="pn">${money(per(p), p.cur)} por noche</div>${i>0 ? `<div class="diff">+${money(per(p)-min, p.cur)} por noche</div>` : ''}</div>
+        <div class="foot"><span class="muted">Fuente: ${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc((p.url.split('/')[2]||'').replace('www.',''))}</a>` : esc(p.srcName)} · anotado ${ago(p.at)}${p.by ? ' por ' + esc(p.by) : ''}</span>
+          <button type="button" class="btn ghost sm" data-hdel="${p.id}">Borrar</button></div>
+      </article>`; }).join('') + '</div>';
+  }).join('');
+}
+$('#hpFilter').addEventListener('change', renderStays);
+$('#hlist').addEventListener('click', e => {
+  const b = e.target.closest('[data-hdel]'); if(!b) return;
+  if(b.dataset.armed){ state.estadias = state.estadias.filter(p => p.id !== b.dataset.hdel); persist(); renderStays(); toast('Estadía borrada'); return; }
+  b.dataset.armed = '1'; b.textContent = '¿Borrar? Tocá de nuevo';
+  setTimeout(() => { if(b.isConnected){ delete b.dataset.armed; b.textContent = 'Borrar'; } }, 3000);
+});
+document.addEventListener('click', e => { const a = e.target.closest('a[data-go]'); if(!a) return; e.preventDefault(); navigate(a.dataset.go); });
+
 /* ---------- Guardado ---------- */
-// Sin cuenta: se guarda en este dispositivo. Con Google y una lista de Vuelos Baratos: los precios se comparten
-// con las personas de la lista (Firebase propio de esta app, no está conectada con ninguna otra).
-let REMOTE = null, known = null;
-function setSync(t){ $('#sync').textContent = t; }
+// Sin cuenta: se guarda en este dispositivo. Con Google y una lista de Vuelos Baratos: los precios y las estadías
+// se comparten con las personas de la lista (Firebase propio de esta app, no está conectada con ninguna otra).
+let REMOTE = null;
+const known = {precios:null, estadias:null};
+const KEYS = {
+  precios: ['id','src','srcName','url','route','dates','airline','amount','cur','final','at','by'],
+  estadias: ['id','src','srcName','url','city','name','checkin','checkout','amount','cur','at','by']
+};
+const RENDER = {precios: () => renderPrices(), estadias: () => renderStays()};
+function setSync(t){ $('#sync').textContent = t; $('#hSync').textContent = t; }
 function saveLocal(){ try{ localStorage.setItem(LS, JSON.stringify(state)); }catch(e){} }
-const clean = p => { const o = {}; ['id','src','srcName','url','route','dates','airline','amount','cur','final','at','by'].forEach(k => { if(p[k] !== undefined && p[k] !== null) o[k] = p[k]; }); return o; };
+const clean = (col, p) => { const o = {}; KEYS[col].forEach(k => { if(p[k] !== undefined && p[k] !== null) o[k] = p[k]; }); return o; };
 function persist(){
   saveLocal();
-  if(!REMOTE || !known) return;
-  const now = new Set(state.precios.map(p => p.id));
-  state.precios.filter(p => !known.has(p.id)).forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(clean(p)); });
-  [...known].filter(id => !now.has(id)).forEach(id => REMOTE.del(id));
-  known = now; saveLocal();
+  if(!REMOTE) return;
+  for(const col of ['precios','estadias']){
+    if(!known[col]) continue;
+    const now = new Set(state[col].map(p => p.id));
+    state[col].filter(p => !known[col].has(p.id)).forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(col, clean(col, p)); });
+    [...known[col]].filter(id => !now.has(id)).forEach(id => REMOTE.del(col, id));
+    known[col] = now;
+  }
+  saveLocal();
 }
 window.__vb = {
-  connect(api){ REMOTE = api; known = null; },
-  disconnect(){ REMOTE = null; known = null; state.precios = state.precios.filter(p => !p.g); saveLocal(); renderPrices(); setSync('Guardado en este dispositivo'); },
-  remote(list){
-    if(!REMOTE) return;
+  connect(api){ REMOTE = api; known.precios = known.estadias = null; },
+  disconnect(){
+    REMOTE = null; known.precios = known.estadias = null;
+    state.precios = state.precios.filter(p => !p.g); state.estadias = state.estadias.filter(p => !p.g);
+    saveLocal(); renderPrices(); renderStays(); setSync('Guardado en este dispositivo');
+  },
+  remote(list, col = 'precios'){
+    if(!REMOTE || !KEYS[col]) return;
     list = list.map(p => ({...p, g: REMOTE.gid}));
-    if(known === null){
-      // la primera vez se suben los precios que estaban solo en este dispositivo
+    if(known[col] === null){
+      // la primera vez se suben los que estaban solo en este dispositivo
       const ids = new Set(list.map(p => p.id));
-      const solos = state.precios.filter(p => !p.g && !ids.has(p.id));
-      solos.forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(clean(p)); });
+      const solos = state[col].filter(p => !p.g && !ids.has(p.id));
+      solos.forEach(p => { p.by = p.by || REMOTE.name; p.g = REMOTE.gid; REMOTE.add(col, clean(col, p)); });
       list = [...solos, ...list];
     }
-    state.precios = list.sort((a,b) => String(b.at||'').localeCompare(String(a.at||'')));
-    known = new Set(state.precios.map(p => p.id));
-    saveLocal(); renderPrices(); setSync('Compartido con tu lista');
+    state[col] = list.sort((a,b) => String(b.at||'').localeCompare(String(a.at||'')));
+    known[col] = new Set(state[col].map(p => p.id));
+    saveLocal(); RENDER[col](); setSync('Compartido con tu lista');
   },
   sync: setSync,
   toast: m => toast(m)
@@ -1226,8 +1579,9 @@ window.__vb = {
 function initStore(){
   try{ const raw = localStorage.getItem(LS); if(raw){ const d = JSON.parse(raw); // los precios de una lista vieja (o de otra app) quedan como propios de este celular
     let cur = null; try{ cur = localStorage.getItem('vb-lista'); }catch(e){}
-    state = {precios:(d.precios||[]).map(({g, ...p}) => g && g === cur ? {...p, g} : p), busquedas:d.busquedas||[]}; } }catch(e){}
-  renderPrices(); renderRecent();
+    const keep = ({g, ...p}) => g && g === cur ? {...p, g} : p;
+    state = {precios:(d.precios||[]).map(keep), busquedas:d.busquedas||[], estadias:(d.estadias||[]).map(keep)}; } }catch(e){}
+  renderPrices(); renderRecent(); renderStays();
   if(state.busquedas.length || state.precios.length) $('#s-buscar .hero').classList.add('returning');
 }
 
@@ -1289,7 +1643,9 @@ async function loadOfertas(){
   }catch(e){ ofertas = ofertas || {ok:false, items:[]}; }
   renderOfertas(); badgeOfertas();
 }
+let ofMode = null;
 function onOfertasShown(){
+  if(ofMode !== mode){ ofMode = mode; ofFiltro = mode === 'estadias' ? 'hotel' : 'vuelo'; document.querySelectorAll('#s-ofertas .fchip').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.f === ofFiltro))); }
   renderSales(); renderOfertas();
   // lo que ya viste deja de contar como nuevo la próxima vez que entres
   const now = Date.now(); if(!ofVisto) ofVisto = now;
@@ -1307,20 +1663,33 @@ setInterval(loadOfertas, 30 * 60000);
 /* ---------- Pantallas ---------- */
 // Cada pestaña tiene su propia pantalla. La dirección cambia (#/precios) para que funcione el botón "atrás"
 // y cada pantalla recuerda hasta dónde bajaste.
-const SCREENS = ['buscar','ofertas','precios','fuentes'];
-const TITLES = {buscar:'Vuelos Baratos', ofertas:'Ofertas · Vuelos Baratos', precios:'Mis precios · Vuelos Baratos', fuentes:'Fuentes · Vuelos Baratos'};
+const SCREENS = ['buscar','ofertas','precios','fuentes','estadias','mis-estadias'];
+const MODE_OF = {buscar:'vuelos', precios:'vuelos', estadias:'estadias', 'mis-estadias':'estadias'};
+const HOME = {vuelos:'buscar', estadias:'estadias'};
+let mode = 'vuelos'; try{ if(localStorage.getItem('vb-modo') === 'estadias') mode = 'estadias'; }catch(e){}
+const lastOf = {vuelos:'buscar', estadias:'estadias'};
+function setMode(m){
+  if(m !== mode){ mode = m; try{ localStorage.setItem('vb-modo', m); }catch(e){} }
+  if(m === 'estadias') document.documentElement.dataset.mode = 'estadias'; else delete document.documentElement.dataset.mode;
+  document.querySelectorAll('[data-mode-go]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.modeGo === m)));
+  const tc = document.querySelector('meta[name="theme-color"][media*="light"]'); if(tc) tc.content = m === 'estadias' ? '#0F766E' : '#1D4ED8';
+}
+const TITLES = {estadias:'Estadías · Vuelos Baratos', 'mis-estadias':'Mis estadías · Vuelos Baratos', buscar:'Vuelos Baratos', ofertas:'Ofertas · Vuelos Baratos', precios:'Mis precios · Vuelos Baratos', fuentes:'Fuentes · Vuelos Baratos'};
 const tabs = [...document.querySelectorAll('nav.tabs a')];
 const scrollPos = {};
 let current = null;
-const fromHash = () => { const h = location.hash.replace(/^#\/?/,''); return SCREENS.includes(h) ? h : 'buscar'; };
+const fromHash = () => { const h = location.hash.replace(/^#\/?/,''); return SCREENS.includes(h) ? h : HOME[mode]; };
 function show(name, opts = {}){
   if(current) scrollPos[current] = window.scrollY;
   const changed = name !== current;
   current = name;
+  if(MODE_OF[name]){ setMode(MODE_OF[name]); lastOf[MODE_OF[name]] = name; } else setMode(mode);
   SCREENS.forEach(id => { $('#s-' + id).hidden = id !== name; });
   tabs.forEach(a => { const on = a.dataset.tab === name; a.classList.toggle('on', on); on ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'); });
   document.title = TITLES[name];
   if(name === 'precios') $('#backSearch').hidden = !opts.fromSearch;
+  if(name === 'mis-estadias') $('#hBack').hidden = !opts.fromSearch;
+  if(name === 'estadias') renderSuggest();
   if(name === 'ofertas') onOfertasShown();
   if(changed) window.scrollTo(0, opts.top ? 0 : (scrollPos[name] || 0));
 }
@@ -1331,6 +1700,7 @@ function navigate(name, opts = {}){
   if(!opts.fromSearch){ const h = $('#s-' + name + ' [tabindex="-1"]'); if(h) h.focus({preventScroll:true}); }
 }
 tabs.forEach(a => a.addEventListener('click', e => { e.preventDefault(); navigate(a.dataset.tab); }));
+document.querySelectorAll('[data-mode-go]').forEach(b => b.addEventListener('click', () => { const m = b.dataset.modeGo; if(m === mode && MODE_OF[current] === m) return; navigate(lastOf[m] || HOME[m], {top:true}); }));
 window.addEventListener('popstate', () => show(fromHash()));
 $('#backSearch').addEventListener('click', () => navigate('buscar'));
 document.addEventListener('click', e => {
@@ -1384,8 +1754,8 @@ const IC_G = '<svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"
 let pending = normCode(new URLSearchParams(location.search).get("unirse"));
 if(pending){ history.replaceState(null, "", location.pathname + "#/precios"); window.dispatchEvent(new PopStateEvent("popstate")); }
 
-let me = null, lid = null, offList = null, offPrecios = null;
-function stop(){ if(offList){ offList(); offList = null; } if(offPrecios){ offPrecios(); offPrecios = null; } lid = null; }
+let me = null, lid = null, offList = null, offPrecios = null, offEstadias = null;
+function stop(){ if(offList){ offList(); offList = null; } if(offPrecios){ offPrecios(); offPrecios = null; } if(offEstadias){ offEstadias(); offEstadias = null; } lid = null; }
 function render(head, body = "", foot = ""){
   box.innerHTML = `<div class="top"><span class="ic">${IC_USERS}</span><div>${head}</div></div>${body}${foot ? `<div class="foot">${foot}</div>` : ""}`;
   box.hidden = false;
@@ -1456,8 +1826,9 @@ function usar(id){
   try{ localStorage.setItem("vb-lista", id); }catch(e){}
   vb().connect({
     gid: id, name: firstName(me.displayName),
-    add: p => setDoc(doc(fs, `listas/${id}/precios`, p.id), p).catch(e => { console.error(e); vb().sync("No se pudo compartir"); }),
-    del: pid => deleteDoc(doc(fs, `listas/${id}/precios`, pid)).catch(e => console.error(e))
+    // col: "precios" (vuelos) o "estadias"
+    add: (col, p) => setDoc(doc(fs, `listas/${id}/${col}`, p.id), p).catch(e => { console.error(e); vb().sync("No se pudo compartir"); }),
+    del: (col, pid) => deleteDoc(doc(fs, `listas/${id}/${col}`, pid)).catch(e => console.error(e))
   });
   vb().sync("Conectando…");
   offList = onSnapshot(doc(fs, "listas", id), snap => {
@@ -1465,9 +1836,9 @@ function usar(id){
     if(!snap.exists() || !(l.members || []).includes(me.uid)){ stop(); vb().disconnect(); return noList(); }
     inList(l);
   }, e => { console.error(e); if(e.code === "permission-denied"){ stop(); vb().disconnect(); noList(); } });
-  offPrecios = onSnapshot(collection(fs, `listas/${id}/precios`), s => vb().remote(s.docs.map(d => d.data())), e => {
-    console.error(e); vb().sync(e.code === "permission-denied" ? "Falta pegar las reglas en Firebase" : "Sin conexión: guardado en este celular");
-  });
+  const onErr = e => { console.error(e); vb().sync(e.code === "permission-denied" ? "Falta pegar las reglas en Firebase" : "Sin conexión: guardado en este celular"); };
+  offPrecios = onSnapshot(collection(fs, `listas/${id}/precios`), s => vb().remote(s.docs.map(d => d.data()), "precios"), onErr);
+  offEstadias = onSnapshot(collection(fs, `listas/${id}/estadias`), s => vb().remote(s.docs.map(d => d.data()), "estadias"), onErr);
 }
 function inList(l){
   const people = Object.entries(l.memberInfo || {}).map(([uid, m]) => ({ name: uid === me.uid ? `${m.name} (vos)` : m.name }));

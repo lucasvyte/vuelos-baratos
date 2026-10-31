@@ -7,6 +7,18 @@ Mientras la app no esté terminada, las versiones van a seguir siendo `0.X.Y` ha
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
 
+## 0.10.0 — 31/10/2026
+
+Nueva parte: Estadías.
+
+- Arriba de todo hay un selector **Vuelos | Estadías**. En Estadías la app cambia de color (verde azulado), de ícono y de pestañas: Buscar, Ofertas, Mis estadías y Fuentes.
+- Buscar alojamiento: ciudad, entrada, salida, adultos, niños, habitaciones y moneda. Arma la búsqueda en Booking.com, Airbnb, Expedia y Hoteles.com (con todo cargado) y en Google Hoteles, Trivago, Despegar y Almundo (copiando los datos).
+- Fechas del vuelo: en Estadías aparecen como sugerencia las fechas de tu última búsqueda de vuelos. Desde Vuelos, cada destino tiene "Buscar dónde dormir" y cada vuelo en vivo tiene "🏨 Alojamiento", que usa el día exacto en que llegás y el día en que salís.
+- Mis estadías: anotás el precio total y la app calcula el precio por noche, ordena de la más barata a la más cara por ciudad y muestra la fuente. Se comparte con tu lista igual que los precios de vuelos.
+- Ofertas: nuevo filtro "Hoteles". Si entrás desde Estadías, arranca mostrando hoteles.
+- Fuentes: lista de las páginas de alojamiento.
+- La app recuerda en qué parte estabas (Vuelos o Estadías) la próxima vez que la abrís.
+
 ## 0.9.0 — 31/10/2026
 
 - Precios en vivo: solo se muestran vuelos casados (todo el viaje en un mismo pasaje). Las combinaciones de pasajes separados ("conexión por tu cuenta") ya no aparecen.

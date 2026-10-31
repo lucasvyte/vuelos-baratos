@@ -65,6 +65,22 @@ service cloud.firestore {
           && optStr(request.resource.data, 'at', 40) && optStr(request.resource.data, 'by', 100)
           && (!('final' in request.resource.data) || request.resource.data.final is bool);
       }
+
+      // Estadías anotadas: igual que los precios, solo para los miembros de la lista
+      match /estadias/{id} {
+        allow read, delete: if isMember(lid);
+        allow create, update: if isMember(lid)
+          && id.matches('[a-z0-9]{1,24}')
+          && request.resource.data.keys().hasOnly(['id', 'src', 'srcName', 'url', 'city', 'name', 'checkin', 'checkout', 'amount', 'cur', 'at', 'by'])
+          && request.resource.data.id == id
+          && request.resource.data.city is string && request.resource.data.city.size() <= 100
+          && request.resource.data.amount is number
+          && request.resource.data.checkin is string && request.resource.data.checkin.matches('[0-9]{4}-[0-9]{2}-[0-9]{2}')
+          && request.resource.data.checkout is string && request.resource.data.checkout.matches('[0-9]{4}-[0-9]{2}-[0-9]{2}')
+          && optStr(request.resource.data, 'src', 40) && optStr(request.resource.data, 'srcName', 100)
+          && optStr(request.resource.data, 'url', 2000) && optStr(request.resource.data, 'name', 100)
+          && optStr(request.resource.data, 'cur', 5) && optStr(request.resource.data, 'at', 40) && optStr(request.resource.data, 'by', 100);
+      }
     }
   }
 }
