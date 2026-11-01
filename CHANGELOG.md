@@ -7,6 +7,12 @@ Mientras la app no esté terminada, las versiones van a seguir siendo `0.X.Y` ha
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
 
+## 0.11.0 — 01/11/2026
+
+- Se quitó el inicio de sesión con Google y las listas para compartir precios. Ya no aparece "Compartí tus precios" ni el aviso de error al entrar.
+- Mis precios y Mis estadías se guardan solo en este celular. Los precios que ya tenías anotados se mantienen.
+- Para pasarle los precios a alguien sigue estando "Copiar lista".
+
 ## 0.10.1 — 31/10/2026
 
 - Precios en vivo: si dos vuelos cuestan lo mismo, solo el primero aparece como "Más barato".

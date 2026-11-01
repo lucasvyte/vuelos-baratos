@@ -93,7 +93,7 @@ try {
 
   // ---- Mis precios / Mis estadías / Fuentes ----
   await p.click('nav.tabs [data-tab="precios"]'); await p.waitForTimeout(500);
-  paso("Mis precios", (await p.locator("#plist .price").count()) > 0, { compartir: (await txt("#share")).slice(0, 80) });
+  paso("Mis precios", (await p.locator("#plist .price").count()) > 0);
   await shot("07-mis-precios");
   await p.click('nav.tabs [data-tab="fuentes"]'); await p.waitForTimeout(400);
   paso("Fuentes", (await p.locator("#srcIndex li").count()) > 5 && (await p.locator("#hSrcIndex li").count()) > 5);
