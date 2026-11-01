@@ -1,12 +1,22 @@
 {
- "updated": "2026-11-01T00:13:31.442Z",
- "checked": "2026-11-01T16:09:25.842Z",
+ "updated": "2026-11-01T22:13:12.432Z",
+ "checked": "2026-11-01T22:13:12.432Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-se-viene-el-cyber-monday-las-promos-de-viajes-arrancan-en-horas",
+   "url": "https://promociones-aereas.com.ar/2026/11/se-viene-el-cyber-monday-las-promos-de-viajes-arrancan-en-horas.html",
+   "title": "¡Se viene el Cyber Monday 2026! Las promos de viajes arrancan en horas 🕛✈️",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-01T22:00:00.000Z",
+   "seen": "2026-11-01T22:13:12.432Z"
+  },
   {
    "id": "2024-06-consejos-tip-y-sugerencias-para-conseguir-vuelos-baratos-c",
    "url": "https://promociones-aereas.com.ar/2024/06/consejos-tip-y-sugerencias-para-conseguir-vuelos-baratos-c.html",
