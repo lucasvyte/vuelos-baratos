@@ -7,6 +7,13 @@ Mientras la app no esté terminada, las versiones van a seguir siendo `0.X.Y` ha
 
 Las versiones de esta lista se renumeraron el 30/10/2026: antes se habían publicado como 1.0.0 a 2.0.0.
 
+## 0.11.1 — 01/11/2026
+
+- BoA (Boliviana de Aviación) sigue en "Con precaución", ahora marcada en rojo (con borde, distinta de "Excluida") en vuelos en vivo, Mis precios y Ofertas.
+- Cada vuelo en vivo con BoA muestra un aviso: no está excluida, tuvo demoras y fallas técnicas, decidís vos.
+- Fuentes: el motivo de BoA se actualizó con los incidentes de 2026 y más fuentes.
+- Anotar un precio: los avisos de aerolínea y los errores ahora ocupan todo el ancho del formulario.
+
 ## 0.11.0 — 01/11/2026
 
 - Se quitó el inicio de sesión con Google y las listas para compartir precios. Ya no aparece "Compartí tus precios" ni el aviso de error al entrar.

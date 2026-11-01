@@ -80,7 +80,7 @@ nav.tabs .cnt:empty{display:none}
 .grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
 @media (max-width:620px){.grid,.grid.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.span2-m{grid-column:1/-1}}
 .field{display:flex;flex-direction:column;gap:5px;min-width:0}
-.field.full{grid-column:1/-1}
+.field.full,.grid > .full{grid-column:1/-1}
 input,select,textarea{font:inherit;color:var(--ink);background:var(--surface-2);border:1px solid var(--field-line);border-radius:10px;padding:10px 12px;min-width:0;width:100%}
 input:focus,select:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 25%,transparent)}
 [aria-invalid="true"]{border-color:var(--bad)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--bad) 22%,transparent)!important}
@@ -164,6 +164,9 @@ details.destbox > summary::-webkit-details-marker{display:none}
 .pill.warn{background:var(--warn-bg);color:var(--warn)}
 .pill.best{background:var(--sign);color:var(--sign-ink)}
 .pill.bad{background:#FBE3E1;color:#A3271C}
+.pill.caution{background:var(--surface);color:var(--bad);border:1.5px solid var(--bad);padding:1px 8px}
+.cnote{margin:0;font-size:.84rem;color:var(--ink);background:color-mix(in srgb,var(--bad) 7%,var(--surface));border-left:3px solid var(--bad);border-radius:10px;padding:8px 10px}
+.cnote b{color:var(--bad)}
 :root[data-theme="dark"] .pill.bad{background:#3C1A18;color:#FF9A8F}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .pill.bad{background:#3C1A18;color:#FF9A8F}}
 .exnote{background:var(--warn-bg);color:var(--ink);border-radius:14px;padding:12px 14px;margin:0;border-left:4px solid var(--sign)}
@@ -690,7 +693,7 @@ html[data-mode="estadias"] nav.tabs a[data-m="vuelos"],html:not([data-mode="esta
   </div>
 
   <footer class="app">
-    <span class="ver">v0.11.0</span>
+    <span class="ver">v0.11.1</span>
     <span><a href="https://github.com/lucasvyte/vuelos-baratos/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Novedades de cada versión</a></span>
   </footer>
 </div>
@@ -829,8 +832,8 @@ const EXCLUDED = [
  {name:'Jet2', level:'excluida', match:/jet2/i, scope:'Reino Unido y Europa',
   reason:'Puesto 105 de 117 en el AirHelp Score 2025, con 4,98 sobre 10.', compare:'', sources:[AIRHELP]},
  {name:'BoA (Boliviana de Aviación)', level:'precaucion', match:/\bboa\b|boliviana/i, scope:'Bolivia y conexiones por Santa Cruz',
-  reason:'En 2025 tuvo reclamos constantes por demoras y una flota reducida: su puntualidad rondaba el 50%. En enero de 2026 subió al 78% y está en plan de recuperación, por eso queda en precaución y no excluida.',
-  compare:'', sources:[['Correo del Sur · febrero 2026','https://correodelsur.com/economia/20260225/boa-preve-tener-15-aeronaves-en-operacion-hasta-mediados-de-ano.html']]}
+  reason:'No tuvo accidentes graves, pero sí incidentes técnicos seguidos: en mayo de 2026 un avión aterrizó de emergencia en Cochabamba por humo en la cabina y en agosto de 2026 otro tuvo un problema de motor saliendo de San Pablo. A fines de 2025 volaba con la mitad de su flota y su puntualidad rondaba el 50%; en enero de 2026 subió al 78%.',
+  compare:'Por eso no la sacamos de la búsqueda: aparece marcada en rojo y la decisión es tuya.', sources:[['Correo del Sur · febrero 2026','https://correodelsur.com/economia/20260225/boa-preve-tener-15-aeronaves-en-operacion-hasta-mediados-de-ano.html'],['Los Tiempos · mayo 2026','https://www.lostiempos.com/actualidad/pais/20260527/avion-boa-aterriza-emergencia-cochabamba'],['AeroInside','https://www.aeroinside.com/airline/boa-boliviana-de-aviacion'],['MercoPress · diciembre 2025','https://en.mercopress.com/2025/12/03/only-10-of-boliviana-de-aviacion-s-20-aircraft-operational']]}
 ];
 const excludedIn = txt => EXCLUDED.find(x => x.match.test(txt || ''));
 const SRC = Object.fromEntries(SOURCES.map(s => [s.id, s]));
@@ -842,7 +845,7 @@ let dests = [];
 let lastQ = null;
 const opened = new Set();
 const LS = 'vuelos-baratos-v1';
-const VERSION = '0.11.0';
+const VERSION = '0.11.1';
 
 /* ---------- Toast ---------- */
 let tt;
@@ -1009,7 +1012,7 @@ function exNote(){
   const pre = EXCLUDED.filter(x => x.level === 'precaucion').map(x => x.name);
   return `<div class="exnote small"><p><b>Evitá estas aerolíneas aunque salgan más baratas.</b> Los comparadores y agencias las pueden mostrar, también como escala.</p>
     <ul class="exnames" aria-label="Aerolíneas excluidas">${ex.map(n => `<li>${esc(n)}</li>`).join('')}</ul>
-    <p>${pre.length ? `Con precaución: ${esc(pre.join(', '))}. ` : ''}<a href="#excluidas">Ver por qué</a></p></div>`;
+    <p>${pre.length ? `Con precaución (aparecen, pero decidís vos): ${esc(pre.join(', '))}. ` : ''}<a href="#excluidas">Ver por qué</a></p></div>`;
 }
 function updateProgress(){
   if(!lastQ) return;
@@ -1096,8 +1099,9 @@ function flightCard(q, o, d, it, bestId){
   const legs = legsOf(it), caution = cautionOf(it), best = it.ignav_id === bestId;
   return `<article class="flight ${best ? 'best' : ''}" data-ig="${esc(it.ignav_id)}">
     <div class="ftop"><div class="fprice">${money(it.price.amount, it.price.currency)}</div>
-      <div class="pills">${best ? '<span class="pill best">Más barato</span>' : ''}${totalStops(it) === 0 ? '<span class="pill ok">Directo</span>' : ''}${caution ? '<span class="pill warn">Con precaución</span>' : ''}</div></div>
+      <div class="pills">${best ? '<span class="pill best">Más barato</span>' : ''}${totalStops(it) === 0 ? '<span class="pill ok">Directo</span>' : ''}${caution ? '<span class="pill caution">⚠ Con precaución</span>' : ''}</div></div>
     ${legHtml(legs[0], legs.length > 1 ? 'Ida' : 'Vuelo')}${legs[1] ? legHtml(legs[1], 'Vuelta') : ''}
+    ${caution ? `<p class="cnote"><b>${esc(caution.name)}</b> no está excluida, pero tuvo demoras y fallas técnicas. Decidís vos. <a href="#excluidas">Ver por qué</a></p>` : ''}
     <div class="facts"><button type="button" class="btn primary sm" data-buy="${esc(it.ignav_id)}" aria-expanded="false">Ver dónde comprar</button><button type="button" class="btn ghost sm" data-save-live="${esc(it.ignav_id)}" data-route="${esc(o)} → ${esc(d)}">Guardar precio</button><button type="button" class="btn ghost sm" data-stay-flight="${esc(it.ignav_id)}" data-d="${esc(d)}">🏨 Alojamiento</button></div>
     <div class="buy" hidden></div>
   </article>`;
@@ -1180,11 +1184,11 @@ $('#srcIndex').innerHTML = Object.keys(CATS).map(cat => SOURCES.filter(s => s.ca
   `<li><span><b>${esc(s.name)}</b> <span class="muted">· ${CATS[cat].title}</span></span><a class="mono small" href="https://${esc(s.domain.split('/')[0])}" target="_blank" rel="noopener">${esc(s.domain)}</a></li>`).join('')).join('');
 
 function fillRouteSuggestions(){}
-$('#exList').innerHTML = EXCLUDED.map(x => `<div class="exitem"><div class="line1">${x.level === 'excluida' ? '<span class="pill bad">Excluida</span>' : '<span class="pill warn">Con precaución</span>'} <b>${esc(x.name)}</b> <span class="muted small">· ${esc(x.scope)}</span></div>
+$('#exList').innerHTML = EXCLUDED.map(x => `<div class="exitem"><div class="line1">${x.level === 'excluida' ? '<span class="pill bad">Excluida</span>' : '<span class="pill caution">⚠ Con precaución</span>'} <b>${esc(x.name)}</b> <span class="muted small">· ${esc(x.scope)}</span></div>
   <p class="small">${esc(x.reason)}</p>${x.compare ? `<p class="small muted">${esc(x.compare)}</p>` : ''}
   <p class="small">Fuente: ${x.sources.map(([t,u]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`).join(' · ')}</p></div>`).join('');
 $('#pAirline').addEventListener('input', () => { const x = excludedIn($('#pAirline').value); const e = $('#pWarn');
-  e.hidden = !x; if(x) e.innerHTML = `${esc(x.name)} ${x.level === 'excluida' ? 'está excluida por sus cancelaciones y reclamos. Podés guardar el precio igual, pero te recomendamos otra opción.' : 'está en precaución: tuvo muchas demoras. Revisá las condiciones antes de comprar.'} <a href="#excluidas">Ver por qué</a>`; });
+  e.hidden = !x; if(x){ e.classList.toggle('exnote', x.level === 'excluida'); e.classList.toggle('cnote', x.level !== 'excluida'); } if(x) e.innerHTML = `${esc(x.name)} ${x.level === 'excluida' ? 'está excluida por sus cancelaciones y reclamos. Podés guardar el precio igual, pero te recomendamos otra opción.' : 'no está excluida, pero tuvo demoras y fallas técnicas. Decidís vos: revisá las condiciones antes de comprar.'} <a href="#excluidas">Ver por qué</a>`; });
 function prefillPrice(srcId,o,d){
   $('#pSource').value = srcId; $('#pRoute').value = `${o} → ${d}`;
   if(lastQ) $('#pDates').value = lastQ.d2 ? `${short(lastQ.d1)} → ${short(lastQ.d2)}` : `${short(lastQ.d1)} solo ida`;
@@ -1253,7 +1257,7 @@ function renderPrices(){
     return `<div class="group"><div class="group-head"><h3><span class="mono">${esc(route)}</span> · ${esc(c)}</h3><span class="muted small">${arr.length} precio${arr.length>1?'s':''}</span></div>` +
       arr.map(p => `<article class="price ${p===best?'top':''} ${isOut(p)?'out':''}">
         <div>
-          <div class="line1">${p===best ? '<span class="pill best">Más barato</span>' : ''}<span>${esc(p.srcName)}</span>${p.final ? '' : '<span class="pill warn">Sin impuestos</span>'}${(x => x ? (x.level === 'excluida' ? '<span class="pill bad">Aerolínea excluida</span>' : '<span class="pill warn">Con precaución</span>') : '')(excludedIn(p.airline))}</div>
+          <div class="line1">${p===best ? '<span class="pill best">Más barato</span>' : ''}<span>${esc(p.srcName)}</span>${p.final ? '' : '<span class="pill warn">Sin impuestos</span>'}${(x => x ? (x.level === 'excluida' ? '<span class="pill bad">Aerolínea excluida</span>' : '<span class="pill caution">⚠ Con precaución</span>') : '')(excludedIn(p.airline))}</div>
           <div class="line2">${p.dates ? `<span>${esc(p.dates)}</span>` : ''}${p.airline ? `<span>${esc(p.airline)}</span>` : ''}</div>
         </div>
         <div><div class="amt">${money(p.amount, p.cur)}</div>${p!==best && !isOut(p) && min!==null ? `<div class="diff">+${money(p.amount-min, p.cur)}</div>` : ''}</div>
@@ -1563,7 +1567,7 @@ function renderOfertas(){
     return `<a class="deal-it ${ex && ex.level === 'excluida' ? 'bad' : ''}" href="${esc(x.url)}" target="_blank" rel="noopener">
       <span class="tic" aria-hidden="true">${TIPO_IC[x.tipo] || TIPO_IC.otro}</span>
       <span><span class="t">${esc(x.title)}</span>
-        <span class="m">${price}${nueva ? '<span class="pill new">Nueva</span>' : ''}${x.aerolinea ? `<span>${esc(x.aerolinea)}</span>` : ''}${ex ? (ex.level === 'excluida' ? '<span class="pill bad">Aerolínea excluida</span>' : '<span class="pill warn">Con precaución</span>') : ''}<span>${esc(ago(x.at))}</span><span class="go">Ver ↗</span></span></span>
+        <span class="m">${price}${nueva ? '<span class="pill new">Nueva</span>' : ''}${x.aerolinea ? `<span>${esc(x.aerolinea)}</span>` : ''}${ex ? (ex.level === 'excluida' ? '<span class="pill bad">Aerolínea excluida</span>' : '<span class="pill caution">⚠ Con precaución</span>') : ''}<span>${esc(ago(x.at))}</span><span class="go">Ver ↗</span></span></span>
     </a>`;
   }).join('');
 }
