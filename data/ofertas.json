@@ -1,12 +1,100 @@
 {
- "updated": "2026-11-05T20:08:03.259Z",
- "checked": "2026-11-05T20:08:03.259Z",
+ "updated": "2026-11-06T01:39:58.889Z",
+ "checked": "2026-11-06T01:39:58.889Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-cyber-monday-descuento-en-paquetes-al-caribe-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-descuento-en-paquetes-al-caribe-pa-p.html",
+   "title": "Cyber Monday: Hasta U$D 300 de Descuento en Paquetes al Caribe",
+   "tipo": "paquete",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 300
+   },
+   "at": "2026-11-06T00:17:04.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-ganga-de-paquetes-a-cataratas-en-hasta-cuotas-sin-interes-y-desde-bs-as-por-persona-en-base-doble-j",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-ganga-de-paquetes-a-cataratas-en-hasta-cuotas-sin-interes-y-desde-bs-as-por-persona-en-base-doble-jetsmart-pa-p.html",
+   "title": "Cyber Monday: Ganga de Paquetes a Cataratas en hasta 18 cuotas sin interés y a partir de AR$ 297.704 desde Bs. As. -opciones en base doble, triple o cuádruple-",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "ARS",
+    "amount": 297704
+   },
+   "at": "2026-11-06T00:14:32.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-paquetes-a-maceio-con-hotel-ritz-desde-bs-as-por-persona-en-base-doble-jetsmart-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-paquetes-a-maceio-con-hotel-ritz-desde-bs-as-por-persona-en-base-doble-jetsmart-pa-p.html",
+   "title": "Cyber Monday: Paquetes a Maceió con Hotel Ritz 4 ⭐ a partir de U$D 566 desde Bs. As. -por persona en base doble-",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 566
+   },
+   "at": "2026-11-05T23:53:00.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-se-termina-madrid-desde-cordoba-avianca-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-se-termina-madrid-desde-cordoba-avianca-rt-p.html",
+   "title": "Cyber Monday: Se termina Madrid a U$D 812 desde Córdoba 💣",
+   "tipo": "vuelo",
+   "aerolinea": "Avianca",
+   "precio": {
+    "cur": "USD",
+    "amount": 812
+   },
+   "at": "2026-11-05T22:41:39.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-dale-que-quedan-pocos-vuelos-a-madrid-desde-bs-as-avianca-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-dale-que-quedan-pocos-vuelos-a-madrid-desde-bs-as-avianca-rt-p.html",
+   "title": "Cyber Monday: ¡Dale que Quedan Pocos! Vuelos a Madrid a partir de U$D 745 🔥🔥🔥 desde Bs. As.",
+   "tipo": "vuelo",
+   "aerolinea": "Avianca",
+   "precio": {
+    "cur": "USD",
+    "amount": 745
+   },
+   "at": "2026-11-05T22:34:25.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-lo-mejor-del-cyber-monday-un-resumen-para-que-no-se-pierdan-de-nada-m-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/11/lo-mejor-del-cyber-monday-un-resumen-para-que-no-se-pierdan-de-nada-m-p-2.html",
+   "title": "¡Lo mejor del Cyber Monday 2026! 🔥 Un resumen para que no se pierdan de nada 😉",
+   "tipo": "nota",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-05T20:35:41.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-vuelos-a-madrid-desde-mendoza-con-carry-on-cuotas-latam-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-vuelos-a-madrid-desde-mendoza-con-carry-on-cuotas-latam-rt-p.html",
+   "title": "Cyber Monday: ✈️ Madrid desde Mendoza a partir de U$D 901 🥘",
+   "tipo": "vuelo",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 901
+   },
+   "at": "2026-11-05T20:12:27.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
   {
    "id": "2026-11-cyber-monday-vuelos-a-madrid-desde-cordoba-con-carry-on-equipaje-en-bodega-avianca-rt-p",
    "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-vuelos-a-madrid-desde-cordoba-con-carry-on-equipaje-en-bodega-avianca-rt-p.html",
@@ -224,6 +312,172 @@
    },
    "at": "2026-11-05T17:17:44.000Z",
    "seen": "2026-11-05T20:08:03.259Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-punta-cana-directo-con-carry-on-desde-bs-as-arajet-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-punta-cana-directo-con-carry-on-desde-bs-as-arajet-rt-p.html",
+   "title": "Cyber Monday: 🏝️ Punta Cana Directo ✈️ a partir de U$D 595 o U$D 652 (con Carry On 🧳) desde Bs. As.",
+   "tipo": "vuelo",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 595
+   },
+   "at": "2026-11-05T17:10:06.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-ultimas-opciones-para-ir-a-jamaica-a-un-precio-regalado-vuelos-con-carry-on-desde-buenos-aires-lata",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-ultimas-opciones-para-ir-a-jamaica-a-un-precio-regalado-vuelos-con-carry-on-desde-buenos-aires-latam-rt-p.html",
+   "title": "Cyber Monday: ¡Ultimas Opciones para ir a Jamaica a un precio regalado! 🔥 Vuelos con Carry On a partir de U$D 571 desde Buenos Aires 🏝️",
+   "tipo": "vuelo",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 571
+   },
+   "at": "2026-11-05T17:07:11.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-cartagena-con-conexion-o-directo-desde-bs-as-jetsmart-aerolineas-argentinas-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-cartagena-con-conexion-o-directo-desde-bs-as-jetsmart-aerolineas-argentinas-rt-p.html",
+   "title": "Cyber Monday: Cartagena 🌴 a partir de U$D 435 con Conexión o U$D 551 Directo ✈️ desde Bs. As.",
+   "tipo": "vuelo",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "USD",
+    "amount": 435
+   },
+   "at": "2026-11-05T17:03:38.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-a-viajar-paquetes-a-punta-cana-hotel-all-inclusive-vuelos-directos-desde-buenos-aires-arajet-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-a-viajar-paquetes-a-punta-cana-hotel-all-inclusive-vuelos-directos-desde-buenos-aires-arajet-pa-p.html",
+   "title": "Cyber Monday: ¡A Viajar! Paquetes a Punta Cana 🌴 a partir de U$D 1.122 💣 Hotel All Inclusive + Vuelos Directos -por persona en base Doble- desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 1122
+   },
+   "at": "2026-11-05T17:02:26.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-baratisimo-directos-a-san-pablo-a-partir-de-ud-266-con-full-equipaje-y-en-verano-cerca-de-guaruja-o",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-baratisimo-directos-a-san-pablo-a-partir-de-ud-266-con-full-equipaje-y-en-verano-cerca-de-guaruja-o-ubatuba-desde-buenos-aires-ethiopian-rt-p.html",
+   "title": "Cyber Monday ¡Baratísimo!🔥 🇧🇷 Directos a San Pablo a partir de U$D 266 con full equipaje 🧳 y en verano (cerca de 🌊 Guarujá o Ubatuba) desde Buenos Aires",
+   "tipo": "vuelo",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 266
+   },
+   "at": "2026-11-05T16:50:19.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-cuotas-sin-interes-para-vuelos-a-bariloche-desde-buenos-aires-aerolineas-argentinas-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-cuotas-sin-interes-para-vuelos-a-bariloche-desde-buenos-aires-aerolineas-argentinas-rt-p.html",
+   "title": "Cyber Monday: Hasta 12 Cuotas sin Interés para Vuelos a Bariloche 🍫 a partir de AR$ 162.342 desde Buenos Aires",
+   "tipo": "vuelo",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "ARS",
+    "amount": 162342
+   },
+   "at": "2026-11-05T16:47:39.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-vuelos-a-barcelona-temporada-alta-con-carry-on-desde-buenos-aires-avianca-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-vuelos-a-barcelona-temporada-alta-con-carry-on-desde-buenos-aires-avianca-rt-p.html",
+   "title": "Cyber Monday: Volá a Barcelona 💃 Temporada Alta a partir de U$D 956",
+   "tipo": "vuelo",
+   "aerolinea": "Avianca",
+   "precio": {
+    "cur": "USD",
+    "amount": 956
+   },
+   "at": "2026-11-05T16:44:39.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-pa-que-ta-zos-a-rio-de-janeiro-con-muy-buena-ubicacion-desde-bs-as-por-persona-en-base-doble-jetsma",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-pa-que-ta-zos-a-rio-de-janeiro-con-muy-buena-ubicacion-desde-bs-as-por-persona-en-base-doble-jetsmart-pa-p.html",
+   "title": "Cyber Monday: Pa-QUE-TA-ZOS a Río de Janeiro 🌞 con Muy Buena Ubicación 📌 a partir de U$D 450 desde Bs. As. -por persona en base doble-",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 450
+   },
+   "at": "2026-11-05T16:26:57.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-paquetes-a-arraial-do-cabo-vuelos-directos-alojamiento-desde-buenos-aires-gol-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-paquetes-a-arraial-do-cabo-vuelos-directos-alojamiento-desde-buenos-aires-gol-pa-p.html",
+   "title": "Cyber Monday: Paquetes a Arraial do Cabo 🌊 a partir de U$D 376 🔥 Vuelos Directos + Alojamiento con Desayuno -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "USD",
+    "amount": 376
+   },
+   "at": "2026-11-05T16:15:54.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-verano-en-brasil-los-mejores-vuelos-a-florianopolis-y-rio-de-janeiro-desde-buenos-aires-jetsmart-rt",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-verano-en-brasil-los-mejores-vuelos-a-florianopolis-y-rio-de-janeiro-desde-buenos-aires-jetsmart-rt-p.html",
+   "title": "Cyber Monday: ¡Verano en Brasil! 🌞 Los mejores vuelos a Florianópolis y Río de Janeiro a partir de U$D 222 desde Buenos Aires 👙🩴",
+   "tipo": "vuelo",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 222
+   },
+   "at": "2026-11-05T16:08:36.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-vuelos-a-nueva-york-en-primavera-carry-on-desde-buenos-aires-avianca-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-vuelos-a-nueva-york-en-primavera-carry-on-desde-buenos-aires-avianca-rt-p.html",
+   "title": "Cyber Monday: ✈️ Vuelos a Nueva York 🗽 a partir de U$D 822",
+   "tipo": "vuelo",
+   "aerolinea": "Avianca",
+   "precio": {
+    "cur": "USD",
+    "amount": 822
+   },
+   "at": "2026-11-05T15:52:55.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-ultimos-cupones-para-hoteles-en-rio-cadena-windsor-con-el-cupon-cyberwindsor26-descuento-con-medios",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-ultimos-cupones-para-hoteles-en-rio-cadena-windsor-con-el-cupon-cyberwindsor26-descuento-con-medios-de-pago-ho-p.html",
+   "title": "Cyber Monday ¡Últimos cupones para Hoteles en Río! 🔥🔥 Cadena Windsor con el cupón CYBERWINDSOR26 + descuento con medios de pago 😱",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-05T15:31:19.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-lindos-paquetes-a-angra-dos-reis-vuelos-directos-hotel-desde-buenos-aires-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-lindos-paquetes-a-angra-dos-reis-vuelos-directos-hotel-desde-buenos-aires-pa-p.html",
+   "title": "Cyber Monday: Lindos Paquetes a Angra Dos Reis 👑 a partir de U$D 386 🔥 Vuelos Directos + Hotel -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 386
+   },
+   "at": "2026-11-05T15:27:50.000Z",
+   "seen": "2026-11-06T01:39:58.889Z"
   },
   {
    "id": "2026-11-cyber-monday-se-extendio-la-promo-sacas-tu-asistencia-al-viajero-hoy-en-cuotas-sin-interes-y-tenes-cobertura-por",
@@ -767,251 +1021,6 @@
    "aerolinea": "",
    "precio": null,
    "at": "2026-11-04T15:35:07.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyeber-monday-hoteles-en-miami-con-off-buen-precio-y-excelente-ubicacion-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyeber-monday-hoteles-en-miami-con-off-buen-precio-y-excelente-ubicacion-ho-p.html",
-   "title": "Cyeber Monday: Hoteles 3 ⭐ en 🌊 Miami con Hasta U$D150 OFF + buen precio y excelente ubicación",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 150
-   },
-   "at": "2026-11-04T15:28:50.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-caribe-colombiano-paquetes-a-san-andres-vuelos-hotel-con-desayuno-desde-bs-as-latam-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-caribe-colombiano-paquetes-a-san-andres-vuelos-hotel-con-desayuno-desde-bs-as-latam-pa-p.html",
-   "title": "Cyber Monday: ¡Caribe Colombiano! Paquetes a San Andrés 🏝️ a partir de 756 🔥 Vuelos + Hotel con Desayuno -por persona en base doble- Desde Bs. As.",
-   "tipo": "paquete",
-   "aerolinea": "LATAM",
-   "precio": null,
-   "at": "2026-11-04T15:16:18.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-vuelos-a-roma-directos-en-verano-de-alla-y-en-cuotas-desde-buenos-aires-aerolineas-argentinas-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-vuelos-a-roma-directos-en-verano-de-alla-y-en-cuotas-desde-buenos-aires-aerolineas-argentinas-rt-p.html",
-   "title": "Cyber Monday: Vuelos Directos a Roma🍕 🏛️ a partir de U$D 1.031",
-   "tipo": "vuelo",
-   "aerolinea": "Aerolíneas Argentinas",
-   "precio": {
-    "cur": "USD",
-    "amount": 1031
-   },
-   "at": "2026-11-04T15:07:05.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-ultimo-dia-para-contratar-tu-asistencia-al-viajero-con-hasta-cuotas-sin-interes-av-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-ultimo-dia-para-contratar-tu-asistencia-al-viajero-con-hasta-cuotas-sin-interes-av-p.html",
-   "title": "Cyber Monday: ¡ULTIMO DÍA para contratar tu Asistencia al Viajero con hasta 60 % OFF + 20 % Extra + Cuotas sin Interés! ⌛ ¡No te duermas! 🏃",
-   "tipo": "asistencia",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-04T14:43:06.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-triple-descuento-hoteles-windsor-opcion-en-rio-con-el-cupon-cyberwindsor-descuento-con-medios-de-pa",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-triple-descuento-hoteles-windsor-opcion-en-rio-con-el-cupon-cyberwindsor-descuento-con-medios-de-pago-ho-p.html",
-   "title": "Cyber Monday ¡Triple descuento! 🔥🔥 Hoteles Windsor (opcion en Río) con el cupón CYBERWINDSOR26 + descuento con medios de pago 😱",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-04T14:40:19.000Z",
-   "seen": "2026-11-04T19:54:38.930Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-bajaron-los-vuelos-directos-a-punta-cana-desde-buenos-aires-arajet-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-bajaron-los-vuelos-directos-a-punta-cana-desde-buenos-aires-arajet-rt-p.html",
-   "title": "Cyber Monday: Bajaron los Vuelos Directos a Punta Cana: a partir de U$D 551 🎉 desde Buenos Aires",
-   "tipo": "vuelo",
-   "aerolinea": "Arajet",
-   "precio": {
-    "cur": "USD",
-    "amount": 551
-   },
-   "at": "2026-11-04T14:28:44.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-vuelos-a-barcelona-con-carry-on-desde-aeroparque-primavera-avianca-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-vuelos-a-barcelona-con-carry-on-desde-aeroparque-primavera-avianca-rt-p.html",
-   "title": "Cyber Monday: Vuelos a Barcelona ⛪ a partir de U$D 953🔥en Primavera",
-   "tipo": "vuelo",
-   "aerolinea": "Avianca",
-   "precio": {
-    "cur": "USD",
-    "amount": 953
-   },
-   "at": "2026-11-04T14:25:41.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-paquetes-a-punta-cana-hotel-all-inclusive-vuelos-directos-desde-buenos-aires-arajet-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-paquetes-a-punta-cana-hotel-all-inclusive-vuelos-directos-desde-buenos-aires-arajet-pa-p.html",
-   "title": "Cyber Monday: Paquetes a Punta Cana 🌴 a partir de U$D 1.091 💣 Hotel All Inclusive + Vuelos Directos -por persona en base Triple- desde Buenos Aires.",
-   "tipo": "paquete",
-   "aerolinea": "Arajet",
-   "precio": {
-    "cur": "USD",
-    "amount": 1091
-   },
-   "at": "2026-11-04T14:25:23.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-paquetes-a-aracaju-destino-oculto-en-el-noreste-de-brasil-desde-bs-as-por-persona-en-base-doble-lat",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-paquetes-a-aracaju-destino-oculto-en-el-noreste-de-brasil-desde-bs-as-por-persona-en-base-doble-latam-pa-p.html",
-   "title": "Cyber Monday: Paquetes a Aracajú 🥰 (Destino Oculto en el Noreste de Brasil 🤫) a partir de U$D 697 desde Bs. As. -por persona en base doble-",
-   "tipo": "paquete",
-   "aerolinea": "LATAM",
-   "precio": {
-    "cur": "USD",
-    "amount": 697
-   },
-   "at": "2026-11-04T14:12:41.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-todavia-aplica-off-en-hoteles-riu-all-inclusive-en-punta-cana-con-tarjetas-seleccionadas-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-todavia-aplica-off-en-hoteles-riu-all-inclusive-en-punta-cana-con-tarjetas-seleccionadas-ho-p.html",
-   "title": "Cyber Monday: Todavía aplica Hasta U$D 250 OFF en Hoteles RIU All Inclusive 5 ⭐ en Punta Cana con tarjetas seleccionadas 💳",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 250
-   },
-   "at": "2026-11-04T14:07:54.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-paquetes-a-porto-seguro-con-vuelo-directo-desde-bs-as-por-persona-en-base-doble-jetsmart-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-paquetes-a-porto-seguro-con-vuelo-directo-desde-bs-as-por-persona-en-base-doble-jetsmart-pa-p.html",
-   "title": "Cyber Monday: Paquetes a Porto Seguro a partir de U$D 401 🔥🔥 con Vuelo Directo desde Bs. As. -por persona en base doble-",
-   "tipo": "paquete",
-   "aerolinea": "JetSMART",
-   "precio": {
-    "cur": "USD",
-    "amount": 401
-   },
-   "at": "2026-11-04T13:45:35.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-muy-bueno-vuelos-a-nueva-york-con-carry-on-6-cuotas-desde-buenos-aires-gol-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-muy-bueno-vuelos-a-nueva-york-con-carry-on-6-cuotas-desde-buenos-aires-gol-rt-p.html",
-   "title": "Cyber Monday: ✈️ Vuelos a Nueva York 🗽 a partir de U$D 757",
-   "tipo": "vuelo",
-   "aerolinea": "GOL",
-   "precio": {
-    "cur": "USD",
-    "amount": 757
-   },
-   "at": "2026-11-04T13:44:17.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-descuento-paquetes-en-hoteles-riu-plaza-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-descuento-paquetes-en-hoteles-riu-plaza-pa-p.html",
-   "title": "Cyber Monday: Hasta 15 % de Descuento 🔥 Paquetes en Hoteles RIU Plaza 😎",
-   "tipo": "paquete",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-04T13:35:54.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-hoteles-en-maceio-con-media-pension-tienen-de-descuento-abonando-con-billeteras-seleccionadas-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-hoteles-en-maceio-con-media-pension-tienen-de-descuento-abonando-con-billeteras-seleccionadas-ho-p.html",
-   "title": "Cyber Monday: Hoteles en Maceió con Media Pensión 🌴 Tienen hasta 20% de descuento🔥 abonando con billeteras seleccionadas",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-04T13:25:36.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-lindos-paquetes-a-arraial-do-cabo-vuelos-directos-y-hotel-con-desayuno-desde-bs-as-pagalo-en-cuotas",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-lindos-paquetes-a-arraial-do-cabo-vuelos-directos-y-hotel-con-desayuno-desde-bs-as-pagalo-en-cuotas-jetsmart-pa-p.html",
-   "title": "Cyber Monday: Lindos Paquetes a Arraial Do Cabo 😍 a partir de U$D 365 🔥 Vuelos Directos y Hotel con Desayuno -por persona en base doble- Desde Bs. As ¡Pagalo…",
-   "tipo": "paquete",
-   "aerolinea": "JetSMART",
-   "precio": {
-    "cur": "USD",
-    "amount": 365
-   },
-   "at": "2026-11-04T13:20:48.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-aruba-con-carry-on-desde-buenos-aires-con-salidas-desde-aeroparque-y-opciones-en-cuotas-latam-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-aruba-con-carry-on-desde-buenos-aires-con-salidas-desde-aeroparque-y-opciones-en-cuotas-latam-rt-p.html",
-   "title": "Cyber Monday: Aruba con Carry On a partir de U$D 533 desde Buenos Aires (con salidas desde Aeroparque) 🔥🔥🔥 ¡Y opciones en hasta 6 cuotas!",
-   "tipo": "vuelo",
-   "aerolinea": "LATAM",
-   "precio": {
-    "cur": "USD",
-    "amount": 533
-   },
-   "at": "2026-11-04T13:14:28.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-increible-vuelos-directos-a-miami-con-equipaje-en-bodega-desde-buenos-aires-aerolineas-argentinas-r",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-increible-vuelos-directos-a-miami-con-equipaje-en-bodega-desde-buenos-aires-aerolineas-argentinas-rt-p.html",
-   "title": "Cyber Monday: ¡Miami YA! 🤩 Vuelos Directos a partir de U$D 619",
-   "tipo": "vuelo",
-   "aerolinea": "Aerolíneas Argentinas",
-   "precio": {
-    "cur": "USD",
-    "amount": 619
-   },
-   "at": "2026-11-04T13:12:12.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-muy-buenos-paquetes-a-maragogi-vuelos-directos-y-hotel-con-desayuno-desde-bs-as-jetsmart-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-muy-buenos-paquetes-a-maragogi-vuelos-directos-y-hotel-con-desayuno-desde-bs-as-jetsmart-pa-p.html",
-   "title": "Cyber Monday: Muy Buenos Paquetes a Maragogi 🏖️ a partir de U$D 435 🔥 Vuelos Directos y Hotel con Desayuno -por persona en base doble- Desde Bs. As.",
-   "tipo": "paquete",
-   "aerolinea": "JetSMART",
-   "precio": {
-    "cur": "USD",
-    "amount": 435
-   },
-   "at": "2026-11-04T13:01:00.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-vuelos-a-madrid-directos-en-primavera-de-alla-desde-buenos-aires-plus-ultra-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-vuelos-a-madrid-directos-en-primavera-de-alla-desde-buenos-aires-plus-ultra-rt-p.html",
-   "title": "Cyber Monday: ¡Madrid YAA! ✈️ Vuelos Directos💃 a partir de U$D 803",
-   "tipo": "vuelo",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 803
-   },
-   "at": "2026-11-04T12:32:43.000Z",
-   "seen": "2026-11-05T11:13:45.211Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-de-descuento-para-hoteles-universal-orlando-con-el-cupon-unihoteles-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-de-descuento-para-hoteles-universal-orlando-con-el-cupon-unihoteles-ho-p.html",
-   "title": "Cyber Monday 🔥 🔥 Hasta U$D 200 de Descuento para Hoteles Universal Orlando 💫 con el cupón UNIHOTELES44",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 200
-   },
-   "at": "2026-11-04T12:31:38.000Z",
    "seen": "2026-11-05T11:13:45.211Z"
   }
  ]
