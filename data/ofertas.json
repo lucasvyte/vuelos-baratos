@@ -1,12 +1,38 @@
 {
- "updated": "2026-11-09T01:01:48.278Z",
- "checked": "2026-11-09T01:01:48.278Z",
+ "updated": "2026-11-09T11:51:35.051Z",
+ "checked": "2026-11-09T11:51:35.051Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-cyber-monday-ultimos-paquetes-a-buzios-por-persona-en-base-doble-desde-bs-as-gol-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-ultimos-paquetes-a-buzios-por-persona-en-base-doble-desde-bs-as-gol-pa-p.html",
+   "title": "Cyber Monday: Últimos Paquetes a Búzios ⛵ por menos de U$D 400 por persona en base doble desde Bs. As.",
+   "tipo": "paquete",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "USD",
+    "amount": 400
+   },
+   "at": "2026-11-09T01:26:51.000Z",
+   "seen": "2026-11-09T11:51:35.051Z"
+  },
+  {
+   "id": "2026-11-cyber-monday-paquete-iberostar-all-inclusive-a-rep-dominicana-punta-cana-con-vuelo-directo-desde-bs-as-por-perso",
+   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-paquete-iberostar-all-inclusive-a-rep-dominicana-punta-cana-con-vuelo-directo-desde-bs-as-por-persona-en-base-doble-arajet.html",
+   "title": "Cyber Monday: Paquete Iberostar All Inclusive a Rep. Dominicana - Punta Cana 🏝️ a partir de U$D 1.367 🔥🔥🔥 con Vuelo Directo desde Bs. As. -por persona en b…",
+   "tipo": "otro",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 1367
+   },
+   "at": "2026-11-09T01:12:51.000Z",
+   "seen": "2026-11-09T11:51:35.051Z"
+  },
   {
    "id": "2026-11-cyber-monday-sali-a-emitir-antes-de-que-se-agote-este-paquete-all-inclusive-a-punta-cana-con-vuelo-directo-desde",
    "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-sali-a-emitir-antes-de-que-se-agote-este-paquete-all-inclusive-a-punta-cana-con-vuelo-directo-desde-bs-as-por-persona-en-base-doble-arajet-pa-p.html",
@@ -974,32 +1000,6 @@
     "amount": 748
    },
    "at": "2026-11-05T19:02:11.000Z",
-   "seen": "2026-11-05T20:08:03.259Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-corriendo-a-emitir-paquetes-a-bayahibe-all-inclusive-desde-bs-as-con-vuelo-directo-por-persona-en-b",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-corriendo-a-emitir-paquetes-a-bayahibe-all-inclusive-desde-bs-as-con-vuelo-directo-por-persona-en-base-doble-arajet-pa-p.html",
-   "title": "Cyber Monday: Corriendo a Emitir Paquetes a Bayahibe 🥰 All Inclusive a partir de U$D 1.168 🤯 desde Bs. As. con Vuelo Directo -por persona en base doble-",
-   "tipo": "paquete",
-   "aerolinea": "Arajet",
-   "precio": {
-    "cur": "USD",
-    "amount": 1168
-   },
-   "at": "2026-11-05T18:55:00.000Z",
-   "seen": "2026-11-05T20:08:03.259Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-muy-bueno-vuelos-a-paris-en-primavera-con-carry-on-desde-buenos-aires-avianca-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-muy-bueno-vuelos-a-paris-en-primavera-con-carry-on-desde-buenos-aires-avianca-rt-p.html",
-   "title": "Cyber Monday: Vuelos a París 🥐 en Primavera 🪻 a partir de U$D 1.035",
-   "tipo": "vuelo",
-   "aerolinea": "Avianca",
-   "precio": {
-    "cur": "USD",
-    "amount": 1035
-   },
-   "at": "2026-11-05T18:50:08.000Z",
    "seen": "2026-11-05T20:08:03.259Z"
   }
  ]
