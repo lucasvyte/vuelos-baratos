@@ -1,12 +1,38 @@
 {
- "updated": "2026-11-10T07:30:47.526Z",
- "checked": "2026-11-10T07:30:47.526Z",
+ "updated": "2026-11-10T17:10:13.841Z",
+ "checked": "2026-11-10T17:10:13.841Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-directos-a-rio-de-janeiro-en-verano-desde-aeroparque-gol-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/directos-a-rio-de-janeiro-en-verano-desde-aeroparque-gol-rt-p.html",
+   "title": "¡Verano en Brasil! 🏖️ Directos a Río a partir de AR$ 427.618 🔥",
+   "tipo": "vuelo",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "ARS",
+    "amount": 427618
+   },
+   "at": "2026-11-10T14:00:00.000Z",
+   "seen": "2026-11-10T17:10:13.841Z"
+  },
+  {
+   "id": "2026-11-vuelos-directos-a-aruba-con-carry-on-desde-buenos-aires-aerolineas-argetninas-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/vuelos-directos-a-aruba-con-carry-on-desde-buenos-aires-aerolineas-argetninas-rt-p.html",
+   "title": "Vuelos Directos a Aruba con Carry On 😍 a partir de U$D 615 desde Buenos Aires",
+   "tipo": "vuelo",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 615
+   },
+   "at": "2026-11-10T13:30:00.000Z",
+   "seen": "2026-11-10T17:10:13.841Z"
+  },
   {
    "id": "2026-11-hoteles-en-iguazu-tienen-off-descuento-en-un-pago-o-cuotas-ho-p-3",
    "url": "https://promociones-aereas.com.ar/2026/11/hoteles-en-iguazu-tienen-off-descuento-en-un-pago-o-cuotas-ho-p-3.html",
@@ -974,32 +1000,6 @@
     "amount": 297704
    },
    "at": "2026-11-06T00:14:32.000Z",
-   "seen": "2026-11-06T01:39:58.889Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-paquetes-a-maceio-con-hotel-ritz-desde-bs-as-por-persona-en-base-doble-jetsmart-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-paquetes-a-maceio-con-hotel-ritz-desde-bs-as-por-persona-en-base-doble-jetsmart-pa-p.html",
-   "title": "Cyber Monday: Paquetes a Maceió con Hotel Ritz 4 ⭐ a partir de U$D 566 desde Bs. As. -por persona en base doble-",
-   "tipo": "paquete",
-   "aerolinea": "JetSMART",
-   "precio": {
-    "cur": "USD",
-    "amount": 566
-   },
-   "at": "2026-11-05T23:53:00.000Z",
-   "seen": "2026-11-06T01:39:58.889Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-se-termina-madrid-desde-cordoba-avianca-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-se-termina-madrid-desde-cordoba-avianca-rt-p.html",
-   "title": "Cyber Monday: Se termina Madrid a U$D 812 desde Córdoba 💣",
-   "tipo": "vuelo",
-   "aerolinea": "Avianca",
-   "precio": {
-    "cur": "USD",
-    "amount": 812
-   },
-   "at": "2026-11-05T22:41:39.000Z",
    "seen": "2026-11-06T01:39:58.889Z"
   }
  ]
