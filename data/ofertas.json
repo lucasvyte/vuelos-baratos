@@ -1,12 +1,22 @@
 {
- "updated": "2026-11-13T01:58:15.698Z",
- "checked": "2026-11-13T01:58:15.698Z",
+ "updated": "2026-11-13T11:16:45.948Z",
+ "checked": "2026-11-13T11:16:45.948Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2024-06-consejos-tip-y-sugerencias-para-conseguir-vuelos-baratos-c",
+   "url": "https://promociones-aereas.com.ar/2024/06/consejos-tip-y-sugerencias-para-conseguir-vuelos-baratos-c.html",
+   "title": "Claves para descubrir y aprovechar todas las promos aéreas",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-13T11:16:45.948Z",
+   "seen": "2026-11-13T11:16:45.948Z"
+  },
   {
    "id": "2026-11-vuelos-directos-a-rio-de-janeiro-desde-cordoba-en-verano-pago-en-cuotas-jetsmart-rt-p",
    "url": "https://promociones-aereas.com.ar/2026/11/vuelos-directos-a-rio-de-janeiro-desde-cordoba-en-verano-pago-en-cuotas-jetsmart-rt-p.html",
@@ -997,19 +1007,6 @@
    "precio": null,
    "at": "2026-11-08T20:00:00.000Z",
    "seen": "2026-11-09T01:01:48.278Z"
-  },
-  {
-   "id": "2026-11-cyber-monday-ultima-oportunidad-vuelos-a-madrid-desde-buenos-aires-con-carry-on-incluido-avianca-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/cyber-monday-ultima-oportunidad-vuelos-a-madrid-desde-buenos-aires-con-carry-on-incluido-avianca-rt-p.html",
-   "title": "Cyber Monday: ¡Última oportunidad! ⌛ Vuelos a Madrid 🥘 a partir de U$D 858 desde Buenos Aires 😯 con carry on incluido",
-   "tipo": "vuelo",
-   "aerolinea": "Avianca",
-   "precio": {
-    "cur": "USD",
-    "amount": 858
-   },
-   "at": "2026-11-07T16:23:12.000Z",
-   "seen": "2026-11-07T17:47:29.913Z"
   }
  ]
 }
