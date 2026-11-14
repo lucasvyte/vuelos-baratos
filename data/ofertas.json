@@ -1,12 +1,74 @@
 {
- "updated": "2026-11-14T01:29:59.403Z",
- "checked": "2026-11-14T10:41:41.929Z",
+ "updated": "2026-11-14T18:19:23.666Z",
+ "checked": "2026-11-14T18:19:23.666Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-lisboa-desde-aeroparque-gol-rt-p-3",
+   "url": "https://promociones-aereas.com.ar/2026/11/lisboa-desde-aeroparque-gol-rt-p-3.html",
+   "title": "Lisboa a partir de U$D 875 desde Aeroparque 🚃",
+   "tipo": "vuelo",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "USD",
+    "amount": 875
+   },
+   "at": "2026-11-14T15:00:00.000Z",
+   "seen": "2026-11-14T18:19:23.666Z"
+  },
+  {
+   "id": "2026-11-maragogi-imperdible-paquetes-hotel-con-media-pension-y-vuelos-desde-buenos-aires-latam-gol-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/maragogi-imperdible-paquetes-hotel-con-media-pension-y-vuelos-desde-buenos-aires-latam-gol-pa-p.html",
+   "title": "¡Maragogi Imperdible 🤩 ! Paquetes a partir de U$D 786 🔥 Hotel con Media Pensión y Vuelos -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 786
+   },
+   "at": "2026-11-14T14:30:00.000Z",
+   "seen": "2026-11-14T18:19:23.666Z"
+  },
+  {
+   "id": "2026-11-florianopolis-en-verano-vuelos-directos-fechas-en-enero-desde-buenos-aires-gol-jetsmart-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/florianopolis-en-verano-vuelos-directos-fechas-en-enero-desde-buenos-aires-gol-jetsmart-rt-p.html",
+   "title": "¡Florianópolis en Verano! Vuelos Directos a partir de U$D 295 😎✈️",
+   "tipo": "vuelo",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 295
+   },
+   "at": "2026-11-14T14:00:00.000Z",
+   "seen": "2026-11-14T18:19:23.666Z"
+  },
+  {
+   "id": "2026-11-paquetes-a-las-termas-de-rio-hondo-con-desayuno-media-pensio-y-all-inclusive-desde-bs-as-jetsmart-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/paquetes-a-las-termas-de-rio-hondo-con-desayuno-media-pensio-y-all-inclusive-desde-bs-as-jetsmart-pa-p.html",
+   "title": "Paquetes a las Termas de Río Hondo con Desayuno, Media Pensió y All Inclusive desde Bs. As.",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": null,
+   "at": "2026-11-14T13:30:00.000Z",
+   "seen": "2026-11-14T18:19:23.666Z"
+  },
+  {
+   "id": "2026-11-hoteles-all-inclusive-en-bayahibe-y-la-romana-descuentos-y-cuotas-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/hoteles-all-inclusive-en-bayahibe-y-la-romana-descuentos-y-cuotas-ho-p.html",
+   "title": "Hoteles All Inclusive en Bayahíbe y La Romana desde U$D 370: descuentos y cuotas 🌴",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 370
+   },
+   "at": "2026-11-14T13:00:00.000Z",
+   "seen": "2026-11-14T18:19:23.666Z"
+  },
   {
    "id": "2026-11-riu-en-cancun-all-inclusive-tiene-off-y-cuotas-ho-p",
    "url": "https://promociones-aereas.com.ar/2026/11/riu-en-cancun-all-inclusive-tiene-off-y-cuotas-ho-p.html",
@@ -950,68 +1012,6 @@
    "aerolinea": "",
    "precio": null,
    "at": "2026-11-11T15:00:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-paquetes-a-natal-vuelos-directos-y-hotel-desde-buenos-aires-jetsmart-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/paquetes-a-natal-vuelos-directos-y-hotel-desde-buenos-aires-jetsmart-pa-p.html",
-   "title": "Paquetes a Natal a partir de U$D 539 🔥 Vuelos Directos y Hotel -por persona en base doble- Desde Buenos Aires.",
-   "tipo": "paquete",
-   "aerolinea": "JetSMART",
-   "precio": {
-    "cur": "USD",
-    "amount": 539
-   },
-   "at": "2026-11-11T14:45:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-madrid-directo-y-con-equipaje-desde-buenos-aires-plus-ultra-rt-p-2",
-   "url": "https://promociones-aereas.com.ar/2026/11/madrid-directo-y-con-equipaje-desde-buenos-aires-plus-ultra-rt-p-2.html",
-   "title": "Madrid Directo y con Equipaje a partir de U$D 925 desde Buenos Aires ✈️",
-   "tipo": "vuelo",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 925
-   },
-   "at": "2026-11-11T14:30:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-vuelo-para-la-final-de-boca-atletico-mineiro-en-barranquilla",
-   "url": "https://promociones-aereas.com.ar/2026/11/vuelo-para-la-final-de-boca-atletico-mineiro-en-barranquilla.html",
-   "title": "Nuevo Vuelo Para la Final de Boca - Atlético Mineiro en Barranquilla",
-   "tipo": "otro",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-11T14:09:45.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-imperdibles-paquetes-a-buzios-vuelos-directos-hotel-con-desayuno-desde-buenos-aires-aerolineas-argentinas-jetsma",
-   "url": "https://promociones-aereas.com.ar/2026/11/imperdibles-paquetes-a-buzios-vuelos-directos-hotel-con-desayuno-desde-buenos-aires-aerolineas-argentinas-jetsmart-pa-p.html",
-   "title": "Imperdibles Paquetes a Búzios ⛵ a partir de U$D 387 🔥 Vuelos Directos + Hotel con Desayuno -por persona en base doble- Desde Buenos Aires.",
-   "tipo": "paquete",
-   "aerolinea": "Aerolíneas Argentinas",
-   "precio": {
-    "cur": "USD",
-    "amount": 387
-   },
-   "at": "2026-11-11T14:00:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-papa-leon-xiv-vuelos-directos-a-lima-desde-buenos-aires-jetsmart-sky-airlines-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/papa-leon-xiv-vuelos-directos-a-lima-desde-buenos-aires-jetsmart-sky-airlines-rt-p.html",
-   "title": "¡Para seguir al Papa! ⛪ Directos a Lima a partir de U$D 497",
-   "tipo": "vuelo",
-   "aerolinea": "JetSMART",
-   "precio": {
-    "cur": "USD",
-    "amount": 497
-   },
-   "at": "2026-11-11T13:45:00.000Z",
    "seen": "2026-11-11T17:17:03.514Z"
   }
  ]
