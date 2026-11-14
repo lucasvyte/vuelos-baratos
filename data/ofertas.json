@@ -1,12 +1,35 @@
 {
- "updated": "2026-11-13T19:53:16.031Z",
- "checked": "2026-11-13T19:53:16.031Z",
+ "updated": "2026-11-14T01:29:59.403Z",
+ "checked": "2026-11-14T01:29:59.403Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-riu-en-cancun-all-inclusive-tiene-off-y-cuotas-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/riu-en-cancun-all-inclusive-tiene-off-y-cuotas-ho-p.html",
+   "title": "Hoteles RIU en Cancún desde U$D 290 😎 All Inclusive 5 ⭐ tiene hasta 50% Off y cuotas",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 290
+   },
+   "at": "2026-11-13T19:56:00.000Z",
+   "seen": "2026-11-14T01:29:59.403Z"
+  },
+  {
+   "id": "2026-11-buscas-mochilas-para-tu-proximo-viaje-estan-aca-m",
+   "url": "https://promociones-aereas.com.ar/2026/11/buscas-mochilas-para-tu-proximo-viaje-estan-aca-m.html",
+   "title": "¿Buscas Mochilas 🎒 para tu próximo viaje? Están acá 👇",
+   "tipo": "nota",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-13T19:45:00.000Z",
+   "seen": "2026-11-14T01:29:59.403Z"
+  },
   {
    "id": "2026-11-europa-roma-directo-desde-buenos-aires-con-regreso-desde-madrid-ita-rp-p",
    "url": "https://promociones-aereas.com.ar/2026/11/europa-roma-directo-desde-buenos-aires-con-regreso-desde-madrid-ita-rp-p.html",
@@ -263,6 +286,58 @@
    },
    "at": "2026-11-13T13:27:00.000Z",
    "seen": "2026-11-13T19:53:16.031Z"
+  },
+  {
+   "id": "2026-11-punta-cana-ya-vuelos-directos-con-opciones-cuotas-desde-buenos-aires-arajet-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/punta-cana-ya-vuelos-directos-con-opciones-cuotas-desde-buenos-aires-arajet-rt-p.html",
+   "title": "Punta Cana DIRECTO ✈️ a partir de U$D 659 🏝️ desde Bs As",
+   "tipo": "vuelo",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 659
+   },
+   "at": "2026-11-13T13:15:00.000Z",
+   "seen": "2026-11-14T01:29:59.403Z"
+  },
+  {
+   "id": "2026-11-hermoso-madrid-desde-buenos-aires-avianca-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/hermoso-madrid-desde-buenos-aires-avianca-rt-p.html",
+   "title": "¡Hermoso! 😍 Madrid a partir de U$D 789 desde Buenos Aires ✈️",
+   "tipo": "vuelo",
+   "aerolinea": "Avianca",
+   "precio": {
+    "cur": "USD",
+    "amount": 789
+   },
+   "at": "2026-11-13T13:00:00.000Z",
+   "seen": "2026-11-14T01:29:59.403Z"
+  },
+  {
+   "id": "2026-11-paquetazos-a-punta-cana-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-arajet-pa-p-4",
+   "url": "https://promociones-aereas.com.ar/2026/11/paquetazos-a-punta-cana-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-arajet-pa-p-4.html",
+   "title": "Paquetazos a Punta Cana 🌴 a partir de U$D 906 🔥 Hotel All Inclusive y Vuelos Directos -por persona en base Cuádruple- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 906
+   },
+   "at": "2026-11-13T12:30:00.000Z",
+   "seen": "2026-11-14T01:29:59.403Z"
+  },
+  {
+   "id": "2026-11-hoteles-en-barra-da-tijuca-rio-de-janeiro-opciones-frente-al-mar-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/hoteles-en-barra-da-tijuca-rio-de-janeiro-opciones-frente-al-mar-ho-p.html",
+   "title": "Hoteles en Barra da Tijuca, Río de Janeiro 🛎️ opciones frente al mar desde U$D 82",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 82
+   },
+   "at": "2026-11-13T12:17:00.000Z",
+   "seen": "2026-11-14T01:29:59.403Z"
   },
   {
    "id": "2024-06-consejos-tip-y-sugerencias-para-conseguir-vuelos-baratos-c",
@@ -937,78 +1012,6 @@
     "amount": 497
    },
    "at": "2026-11-11T13:45:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-delta-retoma-los-vuelos-directos-entre-nueva-york-y-bs-as-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/delta-retoma-los-vuelos-directos-entre-nueva-york-y-bs-as-rt-p.html",
-   "title": "Delta Retoma los Vuelos Directos entre Nueva York y Bs. As.",
-   "tipo": "vuelo",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-11T13:29:53.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-hoteles-en-recoleta-buenos-aires-en-muy-bien-ubicados-y-en-hasta-cuotas-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/hoteles-en-recoleta-buenos-aires-en-muy-bien-ubicados-y-en-hasta-cuotas-ho-p.html",
-   "title": "Hoteles en Recoleta, Buenos Aires desde AR$ 72.000 en muy bien ubicados y en hasta 12 cuotas 🛀",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": {
-    "cur": "ARS",
-    "amount": 72000
-   },
-   "at": "2026-11-11T13:29:29.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-hermoso-vuelos-a-miami-directos-en-cuotas-con-carry-on-equipaje-en-bodega-american-airlines-delta-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/hermoso-vuelos-a-miami-directos-en-cuotas-con-carry-on-equipaje-en-bodega-american-airlines-delta-rt-p.html",
-   "title": "¡Hermoso! 🤩 Vuelos a Miami Directos en Cuotas a partir de U$D 805 🔥",
-   "tipo": "vuelo",
-   "aerolinea": "American Airlines",
-   "precio": {
-    "cur": "USD",
-    "amount": 805
-   },
-   "at": "2026-11-11T13:00:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-hoteles-en-copacabana-rio-de-janeiro-con-desayuno-y-opciones-en-cuotas-ho-p-4",
-   "url": "https://promociones-aereas.com.ar/2026/11/hoteles-en-copacabana-rio-de-janeiro-con-desayuno-y-opciones-en-cuotas-ho-p-4.html",
-   "title": "Hoteles en Copacabana 🛎️ Río de Janeiro desde U$D 80 con desayuno y opciones en cuotas 𓆉",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 80
-   },
-   "at": "2026-11-11T12:49:38.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-verano-en-florianopolis-paquetes-vuelos-directos-y-hotel-cerca-de-la-playa-desde-buenos-aires-gol-jetsmart-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/verano-en-florianopolis-paquetes-vuelos-directos-y-hotel-cerca-de-la-playa-desde-buenos-aires-gol-jetsmart-pa-p.html",
-   "title": "¡Verano en Florianópolis 🏖️ ! Paquetes a partir de U$D 396 🔥 Vuelos Directos y Hotel cerca de la Playa -por persona en base doble- Desde Buenos Aires..",
-   "tipo": "paquete",
-   "aerolinea": "JetSMART",
-   "precio": {
-    "cur": "USD",
-    "amount": 396
-   },
-   "at": "2026-11-11T12:30:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-nuevo-vuelo-para-la-final-de-boca-atletico-mineiro-en-barranquilla",
-   "url": "https://promociones-aereas.com.ar/2026/11/nuevo-vuelo-para-la-final-de-boca-atletico-mineiro-en-barranquilla.html",
-   "title": "Nuevo Vuelo Para la Final de Boca - Atlético Mineiro en Barranquilla",
-   "tipo": "otro",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-10T18:15:56.000Z",
    "seen": "2026-11-11T17:17:03.514Z"
   }
  ]
