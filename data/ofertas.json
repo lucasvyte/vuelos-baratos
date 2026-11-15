@@ -1,12 +1,58 @@
 {
- "updated": "2026-11-14T18:19:23.666Z",
- "checked": "2026-11-15T16:28:28.347Z",
+ "updated": "2026-11-15T22:59:39.436Z",
+ "checked": "2026-11-15T22:59:39.436Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-excelente-tarifa-a-aruba-con-carry-on-desde-buenos-aires-avianca-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/excelente-tarifa-a-aruba-con-carry-on-desde-buenos-aires-avianca-rt-p.html",
+   "title": "¡Aruba allá vamos! 🤩 Vuelos a partir de U$D 648 🔥🔥 con Carry On",
+   "tipo": "vuelo",
+   "aerolinea": "Avianca",
+   "precio": {
+    "cur": "USD",
+    "amount": 648
+   },
+   "at": "2026-11-15T22:00:00.000Z",
+   "seen": "2026-11-15T22:59:39.436Z"
+  },
+  {
+   "id": "2026-11-paquetes-a-natal-vuelos-directos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-pa-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/11/paquetes-a-natal-vuelos-directos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-pa-p-2.html",
+   "title": "Paquetes a Natal a partir de U$D 564 🔥 Vuelos Directos y Hotel con Desayuno -por persona en base triple- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 564
+   },
+   "at": "2026-11-15T21:30:00.000Z",
+   "seen": "2026-11-15T22:59:39.436Z"
+  },
+  {
+   "id": "2026-11-aruba-off-en-hoteles-riu-all-inclusive-tiene-descuento-en-un-pago-o-cuotas-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/aruba-off-en-hoteles-riu-all-inclusive-tiene-descuento-en-un-pago-o-cuotas-ho-p.html",
+   "title": "Aruba con 45 % OFF en Hoteles Riu All Inclusive 5 ⭐ tiene descuento en un pago o hasta 3 cuotas 🐚",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-15T20:56:00.000Z",
+   "seen": "2026-11-15T22:59:39.436Z"
+  },
+  {
+   "id": "2026-11-asistencia-al-viajero-av-p-10",
+   "url": "https://promociones-aereas.com.ar/2026/11/asistencia-al-viajero-av-p-10.html",
+   "title": "Asistencia al Viajero con hasta 60 % OFF + 20 % Extra + 3 Cuotas sin Interés ✈️",
+   "tipo": "asistencia",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-15T20:00:00.000Z",
+   "seen": "2026-11-15T22:59:39.436Z"
+  },
   {
    "id": "2026-11-lisboa-desde-aeroparque-gol-rt-p-3",
    "url": "https://promociones-aereas.com.ar/2026/11/lisboa-desde-aeroparque-gol-rt-p-3.html",
@@ -963,55 +1009,6 @@
     "amount": 372
    },
    "at": "2026-11-11T16:00:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-muy-buena-tarifa-vuelos-directos-a-santo-domingo-desde-buenos-aires-arajet-rt-p-2",
-   "url": "https://promociones-aereas.com.ar/2026/11/muy-buena-tarifa-vuelos-directos-a-santo-domingo-desde-buenos-aires-arajet-rt-p-2.html",
-   "title": "Muy buena tarifa: Vuelos Directos a Santo Domingo 🌴 a partir de U$D 670 🔥 desde Buenos Aires",
-   "tipo": "vuelo",
-   "aerolinea": "Arajet",
-   "precio": {
-    "cur": "USD",
-    "amount": 670
-   },
-   "at": "2026-11-11T15:45:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-punta-cana-paquetes-hotel-all-inclusive-vuelos-directos-desde-bs-as-arajet-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/punta-cana-paquetes-hotel-all-inclusive-vuelos-directos-desde-bs-as-arajet-pa-p.html",
-   "title": "¡Punta Cana 5 ⭐ ! Paquetes a partir de U$D 1.148 🔥 Hotel All Inclusive + Vuelos Directos -por persona en base Triple- Desde Bs. As.",
-   "tipo": "paquete",
-   "aerolinea": "Arajet",
-   "precio": {
-    "cur": "USD",
-    "amount": 1148
-   },
-   "at": "2026-11-11T15:30:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-recife-en-verano-vuelos-desde-buenos-aires-con-carry-on-y-opciones-en-cuotas-latam-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/recife-en-verano-vuelos-desde-buenos-aires-con-carry-on-y-opciones-en-cuotas-latam-rt-p.html",
-   "title": "Recife en Verano 🏝️ Vuelos a partir de U$D 495 con Carry On y Cuotas",
-   "tipo": "vuelo",
-   "aerolinea": "LATAM",
-   "precio": {
-    "cur": "USD",
-    "amount": 495
-   },
-   "at": "2026-11-11T15:15:00.000Z",
-   "seen": "2026-11-11T17:17:03.514Z"
-  },
-  {
-   "id": "2026-11-la-cobertura-de-asistencia-al-viajero-mas-completa-con-cuotas-sin-interes-av-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/la-cobertura-de-asistencia-al-viajero-mas-completa-con-cuotas-sin-interes-av-p.html",
-   "title": "La cobertura de Asistencia al Viajero más completa con hasta 68 % OFF + 3 cuotas sin Interés 👇",
-   "tipo": "asistencia",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-11T15:00:00.000Z",
    "seen": "2026-11-11T17:17:03.514Z"
   }
  ]
