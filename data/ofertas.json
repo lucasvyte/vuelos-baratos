@@ -1,12 +1,38 @@
 {
- "updated": "2026-11-16T19:43:06.387Z",
- "checked": "2026-11-16T19:43:06.387Z",
+ "updated": "2026-11-17T04:00:03.711Z",
+ "checked": "2026-11-17T04:00:03.711Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-holbox-isla-mujeres-vuelos-a-cancun-con-carry-on-en-cuotas-desde-buenos-aires-latam-rt-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/11/holbox-isla-mujeres-vuelos-a-cancun-con-carry-on-en-cuotas-desde-buenos-aires-latam-rt-p-2.html",
+   "title": "¡Holbox, Isla Mujeres y más! ✈️ Vuelos a Cancún a partir de U$D 660",
+   "tipo": "vuelo",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 660
+   },
+   "at": "2026-11-16T20:30:00.000Z",
+   "seen": "2026-11-17T04:00:03.711Z"
+  },
+  {
+   "id": "2026-11-increibles-tarifas-hoteles-en-maragogi-por-noche-en-base-doble-con-muy-buena-puntuacion-ho-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/11/increibles-tarifas-hoteles-en-maragogi-por-noche-en-base-doble-con-muy-buena-puntuacion-ho-p-2.html",
+   "title": "¡Increíbles tarifas!! Hoteles 3 ⭐ en Maragogi desde U$D 44 🤯 por noche en base doble con muy buena puntuación",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 44
+   },
+   "at": "2026-11-16T20:02:00.000Z",
+   "seen": "2026-11-17T04:00:03.711Z"
+  },
   {
    "id": "2026-11-caribe-colombiano-paquetes-a-santa-marta-vuelos-con-carry-on-hotel-con-pension-completa-desde-buenos-aires-copa-",
    "url": "https://promociones-aereas.com.ar/2026/11/caribe-colombiano-paquetes-a-santa-marta-vuelos-con-carry-on-hotel-con-pension-completa-desde-buenos-aires-copa-airlines-pa-p.html",
@@ -240,6 +266,42 @@
    "seen": "2026-11-16T19:43:06.387Z"
   },
   {
+   "id": "2026-11-actividades-en-sevilla-con-descuento",
+   "url": "https://promociones-aereas.com.ar/2026/11/actividades-en-sevilla-con-descuento.html",
+   "title": "Actividades en Sevilla con Descuento y opciones a partir de € 9,50 🎫",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": {
+    "cur": "EUR",
+    "amount": 9
+   },
+   "at": "2026-11-16T14:39:23.000Z",
+   "seen": "2026-11-17T04:00:03.711Z"
+  },
+  {
+   "id": "2026-11-actividades-en-marrakesh-con-descuento",
+   "url": "https://promociones-aereas.com.ar/2026/11/actividades-en-marrakesh-con-descuento.html",
+   "title": "Actividades en Marrakesh con Descuento y opciones a partir de € 13,50 🎫",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": {
+    "cur": "EUR",
+    "amount": 13
+   },
+   "at": "2026-11-16T14:27:46.000Z",
+   "seen": "2026-11-17T04:00:03.711Z"
+  },
+  {
+   "id": "2026-11-ya-falta-menos-vuelos-a-barranquilla-para-ver-la-final-de-la-copa-sudamericana-boca-vs-atletico-mineiro-avianca-",
+   "url": "https://promociones-aereas.com.ar/2026/11/ya-falta-menos-vuelos-a-barranquilla-para-ver-la-final-de-la-copa-sudamericana-boca-vs-atletico-mineiro-avianca-boliviana-de-aviacion-rt-p.html",
+   "title": "¡Ya falta Menos! 😯 Vuelos a Barranquilla para ver la Final",
+   "tipo": "vuelo",
+   "aerolinea": "Copa",
+   "precio": null,
+   "at": "2026-11-16T14:04:36.000Z",
+   "seen": "2026-11-17T04:00:03.711Z"
+  },
+  {
    "id": "2026-11-descubri-el-paraiso-del-caribe-playas-de-aguas-turquesas-paisajes-increibles-cultura-y-experiencias-unicas-copa-",
    "url": "https://promociones-aereas.com.ar/2026/11/descubri-el-paraiso-del-caribe-playas-de-aguas-turquesas-paisajes-increibles-cultura-y-experiencias-unicas-copa-airlines-rt-p.html",
    "title": "Descubrí el Paraíso del Caribe 🐠 : playas de aguas turquesas, paisajes increíbles, cultura y experiencias únicas 🏝️",
@@ -248,6 +310,58 @@
    "precio": null,
    "at": "2026-11-16T13:37:06.000Z",
    "seen": "2026-11-16T19:43:06.387Z"
+  },
+  {
+   "id": "2026-11-maragogi-imperdible-vuelos-y-hotel-con-desayuno-desde-buenos-aires-gol-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/maragogi-imperdible-vuelos-y-hotel-con-desayuno-desde-buenos-aires-gol-pa-p.html",
+   "title": "¡Maragogi Imperdible 🤩 ! Paquetes a partir de U$D 483 🔥 Vuelos y Hotel con Desayuno -por persona en base doble- Desde Buenos Aires.Promociones Aéreas",
+   "tipo": "paquete",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "USD",
+    "amount": 483
+   },
+   "at": "2026-11-16T13:30:00.000Z",
+   "seen": "2026-11-17T04:00:03.711Z"
+  },
+  {
+   "id": "2026-11-vuelos-a-nueva-york-con-carry-on-y-pagos-en-hasta-6-cuotas-gol-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/vuelos-a-nueva-york-con-carry-on-y-pagos-en-hasta-6-cuotas-gol-rt-p.html",
+   "title": "Vuelos a Nueva York 🗽🌸 a partir de U$D 969 ✈️ con Carry On",
+   "tipo": "vuelo",
+   "aerolinea": "GOL",
+   "precio": {
+    "cur": "USD",
+    "amount": 969
+   },
+   "at": "2026-11-16T13:11:27.000Z",
+   "seen": "2026-11-17T04:00:03.711Z"
+  },
+  {
+   "id": "2026-11-hoteles-natal-frente-a-la-playa-con-descuento-en-un-pago-o-cuotas-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/hoteles-natal-frente-a-la-playa-con-descuento-en-un-pago-o-cuotas-ho-p.html",
+   "title": "Hoteles 4 ⭐ en Natal desde U$D 70 frente a la playa 🏖️ con descuento y opciones All Inclusvie",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 70
+   },
+   "at": "2026-11-16T12:40:00.000Z",
+   "seen": "2026-11-17T04:00:03.711Z"
+  },
+  {
+   "id": "2026-11-paquetazos-a-buzios-vuelos-directos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-gol-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/paquetazos-a-buzios-vuelos-directos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-gol-pa-p.html",
+   "title": "Paquetazos a Búzios 🤩 a partir de U$D 387 🔥 Vuelos Directos y Hotel con Desayuno -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 387
+   },
+   "at": "2026-11-16T12:15:00.000Z",
+   "seen": "2026-11-17T04:00:03.711Z"
   },
   {
    "id": "2026-11-excelente-tarifa-a-aruba-con-carry-on-desde-buenos-aires-avianca-rt-p",
@@ -884,120 +998,6 @@
    },
    "at": "2026-11-12T16:15:00.000Z",
    "seen": "2026-11-12T20:09:20.059Z"
-  },
-  {
-   "id": "2026-11-aruba-sonado-vuelos-a-partir-de-con-carry-on-y-opciones-en-cuotas-desde-buenos-aires-latam-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/aruba-sonado-vuelos-a-partir-de-con-carry-on-y-opciones-en-cuotas-desde-buenos-aires-latam-rt-p.html",
-   "title": "¡Aruba soñado! 😎 🌊 Vuelos a partir de U$D 648 🐠 con Carry On y Cuotas",
-   "tipo": "vuelo",
-   "aerolinea": "LATAM",
-   "precio": {
-    "cur": "USD",
-    "amount": 648
-   },
-   "at": "2026-11-12T15:45:00.000Z",
-   "seen": "2026-11-12T20:09:20.059Z"
-  },
-  {
-   "id": "2026-11-lo-mas-baratos-en-hoteles-all-inclusive-en-maragogi-en-hasta-cuotas-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/lo-mas-baratos-en-hoteles-all-inclusive-en-maragogi-en-hasta-cuotas-ho-p.html",
-   "title": "Lo más baratos en hoteles All Inclusive en Maragogi desde U$D 350 🔥🔥 en hasta 3 cuotas 🏖️",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 350
-   },
-   "at": "2026-11-12T15:27:00.000Z",
-   "seen": "2026-11-12T20:09:20.059Z"
-  },
-  {
-   "id": "2026-11-sabes-que-podes-personalizar-la-cobertura-de-asistencia-al-viajero-te-lo-explicamos-para-que-aproveches-este-des",
-   "url": "https://promociones-aereas.com.ar/2026/11/sabes-que-podes-personalizar-la-cobertura-de-asistencia-al-viajero-te-lo-explicamos-para-que-aproveches-este-descuento-cuotas-sin-interes-av-p.html",
-   "title": "¿Sabes que podes personalizar la cobertura de Asistencia al Viajero? 👀 Te lo explicamos para que aproveches este descuento de hasta 68 % OFF + 3 cuotas sin In…",
-   "tipo": "asistencia",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-12T15:00:00.000Z",
-   "seen": "2026-11-12T20:09:20.059Z"
-  },
-  {
-   "id": "2026-11-viaja-a-bayahibe-paquetes-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-opcion-de-pago-en-cuotas-araj",
-   "url": "https://promociones-aereas.com.ar/2026/11/viaja-a-bayahibe-paquetes-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-opcion-de-pago-en-cuotas-arajet-pa-p-2.html",
-   "title": "¡Viaja a Bayahibe 🌴 ! Paquetes a partir de U$D 1.069 🔥 Hotel All Inclusive y Vuelos Directos (por persona en base Triple) Desde Buenos Aires ¡Opción de pago…",
-   "tipo": "paquete",
-   "aerolinea": "Arajet",
-   "precio": {
-    "cur": "USD",
-    "amount": 1069
-   },
-   "at": "2026-11-12T14:45:00.000Z",
-   "seen": "2026-11-12T20:09:20.059Z"
-  },
-  {
-   "id": "2026-11-alquiler-de-autos-en-rio-de-janeiro-por-dia-con-tarifa-flexible-au-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/alquiler-de-autos-en-rio-de-janeiro-por-dia-con-tarifa-flexible-au-p.html",
-   "title": "Alquiler de Autos en Río de Janeiro a partir de U$D 20 por día 🚙 con tarifa flexible",
-   "tipo": "otro",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 20
-   },
-   "at": "2026-11-12T14:29:00.000Z",
-   "seen": "2026-11-12T20:09:20.059Z"
-  },
-  {
-   "id": "2026-11-vuelos-baratos-y-directos-a-san-pablo-desde-buenos-aires-guaruja-ubatuba-turkish-airlines-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/vuelos-baratos-y-directos-a-san-pablo-desde-buenos-aires-guaruja-ubatuba-turkish-airlines-rt-p.html",
-   "title": "¡Escapada a Brasil! 🏝️😎 Directos a San Pablo a partir de USD 297",
-   "tipo": "vuelo",
-   "aerolinea": "Turkish Airlines",
-   "precio": {
-    "cur": "USD",
-    "amount": 297
-   },
-   "at": "2026-11-12T14:15:00.000Z",
-   "seen": "2026-11-12T20:09:20.059Z"
-  },
-  {
-   "id": "2026-11-actividades-en-budapest-con-descuento",
-   "url": "https://promociones-aereas.com.ar/2026/11/actividades-en-budapest-con-descuento.html",
-   "title": "Actividades en Budapest con Descuento y opciones a partir de € 11,50 🎫",
-   "tipo": "otro",
-   "aerolinea": "",
-   "precio": {
-    "cur": "EUR",
-    "amount": 11
-   },
-   "at": "2026-11-12T14:12:42.000Z",
-   "seen": "2026-11-13T01:58:15.698Z"
-  },
-  {
-   "id": "2026-11-imperdibles-vuelos-desde-cordoba-lisboa-latam-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/imperdibles-vuelos-desde-cordoba-lisboa-latam-rt-p.html",
-   "title": "¡Imperdibles Vuelos desde Córdoba! 📢 Lisboa a partir de U$D 862 🔥",
-   "tipo": "vuelo",
-   "aerolinea": "LATAM",
-   "precio": {
-    "cur": "USD",
-    "amount": 862
-   },
-   "at": "2026-11-12T14:00:00.000Z",
-   "seen": "2026-11-13T01:58:15.698Z"
-  },
-  {
-   "id": "2026-11-excelentes-vuelos-directos-a-miami-a-partir-de-con-carry-on-opciones-en-cuotas-aerolineas-argentinas-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/excelentes-vuelos-directos-a-miami-a-partir-de-con-carry-on-opciones-en-cuotas-aerolineas-argentinas-rt-p.html",
-   "title": "¡Hermoso! 🤩 Vuelos a Miami Directos en Cuotas a partir de U$D 743 🔥",
-   "tipo": "vuelo",
-   "aerolinea": "Aerolíneas Argentinas",
-   "precio": {
-    "cur": "USD",
-    "amount": 743
-   },
-   "at": "2026-11-12T13:45:00.000Z",
-   "seen": "2026-11-13T01:58:15.698Z"
   }
  ]
 }
