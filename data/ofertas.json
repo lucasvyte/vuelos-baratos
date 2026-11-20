@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-19T20:49:23.162Z",
- "checked": "2026-11-19T20:49:23.162Z",
+ "updated": "2026-11-20T02:25:56.968Z",
+ "checked": "2026-11-20T02:25:56.968Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
@@ -257,6 +257,32 @@
    },
    "at": "2026-11-19T12:45:00.000Z",
    "seen": "2026-11-19T20:49:23.162Z"
+  },
+  {
+   "id": "2026-11-hoteles-con-media-pension-en-porto-de-galinhas-por-noche-para-dos-personas-ho-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/11/hoteles-con-media-pension-en-porto-de-galinhas-por-noche-para-dos-personas-ho-p-2.html",
+   "title": "Hoteles con Media Pensión en Porto de Galinhas desde U$D 126 por noche para dos personas 🏖️",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 126
+   },
+   "at": "2026-11-19T12:25:00.000Z",
+   "seen": "2026-11-20T02:25:56.968Z"
+  },
+  {
+   "id": "2026-11-caribe-sin-sargazo-paquetes-a-aruba-vuelos-con-carry-on-y-alojamiento-desde-buenos-aires-latam-pa-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/11/caribe-sin-sargazo-paquetes-a-aruba-vuelos-con-carry-on-y-alojamiento-desde-buenos-aires-latam-pa-p-2.html",
+   "title": "¡Caribe sin Sargazo! Paquetes a Aruba 🦩 a partir de U$D 849 🔥 Vuelos con Carry on y Alojamiento -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 849
+   },
+   "at": "2026-11-19T12:05:00.000Z",
+   "seen": "2026-11-20T02:25:56.968Z"
   },
   {
    "id": "2026-11-hoteles-all-inclusive-en-maragogi-en-cuotas-y-tarifa-flexible-cerca-de-recife-ho-p-2",
@@ -981,32 +1007,6 @@
    },
    "at": "2026-11-17T12:00:00.000Z",
    "seen": "2026-11-17T16:16:08.703Z"
-  },
-  {
-   "id": "2026-11-holbox-isla-mujeres-vuelos-a-cancun-con-carry-on-en-cuotas-desde-buenos-aires-latam-rt-p-2",
-   "url": "https://promociones-aereas.com.ar/2026/11/holbox-isla-mujeres-vuelos-a-cancun-con-carry-on-en-cuotas-desde-buenos-aires-latam-rt-p-2.html",
-   "title": "¡Holbox, Isla Mujeres y más! ✈️ Vuelos a Cancún a partir de U$D 660",
-   "tipo": "vuelo",
-   "aerolinea": "LATAM",
-   "precio": {
-    "cur": "USD",
-    "amount": 660
-   },
-   "at": "2026-11-16T20:30:00.000Z",
-   "seen": "2026-11-17T04:00:03.711Z"
-  },
-  {
-   "id": "2026-11-increibles-tarifas-hoteles-en-maragogi-por-noche-en-base-doble-con-muy-buena-puntuacion-ho-p-2",
-   "url": "https://promociones-aereas.com.ar/2026/11/increibles-tarifas-hoteles-en-maragogi-por-noche-en-base-doble-con-muy-buena-puntuacion-ho-p-2.html",
-   "title": "¡Increíbles tarifas!! Hoteles 3 ⭐ en Maragogi desde U$D 44 🤯 por noche en base doble con muy buena puntuación",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 44
-   },
-   "at": "2026-11-16T20:02:00.000Z",
-   "seen": "2026-11-17T04:00:03.711Z"
   }
  ]
 }
