@@ -1,12 +1,61 @@
 {
- "updated": "2026-11-20T20:33:47.259Z",
- "checked": "2026-11-21T11:27:17.115Z",
+ "updated": "2026-11-21T19:30:58.651Z",
+ "checked": "2026-11-21T19:30:58.651Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-black-friday-cuando-es-y-como-prepararte-para-conseguir-las-mejores-promos-de-viajes-na-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-cuando-es-y-como-prepararte-para-conseguir-las-mejores-promos-de-viajes-na-p.html",
+   "title": "Black Friday 2026: cuándo es y cómo prepararte para conseguir las mejores promos de viajes ✈️🧳",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-21T16:30:00.000Z",
+   "seen": "2026-11-21T19:30:58.651Z"
+  },
+  {
+   "id": "2026-11-tremendos-paquetes-a-porto-de-galinhas-vuelos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-gol-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/tremendos-paquetes-a-porto-de-galinhas-vuelos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-gol-pa-p.html",
+   "title": "Tremendos Paquetes a Porto de Galinhas 🏖️ a partir de U$D 491🔥 Vuelos y Hotel con Desayuno -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 491
+   },
+   "at": "2026-11-21T15:30:00.000Z",
+   "seen": "2026-11-21T19:30:58.651Z"
+  },
+  {
+   "id": "2026-11-hoteles-en-barra-de-tijuca-rio-cuotas-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/hoteles-en-barra-de-tijuca-rio-cuotas-ho-p.html",
+   "title": "Hoteles en Barra de Tijuca - Río 🌴 desde U$D 80 en hasta 3 cuotas 🛎️",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 80
+   },
+   "at": "2026-11-21T14:00:00.000Z",
+   "seen": "2026-11-21T19:30:58.651Z"
+  },
+  {
+   "id": "2026-11-punta-cana-directo-desde-buenos-aires-arajet-rt-p-2",
+   "url": "https://promociones-aereas.com.ar/2026/11/punta-cana-directo-desde-buenos-aires-arajet-rt-p-2.html",
+   "title": "Punta Cana Directo 🦩 a partir de U$D 571 desde Buenos Aires ❤️‍🔥",
+   "tipo": "vuelo",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 571
+   },
+   "at": "2026-11-21T13:30:00.000Z",
+   "seen": "2026-11-21T19:30:58.651Z"
+  },
   {
    "id": "2026-11-antifaces-almohadas-y-organizadores-de-viaje-para-tus-proximas-vacaciones-m",
    "url": "https://promociones-aereas.com.ar/2026/11/antifaces-almohadas-y-organizadores-de-viaje-para-tus-proximas-vacaciones-m.html",
@@ -954,55 +1003,6 @@
     "amount": 421
    },
    "at": "2026-11-17T19:00:00.000Z",
-   "seen": "2026-11-18T01:02:39.098Z"
-  },
-  {
-   "id": "2026-11-colombia-es-espera-paquetes-a-isla-de-san-andres-vuelos-y-hotel-con-desayuno-desde-buenos-aires-latam-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/colombia-es-espera-paquetes-a-isla-de-san-andres-vuelos-y-hotel-con-desayuno-desde-buenos-aires-latam-pa-p.html",
-   "title": "¡Colombia te espera! Paquetes a Isla de San Andrés 🏝️ a partir de U$D 753 🔥 Vuelos y Hotel con Desayuno -por persona en base doble- Desde Buenos Aires.",
-   "tipo": "paquete",
-   "aerolinea": "LATAM",
-   "precio": {
-    "cur": "USD",
-    "amount": 753
-   },
-   "at": "2026-11-17T18:30:00.000Z",
-   "seen": "2026-11-18T01:02:39.098Z"
-  },
-  {
-   "id": "2026-11-dias-gratis-con-tu-compra-de-entradas-a-universal-studios-orlando-ac-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/dias-gratis-con-tu-compra-de-entradas-a-universal-studios-orlando-ac-p.html",
-   "title": "¿¡Qué!? 😮 2 Días GRATIS con tu compra de Entradas a Universal Studios Orlando 🚂🔮",
-   "tipo": "actividad",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-17T18:00:00.000Z",
-   "seen": "2026-11-18T01:02:39.098Z"
-  },
-  {
-   "id": "2026-11-paquetazos-a-punta-cana-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-arajet-pa-p-5",
-   "url": "https://promociones-aereas.com.ar/2026/11/paquetazos-a-punta-cana-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-arajet-pa-p-5.html",
-   "title": "Paquetazos a Punta Cana 🌴 a partir de U$D 894 🔥 Hotel All Inclusive y Vuelos Directos -por persona en base Cuádruple- Desde Buenos Aires.",
-   "tipo": "paquete",
-   "aerolinea": "Arajet",
-   "precio": {
-    "cur": "USD",
-    "amount": 894
-   },
-   "at": "2026-11-17T17:30:00.000Z",
-   "seen": "2026-11-18T01:02:39.098Z"
-  },
-  {
-   "id": "2026-11-disney-te-espera-vuelos-a-orlando-con-carry-on-desde-buenos-aires-hasta-en-3-cuotas-delta-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/disney-te-espera-vuelos-a-orlando-con-carry-on-desde-buenos-aires-hasta-en-3-cuotas-delta-rt-p.html",
-   "title": "Disney te espera 🎢 Vuelos a Orlando a partir de U$D 864 con Carry On ✈️",
-   "tipo": "vuelo",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 864
-   },
-   "at": "2026-11-17T17:15:00.000Z",
    "seen": "2026-11-18T01:02:39.098Z"
   }
  ]
