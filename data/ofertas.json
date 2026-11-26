@@ -1,12 +1,266 @@
 {
- "updated": "2026-11-26T03:39:38.057Z",
- "checked": "2026-11-26T03:39:38.057Z",
+ "updated": "2026-11-26T17:07:33.403Z",
+ "checked": "2026-11-26T17:07:33.403Z",
  "ok": true,
  "source": {
   "name": "Promociones Aéreas",
   "url": "https://promociones-aereas.com.ar/"
  },
  "items": [
+  {
+   "id": "2026-11-black-friday-hoteles-en-panama-con-off-ingresando-el-cupon-panablack-descuento-en-un-pago-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-hoteles-en-panama-con-off-ingresando-el-cupon-panablack-descuento-en-un-pago-ho-p.html",
+   "title": "Black Friday 🏨 Hoteles en Panamá con Hasta U$D 200 OFF ingresando el cupón PANABLACK 🚢  + descuento en un pago",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 200
+   },
+   "at": "2026-11-26T16:50:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-paraiso-paquetes-a-aruba-vuelos-con-carry-on-y-alojamiento-desde-buenos-aires-latam-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-paraiso-paquetes-a-aruba-vuelos-con-carry-on-y-alojamiento-desde-buenos-aires-latam-pa-p.html",
+   "title": "Black Friday: ¡Paraíso! Paquetes a Aruba 🦩 a partir de U$D 895 🔥 Vuelos con Carry on y Alojamiento -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "LATAM",
+   "precio": {
+    "cur": "USD",
+    "amount": 895
+   },
+   "at": "2026-11-26T16:45:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-week-descuento-en-paquetes-al-nordeste-de-brasil-y-verano-desde-argentina",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-week-descuento-en-paquetes-al-nordeste-de-brasil-y-verano-desde-argentina.html",
+   "title": "Black Week: 🍹 Hasta AR$ 320.000 de Descuento en Paquetes al nordeste de Brasil y Verano 2027 desde Argentina ✈️",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": {
+    "cur": "ARS",
+    "amount": 320000
+   },
+   "at": "2026-11-26T16:30:04.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-dale-que-te-vas-a-brasil-vuelos-directos-a-recife-desde-buenos-aires-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-dale-que-te-vas-a-brasil-vuelos-directos-a-recife-desde-buenos-aires-rt-p.html",
+   "title": "Black Friday: ¡¡Dale que te vas a Brasil!! 😎 Vuelos Directos a Recife a partir de U$D 368 desde Buenos Aires 🍋‍🟩",
+   "tipo": "vuelo",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 368
+   },
+   "at": "2026-11-26T16:30:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-hoteles-en-el-calafate-con-descuento-y-cuotas-sin-interes-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-hoteles-en-el-calafate-con-descuento-y-cuotas-sin-interes-ho-p.html",
+   "title": "Black Friday: Hoteles 3 y 4 ⭐ en Bariloche a partir de AR$ 72.000 🏔️ con descuento y hasta 12 cuotas sin interés 🔥",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": {
+    "cur": "ARS",
+    "amount": 72000
+   },
+   "at": "2026-11-26T16:10:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-dalee-vuelos-directos-a-roma-con-carry-on-desde-buenos-aires-ita-airways-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-dalee-vuelos-directos-a-roma-con-carry-on-desde-buenos-aires-ita-airways-rt-p.html",
+   "title": "Black Friday: ¡DALEE! 📢 Vuelos Directos a Roma a partir de U$D 967",
+   "tipo": "vuelo",
+   "aerolinea": "ITA Airways",
+   "precio": {
+    "cur": "USD",
+    "amount": 967
+   },
+   "at": "2026-11-26T16:05:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-imperdibles-paquetes-a-maceio-vuelos-directos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-imperdibles-paquetes-a-maceio-vuelos-directos-y-hotel-con-desayuno-desde-buenos-aires-jetsmart-pa-p.html",
+   "title": "Black Friday: Imperdibles Paquetes a Maceió 🏖️ a partir de U$D 477 🔥 Vuelos Directos y Hotel con Desayuno -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 477
+   },
+   "at": "2026-11-26T16:00:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-tremendos-paquetes-all-inclusive-a-la-isla-de-samana-con-vuelo-directo-en-la-mejor-epoca-desde-bs-a",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-tremendos-paquetes-all-inclusive-a-la-isla-de-samana-con-vuelo-directo-en-la-mejor-epoca-desde-bs-as-por-persona-en-base-doble-triple-o-cuadruple-arajet-pa-p.html",
+   "title": "Black Friday: TREMENDOS Paquetes All Inclusive 5 ⭐ a la Isla de Samaná con Vuelo Directo a partir de U$D 1.225 en la Mejor Época desde Bs. As. -por persona en…",
+   "tipo": "paquete",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 1225
+   },
+   "at": "2026-11-26T15:59:04.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-hermoso-descuento-para-volar-a-santiago-de-chile-sky-airline-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-hermoso-descuento-para-volar-a-santiago-de-chile-sky-airline-rt-p.html",
+   "title": "Black Friday: ¡Hermoso! 🔥 Hasta U$D 100 de Descuento para Volar a Santiago de Chile 🛍️",
+   "tipo": "vuelo",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 100
+   },
+   "at": "2026-11-26T15:45:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-viaja-a-los-mercados-navidenos-en-madrid-vuelos-con-carry-on-desde-buenos-aires-ita-airways-lufthan",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-viaja-a-los-mercados-navidenos-en-madrid-vuelos-con-carry-on-desde-buenos-aires-ita-airways-lufthansa-rt-p.html",
+   "title": "Black Friday:🎄 Mercados Navideños en Madrid ✈️ Vuelos desde U$D 957",
+   "tipo": "vuelo",
+   "aerolinea": "ITA Airways",
+   "precio": {
+    "cur": "USD",
+    "amount": 957
+   },
+   "at": "2026-11-26T15:30:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-contrata-tu-asistencia-al-viajero-para-tus-vacaciones-en-brasil-corre-antes-que-se-agote",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-contrata-tu-asistencia-al-viajero-para-tus-vacaciones-en-brasil-corre-antes-que-se-agote.html",
+   "title": "Black Friday: Contratá tu Asistencia al Viajero para tus Vacaciones en Brasil 🍋‍🟩🪇 con hasta 70 % OFF 🚨 ¡Corré antes que se agote! 🏃",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-26T15:00:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-bombazo-de-paquetes-all-inclusive-al-caribe-la-romana-rep-dominicana-con-vuelo-directo-en-la-mejor-",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-bombazo-de-paquetes-all-inclusive-al-caribe-la-romana-rep-dominicana-con-vuelo-directo-en-la-mejor-epoca-desde-bs-as-por-persona-en-base-doble-triple-o-cuadruple-ara.html",
+   "title": "Black Friday: Bombazo de Paquetes All Inclusive 5 ⭐ al Caribe. La Romana (Rep. Dominicana) con Vuelo Directo a partir de U$D 1.166 en la Mejor Época desde Bs.…",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 1166
+   },
+   "at": "2026-11-26T14:56:52.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-descuento-en-vuelos-al-caribe-y-usa-arajet-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-descuento-en-vuelos-al-caribe-y-usa-arajet-rt-p.html",
+   "title": "Black Friday: Hasta U$D 100 de Descuento en Vuelos al Caribe y USA 👩‍✈️🛩️",
+   "tipo": "vuelo",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 100
+   },
+   "at": "2026-11-26T14:45:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-paquetes-a-bayahibe-all-inclusive-vuelo-directo-en-la-mejor-epoca-desde-bs-as-por-persona-en-base-d",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-paquetes-a-bayahibe-all-inclusive-vuelo-directo-en-la-mejor-epoca-desde-bs-as-por-persona-en-base-doble-triple-o-cuadruple-arajet-pa-p.html",
+   "title": "Black Friday: Paquetes a 🏝️ Bayahibe All Inclusive + Vuelo Directo a partir de U$D 1.301 en la Mejor Época desde Bs. As. -por persona en base doble, triple o…",
+   "tipo": "paquete",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 1301
+   },
+   "at": "2026-11-26T14:44:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-bomba-paquetes-a-florianopolis-vuelos-directos-y-alojamiento-desde-buenos-aires-jetsmart-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-bomba-paquetes-a-florianopolis-vuelos-directos-y-alojamiento-desde-buenos-aires-jetsmart-pa-p.html",
+   "title": "Black Friday: ¡Bomba 💣 ! Paquetes a Florianópolis 🏖️ a partir de U$D 262 🔥 Vuelos Directos y Alojamiento -por persona en base doble- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "JetSMART",
+   "precio": {
+    "cur": "USD",
+    "amount": 262
+   },
+   "at": "2026-11-26T14:30:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-pocos-cupos-vuelos-a-miami-con-carry-on-desde-buenos-aires-avianca-rt-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-pocos-cupos-vuelos-a-miami-con-carry-on-desde-buenos-aires-avianca-rt-p.html",
+   "title": "Black Friday: ¡POCOS CUPOS! 💥 Vuelos a Miami desde U$D 607🔥",
+   "tipo": "vuelo",
+   "aerolinea": "Avianca",
+   "precio": {
+    "cur": "USD",
+    "amount": 607
+   },
+   "at": "2026-11-26T14:15:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-hoteles-en-orlando-descuento-con-cupon-medio-de-pago-ho-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-hoteles-en-orlando-descuento-con-cupon-medio-de-pago-ho-p.html",
+   "title": "Black Friday : Hoteles en Orlando 🎢 con Hasta 35 % Off: descuento con cupón + medio de pago",
+   "tipo": "hotel",
+   "aerolinea": "",
+   "precio": null,
+   "at": "2026-11-26T14:02:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-paquetes-a-punta-cana-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-arajet-pa-p",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-paquetes-a-punta-cana-hotel-all-inclusive-y-vuelos-directos-desde-buenos-aires-arajet-pa-p.html",
+   "title": "Black Friday : Paquetes a Punta Cana 🌴 a partir de U$D 863 💣 Hotel All Inclusive y Vuelos Directos -por persona en base cuádruple- Desde Buenos Aires.",
+   "tipo": "paquete",
+   "aerolinea": "Arajet",
+   "precio": {
+    "cur": "USD",
+    "amount": 863
+   },
+   "at": "2026-11-26T13:45:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-las-mejores-actividades-para-hacer-en-paris-con-descuentos",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-las-mejores-actividades-para-hacer-en-paris-con-descuentos.html",
+   "title": "Black Friday: Las mejores actividades para hacer en París desde U$D 20 con descuentos 🥐👨‍🎨",
+   "tipo": "otro",
+   "aerolinea": "",
+   "precio": {
+    "cur": "USD",
+    "amount": 20
+   },
+   "at": "2026-11-26T13:34:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
+  {
+   "id": "2026-11-black-friday-excelente-tarifa-a-aruba-en-la-mejor-epoca-con-conexion-o-directo-ambos-con-carry-on-desde-bs-as-av",
+   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-excelente-tarifa-a-aruba-en-la-mejor-epoca-con-conexion-o-directo-ambos-con-carry-on-desde-bs-as-avianca-aerolineas-argentinas-rt-p.html",
+   "title": "Black Friday: Excelente Tarifa a Aruba 🏖️ en la mejor Época a partir de U$D 657 con conexión o U$D 751 directo (ambos con carry on) desde Bs. As. 🚀",
+   "tipo": "vuelo",
+   "aerolinea": "Aerolíneas Argentinas",
+   "precio": {
+    "cur": "USD",
+    "amount": 657
+   },
+   "at": "2026-11-26T13:29:00.000Z",
+   "seen": "2026-11-26T17:07:33.403Z"
+  },
   {
    "id": "2026-11-tercer-dia-de-black-friday-todas-las-promos-que-encontramos-aca-m",
    "url": "https://promociones-aereas.com.ar/2026/11/tercer-dia-de-black-friday-todas-las-promos-que-encontramos-aca-m.html",
@@ -750,257 +1004,6 @@
    },
    "at": "2026-11-24T17:50:00.000Z",
    "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-hoteles-en-madrid-off-y-aplicando-el-cupon-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-hoteles-en-madrid-off-y-aplicando-el-cupon-ho-p.html",
-   "title": "Black Friday 🔥 Hoteles en Madrid con hasta 25% OFF y aplicando el cupón BFHOTELESMAD26 🏟",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-24T17:40:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-paquetes-a-ubatuba-con-muy-buena-ubicacion-desde-bs-as-por-persona-en-base-doble-jetsmart-gol-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-paquetes-a-ubatuba-con-muy-buena-ubicacion-desde-bs-as-por-persona-en-base-doble-jetsmart-gol-pa-p.html",
-   "title": "Black Friday: Paquetes a Ubatuba con Muy Buena Ubicación a partir de U$D 416 🔥🔥 desde Bs. As. -por persona en base doble-",
-   "tipo": "paquete",
-   "aerolinea": "JetSMART",
-   "precio": {
-    "cur": "USD",
-    "amount": 416
-   },
-   "at": "2026-11-24T17:32:30.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-a-emitir-miami-directo-y-con-equipaje-despachado-desde-buenos-aires-aerolineas-argentinas-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-a-emitir-miami-directo-y-con-equipaje-despachado-desde-buenos-aires-aerolineas-argentinas-rt-p.html",
-   "title": "Black Friday: ¡A emitir! 📢 Miami Directo y con Equipaje Despachado 🧳 a partir de U$D 746 desde Buenos Aires",
-   "tipo": "vuelo",
-   "aerolinea": "Aerolíneas Argentinas",
-   "precio": {
-    "cur": "USD",
-    "amount": 746
-   },
-   "at": "2026-11-24T17:30:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-vuelos-a-rio-de-janeiro-en-verano-desde-buenos-aires-gol-jetsmart-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-vuelos-a-rio-de-janeiro-en-verano-desde-buenos-aires-gol-jetsmart-rt-p.html",
-   "title": "Black Friday: ¡Vuelos a Río de Janeiro en Verano 🪇 a partir de U$D 347 desde Buenos Aires! 😎",
-   "tipo": "vuelo",
-   "aerolinea": "JetSMART",
-   "precio": {
-    "cur": "USD",
-    "amount": 347
-   },
-   "at": "2026-11-24T17:20:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-paquetes-a-fortaleza-con-excelente-ubicacion-desde-bs-as-por-persona-en-base-doble-gol-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-paquetes-a-fortaleza-con-excelente-ubicacion-desde-bs-as-por-persona-en-base-doble-gol-pa-p.html",
-   "title": "Black Friday: Paquetes a Fortaleza con Excelente Ubicación 🏖️ a partir de U$D 596 desde Bs. As. -por persona en base doble-",
-   "tipo": "paquete",
-   "aerolinea": "GOL",
-   "precio": {
-    "cur": "USD",
-    "amount": 596
-   },
-   "at": "2026-11-24T17:17:08.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-paquetes-a-miami-vuelos-directos-y-hotel-con-buena-ubicacion-desde-bs-as-american-airlines-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-paquetes-a-miami-vuelos-directos-y-hotel-con-buena-ubicacion-desde-bs-as-american-airlines-pa-p.html",
-   "title": "Black Friday : Paquetes a Miami 🛍️ a partir de U$D 808 🔥 Vuelos Directos y Hotel con buena ubicación -por persona en base doble- Desde Bs. As.",
-   "tipo": "paquete",
-   "aerolinea": "American Airlines",
-   "precio": {
-    "cur": "USD",
-    "amount": 808
-   },
-   "at": "2026-11-24T17:10:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-paquetes-a-jericoacoara-en-la-mejor-epoca-desde-aeroparque-con-carry-on-por-persona-en-base-doble-g",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-paquetes-a-jericoacoara-en-la-mejor-epoca-desde-aeroparque-con-carry-on-por-persona-en-base-doble-gol-pa-p.html",
-   "title": "Black Friday: Paquetes a Jericoacoara 🌅 en la mejor época a partir de U$D 718 desde Aeroparque con Carry On -por persona en base doble-",
-   "tipo": "paquete",
-   "aerolinea": "GOL",
-   "precio": {
-    "cur": "USD",
-    "amount": 718
-   },
-   "at": "2026-11-24T17:02:40.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-all-inclusive-whala-tienen-off-con-el-cupon-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-all-inclusive-whala-tienen-off-con-el-cupon-ho-p.html",
-   "title": "Black Friday 🔥 ¡Sólo 25 cupos! en All Inclusive Whala tienen Hasta U$D 200 OFF 🔥 con el cupón BLACKWHALA26",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 200
-   },
-   "at": "2026-11-24T16:58:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-vuelos-a-roma-desde-cordoba-con-descuento-con-carry-on-air-europa-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-vuelos-a-roma-desde-cordoba-con-descuento-con-carry-on-air-europa-rt-p.html",
-   "title": "Black Friday: Vuelos a ROMA desde Córdoba con U$D 130 OFF",
-   "tipo": "vuelo",
-   "aerolinea": "Air Europa",
-   "precio": {
-    "cur": "USD",
-    "amount": 130
-   },
-   "at": "2026-11-24T16:50:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-hoteles-riu-en-europa-estados-unidos-o-caribe-descuento-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-hoteles-riu-en-europa-estados-unidos-o-caribe-descuento-ho-p.html",
-   "title": "Black Friday: Hoteles RIU en Europa, Estados Unidos o Caribe con Hasta 15 % de descuento 🏨",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-24T16:44:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-imperdibles-paquetes-a-playa-del-carmen-vuelos-directos-y-hotel-riu-all-inclusive-desde-buenos-aire",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-imperdibles-paquetes-a-playa-del-carmen-vuelos-directos-y-hotel-riu-all-inclusive-desde-buenos-aires-aerolineas-argentinas-pa-p.html",
-   "title": "Black Friday : Imperdibles Paquetes a Playa del Carmen 🏖️ Vuelos Directos y Hotel RIU All Inclusive 🤩 a partir de U$D 1.499 🔥 -por persona en base doble- De…",
-   "tipo": "paquete",
-   "aerolinea": "Aerolíneas Argentinas",
-   "precio": {
-    "cur": "USD",
-    "amount": 1499
-   },
-   "at": "2026-11-24T16:30:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-vuelos-a-espiritu-santo-desde-buenos-aires-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-vuelos-a-espiritu-santo-desde-buenos-aires-rt-p.html",
-   "title": "Black Friday: Vuelos a Espíritu Santo a partir de U$D 410 desde Buenos Aires 🏖️",
-   "tipo": "vuelo",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 410
-   },
-   "at": "2026-11-24T16:20:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-bombazo-miami-desde-bs-as-n-sky-airline-arajet-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-bombazo-miami-desde-bs-as-n-sky-airline-arajet-rt-p.html",
-   "title": "Black Friday: BOMBAZO Miami a partir de U$D 502 🔥🔥🔥 desde Bs. As.",
-   "tipo": "vuelo",
-   "aerolinea": "Arajet",
-   "precio": {
-    "cur": "USD",
-    "amount": 502
-   },
-   "at": "2026-11-24T16:11:43.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-vuelos-a-paris-con-equipaje-despachado-desde-buenos-aires-ita-airways-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-vuelos-a-paris-con-equipaje-despachado-desde-buenos-aires-ita-airways-rt-p.html",
-   "title": "Black Friday: Vuelos a París a partir de U$D 1.243 🔥con Equipaje 23 kg🧳",
-   "tipo": "vuelo",
-   "aerolinea": "ITA Airways",
-   "precio": {
-    "cur": "USD",
-    "amount": 1243
-   },
-   "at": "2026-11-24T16:10:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-fiday-all-inclusive-en-cancun-de-cadena-oasis-con-el-cupon-descuento-con-tarjeta-ho-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-fiday-all-inclusive-en-cancun-de-cadena-oasis-con-el-cupon-descuento-con-tarjeta-ho-p.html",
-   "title": "Black Fiday 🔥 Hasta U$D 200 OFF para All Inclusive 5 ⭐ Oasis en Cancún con el cupón BLACKOASIS26 😱 + descuento en un pago 😱",
-   "tipo": "hotel",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 200
-   },
-   "at": "2026-11-24T16:00:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-paquetes-all-inclusive-a-puerto-plata-paraiso-oculto-de-rep-dominicana-con-carry-on-desde-bs-as-por",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-paquetes-all-inclusive-a-puerto-plata-paraiso-oculto-de-rep-dominicana-con-carry-on-desde-bs-as-por-persona-en-base-doble-copa-ai-pa-p.html",
-   "title": "Black Friday: Paquetes All Inclusive a Puerto Plata (Paraíso 🥰 Oculto de Rep. Dominicana) a partir de U$D 1.547 con Carry On desde Bs. As. -por persona en bas…",
-   "tipo": "paquete",
-   "aerolinea": "Copa",
-   "precio": {
-    "cur": "USD",
-    "amount": 1547
-   },
-   "at": "2026-11-24T15:57:49.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-paquetes-de-lujo-a-imbassai-hotel-grand-palladium-all-inclusive-vuelos-desde-buenos-aires-sky-pa-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-paquetes-de-lujo-a-imbassai-hotel-grand-palladium-all-inclusive-vuelos-desde-buenos-aires-sky-pa-p.html",
-   "title": "Black Friday: Paquetes de Lujo a Imbassai 🤩 Hotel Grand Palladium All Inclusive + Vuelos a partir de U$D 1.267 🔥🔥 -por persona en base cuádruple- Desde Buen…",
-   "tipo": "paquete",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 1267
-   },
-   "at": "2026-11-24T15:50:00.000Z",
-   "seen": "2026-11-25T08:53:09.191Z"
-  },
-  {
-   "id": "2026-11-black-friday-asistencia-al-viajero-con-off-extra-con-cupon-descuento-en-un-pago-o-cuotas-sin-interes-av-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-asistencia-al-viajero-con-off-extra-con-cupon-descuento-en-un-pago-o-cuotas-sin-interes-av-p.html",
-   "title": "Black Friday: ¡IMPERDIBLE! 🚨 Asistencia al Viajero con hasta 60 % OFF + 20 % Extra con Cupón + 10 % de Descuento en un Pago o Cuotas sin Interés 🚑",
-   "tipo": "asistencia",
-   "aerolinea": "",
-   "precio": null,
-   "at": "2026-11-24T15:30:10.000Z",
-   "seen": "2026-11-24T23:57:57.328Z"
-  },
-  {
-   "id": "2026-11-blac-week-descuento-en-vuelos-a-santiago-salvador-de-bahia-lima-y-o-cusco-sky-airline-rt-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/blac-week-descuento-en-vuelos-a-santiago-salvador-de-bahia-lima-y-o-cusco-sky-airline-rt-p.html",
-   "title": "Blac Week: Hasta U$D 100 de descuento en Vuelos a Santiago, Salvador de Bahía, Lima y/o Cusco ✈️",
-   "tipo": "vuelo",
-   "aerolinea": "",
-   "precio": {
-    "cur": "USD",
-    "amount": 100
-   },
-   "at": "2026-11-24T15:26:49.000Z",
-   "seen": "2026-11-24T23:57:57.328Z"
-  },
-  {
-   "id": "2026-11-black-friday-querian-el-caribe-de-oferta-paquetes-all-inclusive-a-bayahibe-desde-bs-as-y-con-vuelo-directo-por-p",
-   "url": "https://promociones-aereas.com.ar/2026/11/black-friday-querian-el-caribe-de-oferta-paquetes-all-inclusive-a-bayahibe-desde-bs-as-y-con-vuelo-directo-por-persona-en-base-doble-arajet-pa-p.html",
-   "title": "Black Friday: ¿Querían Precio Bomba al Caribe? Paquetes All Inclusive a Bayahíbe a partir de U$D 1.025 💣💣 desde Bs. As. y con Vuelo Directo -por persona en b…",
-   "tipo": "paquete",
-   "aerolinea": "Arajet",
-   "precio": {
-    "cur": "USD",
-    "amount": 1025
-   },
-   "at": "2026-11-24T14:23:53.000Z",
-   "seen": "2026-11-24T23:57:57.328Z"
   }
  ]
 }
